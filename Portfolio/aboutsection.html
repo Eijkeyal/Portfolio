@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Portfolio</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            color: #e63946;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Layout */
+        section {
+            padding: 3rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: #000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e63946;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 1rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e63946;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e63946;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #d62828;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 1.5rem;
+            background-color: #111;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #222;
+        }
+
+        /* Education Section */
+        .education {
+            background-color: #1a1a1a;
+        }
+
+        .education-item {
+            margin-bottom: 2rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: #222;
+        }
+
+        .skills-category {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #1a1a1a;
+        }
+
+        .project-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        /* Goals & Hobbies Section */
+        .goals-hobbies {
+            background-color: #222;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #000;
+        }
+
+        footer a {
+            color: #e63946;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="../Portfolio/sui.html">Home</a></li>
+            <li><a href="..//Portfolio/aboutsection.html">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn">Contact Now</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to My Portfolio</h1>
+            <p>I'm a passionate computing student dedicated to creating innovative solutions</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm <strong>Eijkeyal Pakhrin</strong>, a dedicated and passionate computing student at Islington College, 
+                affiliated with London Metropolitan University, pursuing a BSc in Computing. My coursework includes topics 
+                such as Java programming, web development, and database management, which have equipped me with a strong 
+                technical foundation.
+            </p>
+            <p>
+                I am eager to apply this knowledge in real-world projects and internships to enhance my practical skills. 
+                My long-term goal is to contribute to cutting-edge innovations in the tech industry.
+            </p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3>BSc in Computing</h3>
+                <p><strong>Islington College</strong>, affiliated with <strong>London Metropolitan University</strong></p>
+                <p><em>2024 – Present</em></p>
+                <p><strong>Relevant Coursework:</strong> Java Programming, Web Development, Database Management</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>High School in Computer Science</h3>
+                <p><strong>Mega National College</strong></p>
+                <p><em>2022 – 2024</em></p>
+                <p><strong>GPA:</strong> 3.35</p>
+                <p><strong>Relevant Subjects:</strong> Programming Fundamentals, Computer Applications, Mathematics</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            
+            <div class="skills-category">
+                <h3>Programming Languages</h3>
+                <p>C,Java, JavaScript, HTML, CSS</p>
+            </div>
+            
+            <div class="skills-category">
+                <h3>Tools & Frameworks</h3>
+                <p>GitHub, MySQL, Balsamiq, WordPress</p>
+            </div>
+            
+            <div class="skills-category">
+                <h3>Soft Skills</h3>
+                <p>Problem-solving, Communication, Teamwork</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <!----
+            <div class="project-item">
+                <h3>Ecommerce Footwear Website</h3>
+                <p>
+                    Currently in the development stage. The project aims to provide a user-friendly platform for 
+                    online shopping, utilizing modern web technologies. (Expected completion: May 2024)
+                </p>
+            </div>
+        
+                 <div class="project-item">
+                <h3>Portfolio Website</h3>
+                <p>Developed a personal website to showcase my projects using HTML, CSS, and JavaScript.</p>
+            </div>
+        --
+            <div class="project-item">
+    <h3>
+        <a href="https://github.com/Eijkeyal/Final-Product/tree/main/New_folder" target="_blank" style="color: #e63946; text-decoration: none;">
+            Ecommerce Footwear Website
+        </a>
+    </h3>
+    <p>
+        Currently in the development stage. The project aims to provide a user-friendly platform for 
+        online shopping, utilizing modern web technologies. (Expected completion: May 2024)
+    </p>
+</div>
+--
+
+<div class="project-item">
+    <h3>
+        <a href="https://github.com/your-username/portfolio-website" target="_blank" style="color: #e63946; text-decoration: none;">
+            Portfolio Website
+        </a>
+    </h3>
+    <p>
+        Developed a personal website to showcase my projects using HTML, CSS, and JavaScript.
+    </p>
+</div> --
+<div class="project-item">
+    <h3>Ecommerce Footwear Website</h3>
+    <p>
+        Currently in the development stage. The project aims to provide a user-friendly platform for 
+        online shopping, utilizing modern web technologies. (Expected completion: May 2024)
+    </p>
+    <p>
+        <a href="<div class="project-item">
+    <h3>Ecommerce Footwear Website</h3>
+    <p>
+        Currently in the development stage. The project aims to provide a user-friendly platform for 
+        online shopping, utilizing modern web technologies. (Expected completion: May 2024)
+    </p>
+    <p>
+        <a href="https://github.com/your-username/ecommerce-footwear" target="_blank" style="color: #e63946; text-decoration: none;">
+            View on GitHub
+        </a>
+    </p>
+</div>
+
+<div class="project-item">
+    <h3>Portfolio Website</h3>
+    <p>
+        Developed a personal website to showcase my projects using HTML, CSS, and JavaScript.
+    </p>
+    <p>
+        <a href="https://github.com/your-username/portfolio-website" target="_blank" style="color: #e63946; text-decoration: none;">
+            View on GitHub
+        </a>
+    </p>
+</div>
+" target="_blank" style="color: #e63946; text-decoration: none;">
+            View on GitHub
+        </a>
+    </p>
+</div>
+
+<div class="project-item">
+    <h3>Portfolio Website</h3>
+    <p>
+        Developed a personal website to showcase my projects using HTML, CSS, and JavaScript.
+    </p>
+    <p>
+        <a href="https://github.com/your-username/portfolio-website" target="_blank" style="color: #e63946; text-decoration: none;">
+            View on GitHub
+        </a>
+    </p>
+</div>-->
+
+<div class="project-item">
+    <h3>Ecommerce Footwear Website</h3>
+    <p>
+        Currently in the development stage. The project aims to provide a user-friendly platform for 
+        online shopping, utilizing modern web technologies. (Expected completion: May 2024)
+    </p>
+    <p>
+        <a href="https://github.com/Eijkeyal/Final-Product/tree/main/New_folder" target="_blank" style="color: #e63946; text-decoration: none;">
+            View on GitHub
+        </a>
+    </p>
+</div>
+
+<div class="project-item">
+    <h3>Portfolio Website</h3>
+    <p>
+        Developed a personal website to showcase my projects using HTML, CSS, and JavaScript.
+    </p>
+    <p>
+        <a href="https://github.com/your-username/portfolio-website" target="_blank" style="color: #e63946; text-decoration: none;">
+            View on GitHub
+        </a>
+    </p>
+</div>
+
+
+
+
+
+
+        </div>
+    </section>
+
+    <!-- Goals & Hobbies Section -->
+    <section class="goals-hobbies">
+        <div class="container">
+            <div class="goals">
+                <h2>Career Goals</h2>
+                <p>
+                    My goal is to work as a software developer, contributing to innovative projects that simplify 
+                    and enhance user experiences. I am especially interested in full-stack development and AI.
+                </p>
+            </div>
+            
+            <div class="hobbies">
+                <h2>Hobbies</h2>
+                <p>In my free time, I enjoy working on personal coding projects and playing the guitar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+            <p>Contact me at <a href="eijkeyalpakhrin@gmail.com">eijkeyalpakhrin7@gmail.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>

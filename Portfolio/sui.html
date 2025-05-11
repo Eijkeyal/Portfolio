@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eijkeyal Portfolio</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e63946;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #e63946;
+        }
+
+        .btn-contact {
+            background-color: #e63946;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-contact:hover {
+            background-color: #d62828;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 50px;
+            background-color: #111;
+            min-height: 80vh;
+        }
+
+        .hero-text {
+            max-width: 55%;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: #e63946;
+        }
+
+        .hero-text p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 90%;
+        }
+
+        .btn-portfolio {
+            background-color: #e63946;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-portfolio:hover {
+            background-color: #d62828;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.2);
+        }
+
+        .hero-image {
+            max-width: 35%;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s;
+            filter: grayscale(20%) contrast(110%);
+            border: 2px solid #333;
+        }
+
+        .hero-image:hover img {
+            filter: grayscale(0%) contrast(120%);
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(230, 57, 70, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #000;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #e63946;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #d62828;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 30px;
+            }
+            
+            .hero-text {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+            
+            .hero-text p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-image {
+                max-width: 60%;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image {
+                max-width: 80%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-image {
+                max-width: 100%;
+            }
+            
+            nav ul li {
+                margin: 8px;
+            }
+            
+            .btn-contact, .btn-portfolio {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Eijkeyal Pakhrin</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="../Portfolio/aboutsection.html">About</a></li>
+            <li><a href="../Portfolio/aboutsection.html">Education</a></li>
+            <li><a href="../Portfolio/aboutsection.html">Skills</a></li>
+            <li><a href="../Portfolio/aboutsection.html">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="../Portfolio/contact.html" class="btn-contact">Contact Now</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Technology <span>Drives Innovation</span><br>Transform the Future.</h1>
+                      <p style="font-family: 'Times New Roman', serif; color: rgba(235,235, 244);">
+                        Hello! I’m <b><i>Eijkeyal Pakhrin</i></b>, a <i>dedicated</i> and <b>passionate</b> computing student 
+                eager to <i>learn</i> and <i>grow</i> in the tech industry. With a <b>foundational understanding</b> of 
+              <b><i>Java,</i> <i>C,</i> <I>JavaScript</I></b>, web development, and <b>problem-solving</b>, I am excited to apply my knowledge 
+               and gain <i>hands-on experience</i>. I am <b>highly motivated</b> to contribute to <i>innovative projects</i> 
+               while developing new skills and building a <b>career in software development</b>.
+              </p>
+
+             <a href="#" class="btn-portfolio">View Projects</a>
+                </div>
+                <div class="hero-image">
+            <img src="../Portfolio/Image Assets/Picsart_25-05-11_12-20-59-810.jpg" alt="Portfolio Photo">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Eijkeyal Photography Portfolio. Designed by <a href="#">Eijkeyal Pakhrin</a>.</p>
+    </footer>
+</body>
+</html>
