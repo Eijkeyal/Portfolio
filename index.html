@@ -6,7 +6,124 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Eijkeyal Pakhrin — Software Engineer</title>
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Eijkeyal Pakhrin | Software Engineer &amp; Web Developer</title>
+    <meta
+      name="description"
+      content="Eijkeyal Pakhrin is a software engineer who builds fast, thoughtful web experiences. See projects, skills, and how to get in touch."
+    />
+    <meta name="author" content="Eijkeyal Pakhrin" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://https://eijkeyal.com.np/" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta
+      name="theme-color"
+      content="#f3efe3"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#2a2823"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Eijkeyal Pakhrin" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://https://eijkeyal.com.np/" />
+    <meta
+      property="og:title"
+      content="Eijkeyal Pakhrin | Software Engineer &amp; Web Developer"
+    />
+    <meta
+      property="og:description"
+      content="I build things for the web, and I doodle in the margins when nobody's looking."
+    />
+    <meta property="og:image" content="https://YOUR_DOMAIN/og-image.jpg" />
+    <meta
+      property="og:image:secure_url"
+      content="https://YOUR_DOMAIN/og-image.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Eijkeyal Pakhrin, mid-debug (probably)"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Eijkeyal Pakhrin | Software Engineer &amp; Web Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="I build things for the web, and I doodle in the margins when nobody's looking."
+    />
+    <meta name="twitter:image" content="https://YOUR_DOMAIN/og-image.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="Eijkeyal Pakhrin, mid-debug (probably)"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://eijkeyal.com.np/#website",
+            "url": "https://eijkeyal.com.np/",
+            "name": "Eijkeyal Pakhrin",
+            "alternateName": "Eijkeyal Pakhrin Portfolio",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://eijkeyal.com.np/#person" }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://eijkeyal.com.np/#profile",
+            "url": "https://eijkeyal.com.np/",
+            "name": "Eijkeyal Pakhrin | Software Engineer & Web Developer",
+            "isPartOf": { "@id": "https://eijkeyal.com.np/#website" },
+            "about": { "@id": "https://eijkeyal.com.np/#person" },
+            "mainEntity": { "@id": "https://eijkeyal.com.np/#person" },
+            "dateModified": "2024-05-20"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://eijkeyal.com.np/#person",
+            "name": "Eijkeyal Pakhrin",
+            "givenName": "Eijkeyal",
+            "familyName": "Pakhrin",
+            "jobTitle": "Software Engineer",
+            "url": "https://eijkeyal.com.np/",
+            "image": "https://eijkeyal.com.np/og-image.jpg",
+            "description": "Software engineer who builds things for the web and doodles in the margins.",
+            "knowsAbout": [
+              "Web Development",
+              "Software Engineering",
+              "JavaScript",
+              "UI/UX Design"
+            ],
+            "sameAs": [
+              "https://github.com/Eijkeyal",
+              "https://www.linkedin.com/in/eijkeyalpakhrin/"
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&family=Special+Elite&display=swap"
       rel="stylesheet"
@@ -33,9 +150,11 @@
         scroll-behavior: smooth;
         scroll-padding-top: 76px;
       }
+
       * {
         box-sizing: border-box;
       }
+
       body {
         margin: 0;
         position: relative;
@@ -45,14 +164,25 @@
           cursive,
           sans-serif;
         overflow-x: hidden;
-        background:
+
+        /* Force the body to be at least the height of the screen */
+        min-height: 100vh;
+        min-height: 100svh;
+
+        /* The Magic Trick: background-attachment: fixed keeps the paper locked to the screen */
+        background-color: var(--paper);
+        background-image:
           var(--noise),
           repeating-linear-gradient(
             180deg,
             transparent 0 31px,
             var(--line) 31px 32px
-          ),
-          var(--paper);
+          );
+        background-attachment: fixed; /* <--- THIS IS THE KEY */
+        background-size:
+          auto,
+          100% 100%; /* Ensures the gradient covers the screen */
+
         transition:
           background-color 0.4s,
           color 0.4s;
@@ -1977,6 +2107,181 @@
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
+        }
+        @media (max-width: 860px) {
+          section {
+            padding: 64px 0 0;
+          }
+
+          #hero {
+            padding-top: 100px;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            text-align: center;
+            min-height: auto;
+          }
+
+          .btns {
+            justify-content: center;
+          }
+
+          .sticky {
+            right: 50%;
+            transform: translateX(50%) rotate(4deg);
+            top: -30px;
+            left: auto;
+          }
+
+          .pcol {
+            padding-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+
+          .two,
+          .cz,
+          .pc {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+
+          .pc .l {
+            border-right: 0;
+            border-bottom: 2px solid var(--cardink);
+          }
+
+          body::before,
+          body::after {
+            display: none;
+          }
+
+          main {
+            padding: 0 20px;
+          }
+
+          .sk {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 600px) {
+          body {
+            font-size: 18px;
+            line-height: 28px;
+          }
+
+          h1 {
+            font-size: clamp(56px, 16vw, 80px);
+            margin-bottom: 10px;
+            line-height: 1;
+          }
+
+          .sub {
+            font-size: clamp(24px, 6vw, 32px);
+            margin: 0 auto 20px;
+          }
+
+          h2 {
+            font-size: clamp(42px, 12vw, 60px);
+          }
+
+          .btns {
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            max-width: 300px;
+            margin: 28px auto 0;
+          }
+
+          .btn {
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+          }
+
+          .polw {
+            width: 100%;
+            max-width: 320px;
+          }
+
+          .pol figcaption {
+            font-size: 24px;
+          }
+
+          .nums {
+            grid-template-columns: 1fr;
+            gap: 24px;
+            text-align: center;
+          }
+
+          .pc .l,
+          .pc .r {
+            padding: 24px 20px;
+          }
+
+          .pc .ad {
+            margin-top: 40px;
+          }
+
+          .tl {
+            padding-left: 40px;
+          }
+
+          .it:before {
+            left: -40px;
+          }
+
+          header div {
+            padding: 0 16px;
+          }
+
+          header nav {
+            gap: 12px;
+          }
+
+          header nav a,
+          header nav button {
+            font-size: 18px;
+          }
+
+          .sticky {
+            width: 140px;
+            font-size: 20px;
+            padding: 14px 10px;
+            top: -20px;
+          }
+
+          #padc {
+            height: 260px;
+          }
+
+          .cb {
+            --s: min(40px, 10vw);
+          }
+
+          .cg3,
+          .cgrid2 {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 400px) {
+          header nav {
+            display: none;
+          }
+
+          header b {
+            font-size: 26px;
+          }
+
+          h1 {
+            font-size: 48px;
+          }
+
+          main {
+            padding: 0 14px;
+          }
         }
       }
     </style>
@@ -5454,6 +5759,7 @@
         } catch (e) {
           console.warn("WebGL unavailable", e);
         }
+      // send letter
       document.getElementById("fs").addEventListener("click", () => {
         const v = (id) => document.getElementById(id).value.trim();
         PL.away = true;
