@@ -3924,6 +3924,88 @@
           #contact .ct-scene.full .ct-pbn {
             opacity: 1;
           }
+          /* round four: dog, butterfly, rainbow, breathing cat, plane icon fidget */
+          #contact .ct-dl1 {
+            transform-origin: -38px -11px;
+            animation: ctleg 0.5s ease-in-out infinite alternate;
+          }
+          #contact .ct-dl2 {
+            transform-origin: -58px -11px;
+            animation: ctleg 0.5s ease-in-out infinite alternate-reverse;
+          }
+          #contact .ct-tail2 {
+            transform-origin: -66px -21px;
+            animation: ctwag 0.25s ease-in-out infinite alternate;
+          }
+          @keyframes ctwag {
+            from {
+              transform: rotate(-18deg);
+            }
+            to {
+              transform: rotate(22deg);
+            }
+          }
+          #contact .ct-scene.stop .ct-dl1,
+          #contact .ct-scene.stop .ct-dl2 {
+            animation: none;
+          }
+          #contact .ct-scene.run .ct-dl1,
+          #contact .ct-scene.run .ct-dl2 {
+            animation-duration: 0.24s;
+          }
+          #contact .ct-bf {
+            animation: ctbf 16s ease-in-out infinite;
+          }
+          @keyframes ctbf {
+            0%,
+            100% {
+              transform: translate(380px, 150px);
+            }
+            25% {
+              transform: translate(450px, 104px);
+            }
+            50% {
+              transform: translate(540px, 138px);
+            }
+            75% {
+              transform: translate(620px, 98px);
+            }
+          }
+          #contact .ct-bfw {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: ctbfl 0.22s ease-in-out infinite alternate;
+          }
+          @keyframes ctbfl {
+            to {
+              transform: scaleX(0.25);
+            }
+          }
+          #contact .ct-rb {
+            animation: ctglow 5s ease-in-out infinite alternate;
+          }
+          #contact .ct-cat {
+            transform-origin: 85px 30px;
+            animation: ctbr 3s ease-in-out infinite alternate;
+          }
+          @keyframes ctbr {
+            to {
+              transform: scaleY(1.035);
+            }
+          }
+          #contact #pln {
+            animation: ctpl 4.5s ease-in-out infinite;
+          }
+          @keyframes ctpl {
+            0%,
+            80%,
+            100% {
+              transform: none;
+            }
+            90% {
+              transform: translate(2px, -3px) rotate(-12deg);
+            }
+          }
           #contact a:focus-visible,
           #contact button:focus-visible {
             outline: 2px dashed var(--coral);
@@ -4054,36 +4136,6 @@
               d="M20 20c2-3 6-1 5 3-1 5-9 5-10-1-1-8 10-12 16-5 6 8-3 19-12 18"
             />
           </svg>
-          <svg class="ct-trail" aria-hidden="true">
-            <defs>
-              <mask
-                id="ct-mk"
-                maskUnits="userSpaceOnUse"
-                x="-3000"
-                y="-3000"
-                width="8000"
-                height="8000"
-              >
-                <path
-                  id="ct-mp"
-                  fill="none"
-                  stroke="#fff"
-                  stroke-width="10"
-                  stroke-linecap="round"
-                />
-              </mask>
-            </defs>
-            <path
-              id="ctt"
-              fill="none"
-              stroke="#e07a7a"
-              stroke-width="3.5"
-              stroke-linecap="round"
-              stroke-dasharray="1 11"
-              mask="url(#ct-mk)"
-            />
-          </svg>
-
           <!-- the letter -->
           <div class="ct-letter">
             <i class="ct-tape"></i>
@@ -4496,9 +4548,7 @@
                   </g>
                 </svg>
               </div>
-              <p class="ct-cap" id="ctc">
-                the flag pops up when you start writing
-              </p>
+              <p class="ct-cap" id="ctc">the flag goes up when you send</p>
             </div>
           </aside>
         </div>
@@ -4542,10 +4592,27 @@
               stroke="#6f9bbd"
             />
           </g>
+          <g class="ct-bf">
+            <g class="ct-bfw">
+              <path
+                d="M0 0c-6-8-14-4-10 3s8 3 10-3ZM0 0c6-8 14-4 10 3s-8 3-10-3Z"
+                fill="#e07a7a"
+                fill-opacity=".6"
+                stroke="#e07a7a"
+                stroke-width="2"
+              />
+            </g>
+          </g>
           <g class="ct-bird">
             <g class="ct-wing">
               <path d="M0 0q6-9 12 0q6-9 12 0" stroke-width="2.5" />
             </g>
+          </g>
+          <g class="ct-rb" fill="none" stroke-width="5">
+            <path d="M590 178A90 90 0 0 1 770 178" stroke="#e07a7a" />
+            <path d="M600 178A80 80 0 0 1 760 178" stroke="#f2c14e" />
+            <path d="M610 178A70 70 0 0 1 750 178" stroke="#8fbf7a" />
+            <path d="M620 178A60 60 0 0 1 740 178" stroke="#6f9bbd" />
           </g>
           <path
             class="ct-dd"
@@ -4687,6 +4754,31 @@
           <g transform="translate(340 178)">
             <g class="ct-walk">
               <g class="ct-man">
+                <g class="ct-dog" stroke-width="2.8">
+                  <g class="ct-dl2"><path d="M-62 -11V0M-55 -11V0" /></g>
+                  <g class="ct-dl1"><path d="M-42 -11V0M-35 -11V0" /></g>
+                  <path
+                    d="M-66 -24h26a6 6 0 0 1 6 6v7h-38v-7a6 6 0 0 1 6-6Z"
+                    fill="#f3d9a8"
+                  />
+                  <g class="ct-tail2"><path d="M-66 -21q-9-2-8-13" /></g>
+                  <circle cx="-30" cy="-27" r="8" fill="#f3d9a8" />
+                  <path d="M-35 -33l-2-9 8 4Z" fill="#a8794a" />
+                  <circle
+                    cx="-27"
+                    cy="-29"
+                    r="1.4"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                  <circle
+                    cx="-21"
+                    cy="-26"
+                    r="1.8"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </g>
                 <g class="ct-lg1"><path d="M-3 -22V0h7" /></g>
                 <g class="ct-lg2"><path d="M3 -22V0h7" /></g>
                 <g class="ct-bob">
@@ -4771,8 +4863,6 @@
               letter = root.querySelector(".ct-letter"),
               pen = root.querySelector(".ct-pen"),
               wt,
-              tr = $("ctt"),
-              mp = $("ct-mp"),
               busy = false,
               reduce = window.matchMedia(
                 "(prefers-reduced-motion: reduce)",
@@ -4805,13 +4895,13 @@
                 Math.max(170, Math.ceil(fm.scrollHeight / 34) * 34) + "px";
               var on = fm.value.trim() !== "";
               letter.classList.toggle("has", on);
-              mb.classList.toggle("up", on);
-              cap.textContent = on
-                ? "flag's up: your letter is ready to go"
-                : "the flag pops up when you start writing";
             }
             fm.addEventListener("input", function () {
               sync();
+              if (!busy && mb.classList.contains("up")) {
+                mb.classList.remove("up");
+                cap.textContent = "the flag goes up when you send";
+              }
               pen.classList.add("wr");
               clearTimeout(wt);
               wt = setTimeout(function () {
@@ -4875,7 +4965,7 @@
               }
             }
 
-            // paper plane flies along a curve to the mailbox, leaving a dotted trail
+            // send: stamp slams, mailbox flag goes up, the postman posts the letter
             var cnt = 0;
             function curX(el) {
               var m = getComputedStyle(el).transform;
@@ -4884,8 +4974,7 @@
             fs.addEventListener("click", function () {
               if (busy || fm.value.trim() === "" || reduce) return;
               busy = true;
-              var air = root.querySelector(".ct-air");
-              air.animate(
+              root.querySelector(".ct-air").animate(
                 [
                   {
                     opacity: 0,
@@ -4909,124 +4998,47 @@
                 ],
                 { duration: 420, delay: 230 },
               );
-              // the postman stops walking, faces right and looks up for the plane
+
+              // 1) the mailbox flag springs up and the cat wakes
+              mb.classList.add("up", "got");
+              cap.textContent = "flag's up: your letter is on its way";
+              var g = grid.getBoundingClientRect(),
+                mr = mb.getBoundingClientRect();
+              burst(
+                mr.left + mr.width * 0.5 - g.left,
+                mr.top + mr.height * 0.3 - g.top,
+              );
+              setTimeout(function () {
+                mb.classList.remove("got");
+              }, 1400);
+
+              // 2) the postman stops, notices, then runs the letter to the post box
               var sc = $("ctsc"),
                 walk = sc.querySelector(".ct-walk"),
                 man = sc.querySelector(".ct-man"),
-                hand = sc.querySelector(".ct-arm2"),
                 lt = sc.querySelector(".ct-let"),
-                x0w = curX(walk);
+                x0w = curX(walk),
+                BOX = 420;
               walk.style.animation = "none";
               walk.style.transform = "translateX(" + x0w + "px)";
               man.style.animation = "none";
               man.style.transform = "scaleX(1)";
               sc.classList.add("stop");
               sc.scrollIntoView({ behavior: "smooth", block: "nearest" });
-              var pr = pln.getBoundingClientRect(),
-                gr = grid.getBoundingClientRect(),
-                hr = hand.getBoundingClientRect();
-              var sx = pr.left + pr.width / 2,
-                sy = pr.top + pr.height / 2,
-                tx = hr.left + hr.width * 0.7,
-                ty = hr.top + hr.height * 0.4;
-              var dx = tx - sx,
-                dy = ty - sy,
-                cx = dx / 2,
-                cy = dy / 2 - 90,
-                f = [];
-              for (var i = 0; i <= 12; i++) {
-                var t = i / 12,
-                  u = 1 - t,
-                  x = 2 * u * t * cx + t * t * dx,
-                  y = 2 * u * t * cy + t * t * dy,
-                  vx = 2 * u * cx + 2 * t * (dx - cx),
-                  vy = 2 * u * cy + 2 * t * (dy - cy),
-                  ang = (Math.atan2(vy, vx) * 180) / Math.PI + 42.5;
-                f.push({
-                  offset: t,
-                  opacity: t < 0.85 ? 1 : (1 - t) / 0.15,
-                  transform:
-                    "translate(" +
-                    x +
-                    "px," +
-                    y +
-                    "px) rotate(" +
-                    ang +
-                    "deg) scale(" +
-                    (1 - 0.6 * t * t) +
-                    ")",
-                });
-              }
-              var x0 = sx - gr.left,
-                y0 = sy - gr.top,
-                d =
-                  "M" +
-                  x0 +
-                  " " +
-                  y0 +
-                  " Q" +
-                  (x0 + cx) +
-                  " " +
-                  (y0 + cy) +
-                  " " +
-                  (x0 + dx) +
-                  " " +
-                  (y0 + dy);
-              tr.getAnimations().forEach(function (a) {
-                a.cancel();
-              });
-              tr.setAttribute("d", d);
-              mp.setAttribute("d", d);
-              var len = mp.getTotalLength(),
-                ease = "cubic-bezier(.35,0,.7,.7)";
-              mp.setAttribute("stroke-dasharray", len);
-              mp.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], {
-                duration: 1100,
-                easing: ease,
-                fill: "forwards",
-              });
-              var a = pln.animate(f, {
-                duration: 1100,
-                easing: ease,
-                fill: "forwards",
-              });
-              a.finished.then(function () {
-                a.cancel();
-                pln.animate(
-                  [
-                    { opacity: 0, transform: "scale(.2) rotate(-12deg)" },
-                    { opacity: 1, transform: "none" },
-                  ],
-                  { duration: 400, delay: 150, fill: "backwards" },
-                );
-                burst(tx - gr.left, ty - gr.top);
-                mb.classList.remove("up");
-                mb.classList.add("got");
-                cap.textContent = "the postman has it!";
-                tr.animate([{ opacity: 1 }, { opacity: 0 }], {
-                  duration: 600,
-                  delay: 300,
-                  fill: "forwards",
-                });
-                setTimeout(function () {
-                  mb.classList.remove("got");
-                }, 1300);
-
-                // the postman runs the letter to the post box
-                var BOX = 420,
-                  run = walk.animate(
-                    [
-                      { transform: "translateX(" + x0w + "px)" },
-                      { transform: "translateX(" + BOX + "px)" },
-                    ],
-                    {
-                      duration: Math.max(900, (BOX - x0w) * 3.4),
-                      easing: "ease-in-out",
-                      fill: "forwards",
-                    },
-                  );
+              setTimeout(function () {
                 sc.classList.remove("stop");
                 sc.classList.add("run");
+                var run = walk.animate(
+                  [
+                    { transform: "translateX(" + x0w + "px)" },
+                    { transform: "translateX(" + BOX + "px)" },
+                  ],
+                  {
+                    duration: Math.max(900, (BOX - x0w) * 3.4),
+                    easing: "ease-in-out",
+                    fill: "forwards",
+                  },
+                );
                 run.finished.then(function () {
                   sc.classList.remove("run");
                   sc.classList.add("stop");
@@ -5049,10 +5061,10 @@
                     sc.classList.add("full");
                     var pb = $("ctpb"),
                       r = pb.getBoundingClientRect(),
-                      g = grid.getBoundingClientRect();
+                      g2 = grid.getBoundingClientRect();
                     burst(
-                      r.left + r.width / 2 - g.left,
-                      r.top + r.height * 0.3 - g.top,
+                      r.left + r.width / 2 - g2.left,
+                      r.top + r.height * 0.3 - g2.top,
                     );
                     pb.firstElementChild.animate(
                       [
@@ -5076,7 +5088,7 @@
                     setTimeout(function () {
                       sc.classList.remove("wave");
                     }, 2200);
-                    // then he strolls back and the usual walk loop resumes
+                    // then he strolls back (the dog too) and the usual walk loop resumes
                     setTimeout(function () {
                       man.style.transform = "scaleX(-1)";
                       sc.classList.remove("stop");
@@ -5107,7 +5119,7 @@
                     }, 1700);
                   }, 700);
                 });
-              });
+              }, 500);
             });
 
             // poke the cat: it wakes up and says something
