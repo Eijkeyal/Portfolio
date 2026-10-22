@@ -19,12 +19,11 @@
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
     <link rel="canonical" href="https://eijkeyal.com.np/" />
-    <link rel="icon" type="image/png" href="/favicon.png" sizes="any" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f3efe3'/%3E%3Cpath d='M25 75L35 35L60 20L75 35L50 60Z' fill='%23f2c14e' stroke='%232a2823' stroke-width='5' stroke-linejoin='round'/%3E%3Cpath d='M25 75L35 35L50 60Z' fill='%23e07a7a' stroke='%232a2823' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E"
-      type="image/svg+xml"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta
       name="theme-color"
       content="#f3efe3"
@@ -113,11 +112,20 @@
               "Web Development",
               "Software Engineering",
               "JavaScript",
-              "UI/UX Design"
+              "TypeScript",
+              "React",
+              "Node.js",
+              "Express.js",
+              "Java",
+              "AWS Cloud",
+              "DevOps",
+              ".NET"
             ],
             "sameAs": [
               "https://github.com/Eijkeyal",
-              "https://www.linkedin.com/in/eijkeyalpakhrin/"
+              "https://www.linkedin.com/in/eijkeyalpakhrin/",
+              "https://leetcode.com/u/Eijkeyal-Pakhrin/",
+              "https://www.credly.com/users/eijkeyalpakhrin/"
             ]
           }
         ]
@@ -283,6 +291,7 @@
       header b {
         font: 700 30px Caveat;
         color: var(--ink);
+        white-space: nowrap;
       }
       header nav {
         display: flex;
@@ -298,11 +307,55 @@
         font: inherit;
         font-size: 20px;
         padding: 0;
+        white-space: nowrap;
+        transition: font-size 0.2s ease;
       }
       header nav a:hover,
       header nav button:hover {
         text-decoration: underline wavy var(--margin);
         text-underline-offset: 5px;
+      }
+
+      @media (max-width: 820px) {
+        header div {
+          padding: 0 16px;
+        }
+        header nav {
+          gap: 14px;
+        }
+        header nav a,
+        header nav button {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        header div {
+          height: 50px;
+        }
+        header b {
+          font-size: 26px;
+        }
+        header nav {
+          gap: 12px;
+        }
+        header nav a,
+        header nav button {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        header b {
+          font-size: 22px;
+        }
+        header nav {
+          gap: 8px;
+        }
+        header nav a,
+        header nav button {
+          font-size: 14px;
+        }
       }
       @media (max-width: 700px) {
         header nav a:nth-child(n + 4) {
@@ -2051,11 +2104,9 @@
         margin: 4px 58px 8px 0;
         line-height: 1;
       }
-
-      /* THE FIX: Prevents the pill from stretching */
       .cc .lv {
         display: inline-block;
-        align-self: flex-start; /* Stops it from stretching horizontally */
+        align-self: flex-start;
         padding: 0 12px;
         border: 2px solid #2a2823;
         border-radius: 99px;
@@ -2289,17 +2340,147 @@
   </head>
   <body>
     <canvas id="cv3"></canvas>
-    <header>
-      <div>
-        <b>Eijkeyal ✎</b>
-        <nav>
-          <a href="#about">about</a><a href="#journey">journey</a
-          ><a href="#skills">skills</a><a href="#certs">certs</a
-          ><a href="#work">work</a><a href="#events">events</a
-          ><a href="#contact">contact</a>
+    <header
+      id="main-header"
+      style="
+        position: fixed;
+        top: env(safe-area-inset-top, 0px);
+        left: 0;
+        right: 0;
+        z-index: 40;
+        background: color-mix(in srgb, var(--paper) 93%, transparent);
+        backdrop-filter: blur(4px);
+        border-bottom: 2px dashed var(--line);
+      "
+    >
+      <div
+        style="
+          max-width: 1120px;
+          margin: 0 auto;
+          padding: 0 24px;
+          height: 56px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          position: relative;
+        "
+      >
+        <b style="font: 700 30px Caveat; color: var(--ink); white-space: nowrap"
+          >Eijkeyal ✎</b
+        >
+
+        <button
+          id="menu-btn"
+          aria-label="Toggle menu"
+          style="
+            display: none;
+            background: none;
+            border: 2.5px solid var(--ink);
+            border-radius: 99px;
+            font: 700 18px Caveat;
+            color: var(--ink);
+            padding: 2px 14px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--ink);
+            z-index: 50;
+          "
+        >
+          menu ✎
+        </button>
+
+        <nav id="main-nav">
+          <a href="#about">about</a>
+          <a href="#journey">journey</a>
+          <a href="#skills">skills</a>
+          <a href="#certs">certs</a>
+          <a href="#work">work</a>
+          <a href="#events">events</a>
+          <a href="#contact">contact</a>
         </nav>
       </div>
     </header>
+
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mainNav = document.getElementById("main-nav");
+      const navLinks = mainNav.querySelectorAll("a");
+      const headerParent = mainNav.parentElement;
+
+      menuBtn.addEventListener("click", () => {
+        const isOpen =
+          mainNav.style.display === "flex" &&
+          mainNav.style.position === "fixed";
+
+        if (isOpen) {
+          mainNav.style.cssText = "";
+          if (window.innerWidth > 820) {
+            mainNav.style.cssText =
+              "display: flex; flex-direction: row; gap: 22px; align-items: center;";
+          } else {
+            mainNav.style.display = "none";
+          }
+          headerParent.appendChild(mainNav);
+        } else {
+          document.body.appendChild(mainNav);
+          mainNav.style.cssText =
+            "display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--paper); flex-direction: column; justify-content: center; align-items: center; padding: 80px 24px 40px; gap: 24px; z-index: 9999; overflow-y: auto;";
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 820) {
+            mainNav.style.cssText = "";
+            mainNav.style.display = "none";
+            headerParent.appendChild(mainNav);
+          }
+        });
+      });
+
+      const handleResponsive = () => {
+        const isMobile = window.innerWidth <= 820;
+
+        navLinks.forEach((a) => {
+          a.style.color = "var(--ink)";
+          a.style.textDecoration = "none";
+          a.style.whiteSpace = "nowrap";
+
+          if (isMobile) {
+            a.style.fontSize = "32px";
+            a.style.width = "100%";
+            a.style.textAlign = "center";
+          } else {
+            a.style.fontSize = "20px";
+            a.style.width = "auto";
+            a.style.textAlign = "left";
+          }
+
+          a.onmouseenter = () => {
+            if (!isMobile)
+              a.style.textDecoration = "underline wavy var(--margin)";
+          };
+          a.onmouseleave = () => {
+            a.style.textDecoration = "none";
+          };
+        });
+
+        if (!isMobile) {
+          menuBtn.style.display = "none";
+          mainNav.style.cssText =
+            "display: flex; flex-direction: row; gap: 22px; align-items: center;";
+          headerParent.appendChild(mainNav);
+        } else {
+          menuBtn.style.display = "block";
+          if (mainNav.style.position !== "fixed") {
+            mainNav.style.display = "none";
+          }
+        }
+      };
+
+      window.addEventListener("resize", handleResponsive);
+      handleResponsive();
+    </script>
     <main>
       <section id="hero">
         <div id="hl" style="position: relative">
@@ -2797,61 +2978,1010 @@
 
       <section id="contact">
         <style>
-          #contact .ad svg {
+          #contact {
+            --ink: #2a2823;
+            --paper: #fbf8ee;
+            --sun: #f2c14e;
+            --coral: #e07a7a;
+            --rule: #c9d6e2;
+            --hand: Caveat, "Patrick Hand", cursive;
+            --pen: "Patrick Hand", Caveat, cursive;
+          }
+          #contact .ct-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: clamp(32px, 6vw, 72px);
+            align-items: start;
+            margin-top: 30px;
+          }
+          #contact .ct-wob {
+            filter: url(#ct-wob);
+          }
+
+          /* paper objects: the letter and the postcard */
+          #contact .ct-letter,
+          #contact .ct-card {
+            position: relative;
+            background: var(--paper);
+            color: var(--ink);
+            box-shadow: 4px 6px 0 rgba(42, 40, 35, 0.16);
+          }
+          #contact .ct-letter {
+            padding: 30px 28px 24px;
+            transform: rotate(-0.9deg);
+          }
+          #contact .ct-card {
+            padding: 22px 22px 20px;
+            transform: rotate(1.1deg);
+          }
+          #contact .ct-letter::after,
+          #contact .ct-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 2.5px solid var(--ink);
+            border-radius: 5px 11px 6px 13px;
+            filter: url(#ct-wob);
+            pointer-events: none;
+          }
+          #contact .ct-tape {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            width: 112px;
+            height: 28px;
+            margin-left: -56px;
+            background: rgba(242, 193, 78, 0.85);
+            transform: rotate(-3deg);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+          }
+
+          /* letter */
+          #contact .ct-hello {
+            display: block;
+            font: 700 34px/1 var(--hand);
+            margin: 0 0 12px;
+          }
+          #contact .ct-hello svg {
+            width: 24px;
+            height: 24px;
+            vertical-align: -3px;
+            margin-right: 8px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          #contact .ct-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 14px;
+          }
+          #contact .ct-chips button {
+            all: unset;
+            box-sizing: border-box;
+            cursor: pointer;
+            font: 18px/1 var(--pen);
+            color: var(--ink);
+            padding: 7px 14px 8px;
+            border: 2px solid var(--ink);
+            border-radius: 255px 18px 225px 16px/16px 225px 18px 255px;
+            transition:
+              transform 0.2s,
+              background 0.2s;
+          }
+          #contact .ct-chips button:hover {
+            transform: rotate(-2.5deg) translateY(-1px);
+            background: rgba(242, 193, 78, 0.45);
+          }
+          #contact .ct-chips button[aria-pressed="true"] {
+            background: var(--sun);
+          }
+          #contact .ct-pad {
+            position: relative;
+          }
+          #contact .ct-pad::before {
+            content: "";
+            position: absolute;
+            left: 40px;
+            top: -4px;
+            bottom: 0;
+            width: 2px;
+            background: rgba(224, 122, 122, 0.55);
+            transition:
+              background 0.3s,
+              width 0.3s;
+          }
+          #contact .ct-pad:focus-within::before {
+            background: var(--coral);
+            width: 3px;
+          }
+          #contact #fm {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 170px;
+            margin: 0;
+            padding: 0 8px 0 54px;
+            border: 0;
+            border-radius: 0;
+            outline: 0;
+            box-shadow: none;
+            resize: none;
+            overflow: hidden;
+            background: repeating-linear-gradient(
+              to bottom,
+              transparent 0 33px,
+              var(--rule) 33px 34px
+            );
+            color: var(--ink);
+            font: 500 24px/34px var(--hand);
+          }
+          #contact #fm::placeholder {
+            color: rgba(42, 40, 35, 0.45);
+          }
+          #contact .ct-from {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 22px 0 4px;
+          }
+          #contact .ct-f {
+            position: relative;
+            display: block;
+            min-width: 0;
+          }
+          #contact .ct-f span {
+            display: block;
+            font: 17px/1 var(--pen);
+            opacity: 0.7;
+            margin-bottom: 2px;
+          }
+          #contact .ct-f input {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding: 2px 2px 5px;
+            border: 0;
+            border-bottom: 2px dashed rgba(42, 40, 35, 0.3);
+            border-radius: 0;
+            outline: 0;
+            box-shadow: none;
+            background: transparent;
+            color: var(--ink);
+            font: 500 23px/1.2 var(--hand);
+          }
+          #contact .ct-f input::placeholder {
+            color: rgba(42, 40, 35, 0.42);
+          }
+          #contact .ct-f::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            height: 8px;
+            width: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='8'%3E%3Cpath d='M0 4Q4 0 8 4T16 4' fill='none' stroke='%23e07a7a' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E")
+              repeat-x;
+            transition: width 0.5s ease;
+          }
+          #contact .ct-f:focus-within::after {
+            width: 100%;
+          }
+          #contact .ct-act {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+          }
+          #contact #fs {
+            all: unset;
+            box-sizing: border-box;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 6;
+            padding: 11px 20px 12px;
+            background: var(--sun);
+            color: var(--ink);
+            font: 22px/1 var(--pen);
+            border: 2.5px solid var(--ink);
+            border-radius: 14px 22px 12px 20px;
+            box-shadow: 3px 4px 0 var(--ink);
+            transition:
+              transform 0.15s,
+              box-shadow 0.15s;
+          }
+          #contact #fs:hover {
+            transform: translate(-1px, -2px) rotate(-1deg);
+            box-shadow: 5px 7px 0 var(--ink);
+          }
+          #contact #fs:active {
+            transform: translate(3px, 4px);
+            box-shadow: 0 0 0 var(--ink);
+          }
+          #contact #pln {
+            width: 22px;
+            height: 22px;
+            position: relative;
+            z-index: 7;
+            overflow: visible;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          #contact #fst {
+            margin: 0;
+            font: 19px/1.2 var(--pen);
+            min-height: 1.2em;
+          }
+
+          /* postcard */
+          #contact .ct-top {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            min-height: 104px;
+          }
+          #contact .ct-to {
+            font: 700 30px/1.1 var(--hand);
+            padding-top: 6px;
+          }
+          #contact .ct-stamp {
+            width: 84px;
+            height: 98px;
+            flex: none;
+            transform: rotate(3deg);
+          }
+          #contact .ct-pm {
+            position: absolute;
+            right: 58px;
+            top: -10px;
+            width: 112px;
+            height: 112px;
+            opacity: 0.7;
+            pointer-events: none;
+          }
+          #contact .ct-spin {
+            transform-origin: 60px 60px;
+            animation: ctspin 28s linear infinite;
+          }
+          @keyframes ctspin {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          #contact .ct-links {
+            list-style: none;
+            margin: 12px 0 0;
+            padding: 0;
+            display: grid;
+            gap: 9px;
+            font: 21px/1.25 var(--pen);
+          }
+          #contact .ct-links li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+          #contact .ct-links li > svg {
+            width: 20px;
+            height: 20px;
+            flex: none;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
             transition: transform 0.25s ease;
           }
-          #contact .ad svg:hover {
+          #contact .ct-links li:hover > svg {
             transform: rotate(-10deg) scale(1.2);
           }
-          #contact .ad a:hover {
-            text-decoration: underline wavy;
+          #contact .ct-links b {
+            font-weight: 400;
+            opacity: 0.6;
+          }
+          #contact .ct-links a {
+            color: inherit;
+            overflow-wrap: anywhere;
+          }
+          #contact .ct-links a:hover {
+            text-decoration: underline wavy var(--coral);
             text-underline-offset: 4px;
+          }
+          #contact #cpy {
+            all: unset;
+            cursor: pointer;
+            display: inline-flex;
+            padding: 2px 4px;
+            border-radius: 6px;
+            transition: transform 0.2s;
+          }
+          #contact #cpy svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          #contact #cpy:hover {
+            transform: rotate(-8deg) scale(1.15);
+          }
+          #contact #cpm {
+            font: 18px/1 var(--pen);
+          }
+
+          /* mailbox */
+          #contact .ct-mbx {
+            width: min(190px, 60%);
+            margin: 28px auto 0;
+          }
+          #contact .ct-mbx svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: visible;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          #contact .ct-body {
+            transform-origin: 85px 190px;
+          }
+          #contact .ct-flag {
+            transform-origin: 132px 92px;
+            transform: rotate(120deg);
+            transition: transform 0.6s cubic-bezier(0.3, 1.7, 0.5, 1);
+          }
+          #contact .ct-mbx.up .ct-flag {
+            transform: rotate(0);
+          }
+          #contact .ct-mbx.got .ct-body {
+            animation: ctbob 0.6s ease;
+          }
+          @keyframes ctbob {
+            25% {
+              transform: rotate(-3deg);
+            }
+            60% {
+              transform: rotate(2deg);
+            }
+          }
+          #contact .ct-cap {
+            margin: 10px 0 0;
+            text-align: center;
+            font: 19px/1.2 var(--pen);
+            opacity: 0.85;
+          }
+
+          /* flight layer */
+          #contact .ct-trail {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            pointer-events: none;
+            z-index: 5;
+          }
+          #contact .ct-sp {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 8;
+          }
+
+          /* the one orchestrated moment: doodles draw themselves once */
+          #contact.ct-js .ct-dd {
+            stroke-dasharray: 1 1;
+            stroke-dashoffset: 1;
+          }
+          #contact.ct-js.ct-in .ct-dd {
+            animation: ctdraw 1s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+            animation-delay: calc(var(--i, 0) * 0.14s);
+          }
+          @keyframes ctdraw {
+            to {
+              stroke-dashoffset: 0;
+            }
+          }
+
+          /* more doodles */
+          #contact .ct-letter {
+            margin-bottom: 30px;
+          }
+          #contact .ct-note {
+            position: absolute;
+            right: 22px;
+            top: 18px;
+            width: 128px;
+            text-align: center;
+            font: 700 22px/1 var(--hand);
+            color: var(--coral);
+            transform: rotate(5deg);
+            pointer-events: none;
+            transition:
+              opacity 0.4s,
+              transform 0.4s;
+          }
+          #contact .ct-note svg {
+            display: block;
+            width: 62px;
+            margin: 2px 0 0 8px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          #contact .ct-letter.has .ct-note {
+            opacity: 0;
+            transform: rotate(5deg) translateY(-8px);
+          }
+          #contact .ct-mg {
+            position: absolute;
+            left: 8px;
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: var(--ink);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.55;
+            pointer-events: none;
+          }
+          #contact .ct-cup,
+          #contact .ct-pen {
+            position: absolute;
+            pointer-events: none;
+            overflow: visible;
+            fill: var(--paper);
+            stroke: var(--ink);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          #contact .ct-cup {
+            right: -20px;
+            bottom: -30px;
+            width: 78px;
+            transform: rotate(8deg);
+          }
+          #contact .ct-steam path {
+            fill: none;
+            animation: ctsteam 2.6s ease-in-out infinite;
+          }
+          #contact .ct-steam path:nth-child(2) {
+            animation-delay: 0.8s;
+          }
+          #contact .ct-steam path:nth-child(3) {
+            animation-delay: 1.6s;
+          }
+          @keyframes ctsteam {
+            0% {
+              transform: translateY(4px);
+              opacity: 0;
+            }
+            40% {
+              opacity: 0.9;
+            }
+            100% {
+              transform: translateY(-8px);
+              opacity: 0;
+            }
+          }
+          #contact .ct-pen {
+            left: 40px;
+            bottom: -26px;
+            width: 110px;
+            transform: rotate(-3deg);
+          }
+          #contact .ct-pen.wr {
+            animation: ctwr 0.26s ease;
+          }
+          @keyframes ctwr {
+            40% {
+              transform: rotate(1deg) translateX(-4px);
+            }
+          }
+          #contact .ct-fl {
+            position: absolute;
+            pointer-events: none;
+            fill: none;
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            animation: ctfl 5s ease-in-out infinite alternate;
+          }
+          @keyframes ctfl {
+            to {
+              transform: rotate(8deg) scale(1.1);
+            }
+          }
+          #contact .ct-sun-r {
+            transform-origin: 30px 30px;
+            animation: ctspin 40s linear infinite;
+          }
+          #contact .ct-tail {
+            transform-origin: 108px 28px;
+            animation: cttail 2.6s ease-in-out infinite alternate;
+          }
+          #contact .ct-mbx.got .ct-tail {
+            animation-duration: 0.4s;
+          }
+          @keyframes cttail {
+            from {
+              transform: rotate(-8deg);
+            }
+            to {
+              transform: rotate(10deg);
+            }
+          }
+          #contact .ct-eo {
+            opacity: 0;
+          }
+          #contact .ct-mbx.got .ct-eo {
+            opacity: 1;
+          }
+          #contact .ct-mbx.got .ct-ec,
+          #contact .ct-mbx.got .ct-zz {
+            opacity: 0;
+          }
+          #contact .ct-zz {
+            font:
+              700 16px Caveat,
+              cursive;
+            animation: ctzz 3s ease-in-out infinite;
+            transition: opacity 0.3s;
+          }
+          @keyframes ctzz {
+            0% {
+              transform: translate(0, 6px);
+              opacity: 0;
+            }
+            50% {
+              opacity: 0.9;
+            }
+            100% {
+              transform: translate(8px, -10px);
+              opacity: 0;
+            }
+          }
+          #contact .ct-h {
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            background: none !important;
+            color: #e07a7a;
+            font: 15px/1 sans-serif;
           }
           #contact #pln {
             transition: transform 0.25s ease;
           }
-          #contact .btn:hover #pln {
-            transform: translate(3px, -2px) rotate(-8deg);
+          #contact #fs:hover #pln {
+            transform: translate(2px, -2px) rotate(-8deg);
           }
-          #contact #cpy {
-            background: none;
-            border: 0;
-            color: inherit;
+          @media (max-width: 820px) {
+            #contact .ct-fl,
+            #contact .ct-pen {
+              display: none;
+            }
+            #contact .ct-cup {
+              right: -6px;
+            }
+          }
+          @media (max-width: 520px) {
+            #contact .ct-note {
+              display: none;
+            }
+          }
+          /* round two: airmail edge, clickable cat, doodle stickers, par avion stamp */
+          #contact .ct-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 9px;
+            background: repeating-linear-gradient(
+              135deg,
+              #e07a7a 0 14px,
+              var(--paper) 14px 22px,
+              #6f9bbd 22px 36px,
+              var(--paper) 36px 44px
+            );
+          }
+          #contact .ct-svgw {
+            position: relative;
+          }
+          #contact .ct-catbtn {
+            all: unset;
+            position: absolute;
+            left: 35%;
+            top: 3%;
+            width: 39%;
+            height: 26%;
             cursor: pointer;
-            padding: 0 0 0 4px;
-            vertical-align: -3px;
+            border-radius: 50%;
+            z-index: 3;
           }
-          #contact #cpy:hover svg {
-            transform: rotate(-8deg) scale(1.15);
+          #contact .ct-say {
+            position: absolute;
+            left: 50%;
+            top: -46px;
+            transform: translateX(-50%) scale(0.6);
+            transform-origin: 50% 100%;
+            width: max-content;
+            max-width: 190px;
+            padding: 6px 14px 8px;
+            background: var(--paper);
+            color: var(--ink);
+            border: 2.5px solid var(--ink);
+            border-radius: 16px 20px 14px 18px;
+            font: 19px/1.15 var(--pen);
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition:
+              opacity 0.25s,
+              transform 0.35s cubic-bezier(0.3, 1.7, 0.5, 1);
+            z-index: 4;
           }
-          #contact a:focus-visible,
-          #contact #cpy:focus-visible {
-            outline: 2px dashed currentColor;
-            outline-offset: 3px;
+          #contact .ct-say.on {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
           }
-          @keyframes cfly {
+          #contact .ct-say::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -9px;
+            width: 12px;
+            height: 12px;
+            margin-left: -6px;
+            background: var(--paper);
+            border: solid var(--ink);
+            border-width: 0 2.5px 2.5px 0;
+            transform: rotate(45deg);
+          }
+          #contact .ct-stk {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 16px 0 0;
+            font: 18px/1 var(--pen);
+          }
+          #contact .ct-stk span {
+            opacity: 0.7;
+          }
+          #contact .ct-stk button {
+            all: unset;
+            box-sizing: border-box;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            font: 20px/1 sans-serif;
+            border: 2px solid var(--ink);
+            border-radius: 50% 46% 52% 48%;
+            transition:
+              transform 0.2s,
+              background 0.2s;
+          }
+          #contact .ct-stk button:hover {
+            transform: rotate(-12deg) scale(1.15);
+            background: rgba(242, 193, 78, 0.4);
+          }
+          #contact .ct-stk button:active {
+            transform: scale(0.9);
+          }
+          #contact .ct-air {
+            position: absolute;
+            left: 50%;
+            top: 46%;
+            transform: translate(-50%, -50%) rotate(-14deg);
+            padding: 6px 18px 8px;
+            border: 4px double var(--coral);
+            border-radius: 10px;
+            color: var(--coral);
+            font:
+              30px/1 "Special Elite",
+              monospace;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 4;
+          }
+          /* round three: a living doodle scene under the form */
+          #contact .ct-scene {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 60px 0 6px;
+            overflow: visible;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          #contact .ct-cl {
+            animation: ctcl var(--d, 24s) ease-in-out infinite alternate;
+          }
+          @keyframes ctcl {
+            to {
+              transform: translateX(80px);
+            }
+          }
+          @keyframes ctsway {
+            from {
+              transform: rotate(-2.5deg);
+            }
+            to {
+              transform: rotate(2.5deg);
+            }
+          }
+          #contact .ct-tree {
+            transform-origin: 280px 178px;
+            animation: ctsway 4s ease-in-out infinite alternate;
+          }
+          #contact .ct-fw {
+            animation: ctsway 3s ease-in-out infinite alternate;
+          }
+          #contact .ct-fw:nth-of-type(odd) {
+            animation-delay: -1.4s;
+          }
+          #contact .ct-smoke {
+            transform-box: fill-box;
+            transform-origin: center;
+            opacity: 0;
+            animation: ctsmoke 3.6s ease-out infinite;
+          }
+          @keyframes ctsmoke {
             0% {
-              transform: translate(0, 0) rotate(0);
-              opacity: 1;
+              transform: translate(0, 0) scale(0.5);
+              opacity: 0;
+            }
+            20% {
+              opacity: 0.7;
             }
             100% {
-              transform: translate(60px, -34px) rotate(-18deg);
+              transform: translate(14px, -40px) scale(1.4);
               opacity: 0;
             }
           }
-          #contact #pln.fly {
-            animation: cfly 0.8s ease-in forwards;
+          #contact .ct-glow {
+            animation: ctglow 3s ease-in-out infinite alternate;
+          }
+          @keyframes ctglow {
+            from {
+              opacity: 0.3;
+            }
+            to {
+              opacity: 0.85;
+            }
+          }
+          #contact .ct-sun-r2 {
+            transform-origin: 890px 52px;
+            animation: ctspin 40s linear infinite;
+          }
+          #contact .ct-walk {
+            animation: ctwalk 18s linear infinite;
+          }
+          @keyframes ctwalk {
+            0% {
+              transform: translateX(0);
+            }
+            48%,
+            52% {
+              transform: translateX(380px);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+          #contact .ct-man {
+            animation: ctflip 18s linear infinite;
+          }
+          @keyframes ctflip {
+            0%,
+            49.9% {
+              transform: scaleX(1);
+            }
+            50%,
+            99.9% {
+              transform: scaleX(-1);
+            }
+            100% {
+              transform: scaleX(1);
+            }
+          }
+          #contact .ct-lg1,
+          #contact .ct-lg2 {
+            transform-origin: 0 -22px;
+            animation: ctleg 0.6s ease-in-out infinite alternate;
+          }
+          #contact .ct-lg2 {
+            animation-direction: alternate-reverse;
+          }
+          @keyframes ctleg {
+            from {
+              transform: rotate(-24deg);
+            }
+            to {
+              transform: rotate(24deg);
+            }
+          }
+          #contact .ct-bob {
+            animation: ctbob2 0.3s ease-in-out infinite alternate;
+          }
+          @keyframes ctbob2 {
+            to {
+              transform: translateY(-2.5px);
+            }
+          }
+          #contact .ct-scene.wave .ct-arm2 {
+            transform-origin: 10px -48px;
+            animation: ctwv 0.3s ease-in-out 7 alternate;
+          }
+          @keyframes ctwv {
+            from {
+              transform: rotate(-10deg);
+            }
+            to {
+              transform: rotate(-80deg);
+            }
+          }
+          #contact .ct-bird {
+            animation: ctbird 24s linear infinite;
+          }
+          @keyframes ctbird {
+            0% {
+              transform: translate(-40px, 70px);
+            }
+            50% {
+              transform: translate(500px, 36px);
+            }
+            100% {
+              transform: translate(1040px, 70px);
+            }
+          }
+          #contact .ct-wing {
+            transform-origin: 12px 0;
+            animation: ctflap 0.5s ease-in-out infinite alternate;
+          }
+          @keyframes ctflap {
+            to {
+              transform: scaleY(0.3);
+            }
+          }
+          /* postman delivery + the little post box changing */
+          #contact .ct-scene.stop .ct-lg1,
+          #contact .ct-scene.stop .ct-lg2,
+          #contact .ct-scene.stop .ct-bob {
+            animation: none;
+          }
+          #contact .ct-scene.run .ct-lg1,
+          #contact .ct-scene.run .ct-lg2 {
+            animation-duration: 0.26s;
+          }
+          #contact .ct-pbflag {
+            transform-origin: 12px -16px;
+            transform: rotate(120deg);
+            transition: transform 0.6s cubic-bezier(0.3, 1.7, 0.5, 1);
+          }
+          #contact .ct-scene.full .ct-pbflag {
+            transform: rotate(0);
+          }
+          #contact .ct-pbody {
+            transition:
+              fill 0.5s,
+              fill-opacity 0.5s;
+          }
+          #contact .ct-scene.full .ct-pbody {
+            fill: #f2c14e;
+            fill-opacity: 0.75;
+          }
+          #contact .ct-env {
+            opacity: 0;
+            transform: translateY(8px);
+            transition:
+              opacity 0.4s,
+              transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1);
+          }
+          #contact .ct-scene.full .ct-env {
+            opacity: 1;
+            transform: none;
+          }
+          #contact .ct-pbn {
+            opacity: 0;
+            transform-box: fill-box;
+            transform-origin: center;
+            transition: opacity 0.3s;
+          }
+          #contact .ct-scene.full .ct-pbn {
+            opacity: 1;
+          }
+          #contact a:focus-visible,
+          #contact button:focus-visible {
+            outline: 2px dashed var(--coral);
+            outline-offset: 3px;
+          }
+          @media (max-width: 820px) {
+            #contact .ct-grid {
+              grid-template-columns: 1fr;
+            }
+            #contact .ct-pm {
+              right: 70px;
+            }
+          }
+          @media (max-width: 520px) {
+            #contact .ct-from {
+              grid-template-columns: 1fr;
+            }
+            #contact .ct-letter {
+              padding: 28px 18px 22px;
+            }
+            #contact #fm {
+              padding-left: 48px;
+            }
+            #contact .ct-pad::before {
+              left: 34px;
+            }
           }
           @media (prefers-reduced-motion: reduce) {
-            #contact .ad svg,
-            #contact #pln {
-              transition: none;
-            }
-            #contact #pln.fly {
-              animation: none;
+            #contact *,
+            #contact *::after {
+              animation: none !important;
+              transition: none !important;
             }
           }
         </style>
+
+        <!-- hand-drawn wobble that "boils" slowly on the stamp, postmark and mailbox -->
+        <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+          <filter id="ct-wob" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency=".028"
+              numOctaves="2"
+              seed="2"
+              result="n"
+            >
+              <animate
+                attributeName="seed"
+                values="2;5;8;11"
+                dur="1.6s"
+                calcMode="discrete"
+                repeatCount="indefinite"
+              />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" />
+          </filter>
+        </svg>
+
         <div class="rv">
           <h2 class="sh">
             drop me a line
@@ -2863,7 +3993,7 @@
                 width: 20px;
                 height: 20px;
                 vertical-align: -2px;
-                margin-right: 0px;
+                margin-right: 0;
                 fill: none;
                 stroke: currentColor;
                 stroke-width: 4;
@@ -2885,299 +4015,1192 @@
             </svg>
           </h2>
         </div>
-        <div class="pc rv">
-          <div class="l">
-            <span class="lab"
-              ><svg
-                viewBox="0 0 60 60"
-                aria-hidden="true"
-                style="
-                  display: inline-block;
-                  width: 16px;
-                  height: 16px;
-                  vertical-align: -3px;
-                  margin-right: 6px;
-                  fill: none;
-                  stroke: currentColor;
-                  stroke-width: 4;
-                  stroke-linecap: round;
-                  stroke-linejoin: round;
-                "
+
+        <div class="ct-grid">
+          <svg
+            class="ct-fl"
+            style="left: 52%; top: -34px; width: 34px; stroke: #f2c14e"
+            viewBox="0 0 40 40"
+            aria-hidden="true"
+          >
+            <path d="M20 3l5 12 13 1-10 9 3 13-11-7-11 7 3-13-10-9 13-1z" />
+          </svg>
+          <svg
+            class="ct-fl"
+            style="right: -6px; top: -40px; width: 56px; stroke: #f2c14e"
+            viewBox="0 0 60 60"
+            aria-hidden="true"
+          >
+            <circle cx="30" cy="30" r="9" />
+            <g class="ct-sun-r">
+              <path
+                d="M30 5v8M30 47v8M5 30h8M47 30h8M12 12l6 6M42 42l6 6M48 12l-6 6M18 42l-6 6"
+              />
+            </g>
+          </svg>
+          <svg
+            class="ct-fl"
+            style="
+              left: calc(58% - 26px);
+              bottom: 30px;
+              width: 46px;
+              stroke: #e07a7a;
+              animation-delay: -2s;
+            "
+            viewBox="0 0 40 40"
+            aria-hidden="true"
+          >
+            <path
+              d="M20 20c2-3 6-1 5 3-1 5-9 5-10-1-1-8 10-12 16-5 6 8-3 19-12 18"
+            />
+          </svg>
+          <svg class="ct-trail" aria-hidden="true">
+            <defs>
+              <mask
+                id="ct-mk"
+                maskUnits="userSpaceOnUse"
+                x="-3000"
+                y="-3000"
+                width="8000"
+                height="8000"
               >
                 <path
-                  class="dr"
+                  id="ct-mp"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+              </mask>
+            </defs>
+            <path
+              id="ctt"
+              fill="none"
+              stroke="#e07a7a"
+              stroke-width="3.5"
+              stroke-linecap="round"
+              stroke-dasharray="1 11"
+              mask="url(#ct-mk)"
+            />
+          </svg>
+
+          <!-- the letter -->
+          <div class="ct-letter">
+            <i class="ct-tape"></i>
+            <div class="ct-air" aria-hidden="true">par avion</div>
+            <span class="ct-hello"
+              ><svg viewBox="0 0 60 60" aria-hidden="true">
+                <path
                   d="M10 50L14 36L40 10L50 20L24 46Z M34 16L44 26 M10 50L24 46"
                 /></svg
               >dear Eijkeyal,</span
-            ><textarea
-              id="fm"
-              aria-label="Your message"
-              placeholder="write your message here… a question, a project idea, or just hello"
-            ></textarea
-            ><input
-              id="fn"
-              placeholder="your name"
-              aria-label="Your name"
-              autocomplete="name"
-            /><input
-              id="fe"
-              type="email"
-              placeholder="your email, so I can reply"
-              aria-label="Your email"
-              autocomplete="email"
-            />
-            <div class="btns">
+            >
+            <div class="ct-note" aria-hidden="true">
+              start here!<svg viewBox="0 0 70 50">
+                <path d="M62 4C66 24 44 40 8 40M8 40l12-10M8 40l13 8" />
+              </svg>
+            </div>
+            <div
+              class="ct-chips"
+              role="group"
+              aria-label="Pick a starting line"
+            >
+              <button
+                type="button"
+                aria-pressed="false"
+                data-t="Hi Eijkeyal, just saying hello! "
+              >
+                say hi
+              </button>
+              <button
+                type="button"
+                aria-pressed="false"
+                data-t="Hi Eijkeyal, I have a project idea: "
+              >
+                a project
+              </button>
+              <button
+                type="button"
+                aria-pressed="false"
+                data-t="Hi Eijkeyal, quick question: "
+              >
+                a question
+              </button>
+              <button
+                type="button"
+                aria-pressed="false"
+                data-t="Hi Eijkeyal, I'd love to work with you on "
+              >
+                work together
+              </button>
+            </div>
+            <div class="ct-pad">
+              <svg
+                class="ct-mg"
+                style="top: 44px"
+                viewBox="0 0 40 40"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 4A16 16 0 1 1 19.9 4ZM14 16v2M26 16v2M12 25q8 8 16 0"
+                />
+              </svg>
+              <svg
+                class="ct-mg"
+                style="top: 112px; stroke: #e07a7a"
+                viewBox="0 0 40 40"
+                aria-hidden="true"
+              >
+                <path d="M20 4l4 11h12l-9 7 3 12-10-7-10 7 3-12-9-7h12z" />
+              </svg>
+              <textarea
+                id="fm"
+                aria-label="Your message"
+                rows="5"
+                placeholder="write your message here… a question, a project idea, or just hello"
+              ></textarea>
+            </div>
+            <div
+              class="ct-stk"
+              role="group"
+              aria-label="Add a doodle to your note"
+            >
+              <span>add a doodle:</span>
+              <button
+                type="button"
+                data-s="♥ "
+                aria-label="Add a heart"
+                style="color: #e07a7a"
+              >
+                ♥
+              </button>
+              <button type="button" data-s="☺ " aria-label="Add a smiley">
+                ☺
+              </button>
+              <button
+                type="button"
+                data-s="★ "
+                aria-label="Add a star"
+                style="color: #d49a14"
+              >
+                ★
+              </button>
+              <button
+                type="button"
+                data-s="✿ "
+                aria-label="Add a flower"
+                style="color: #6f9bbd"
+              >
+                ✿
+              </button>
+            </div>
+            <div class="ct-from">
+              <label class="ct-f"
+                ><span>from:</span
+                ><input
+                  id="fn"
+                  placeholder="your name"
+                  aria-label="Your name"
+                  autocomplete="name"
+              /></label>
+              <label class="ct-f"
+                ><span>reply to:</span
+                ><input
+                  id="fe"
+                  type="email"
+                  placeholder="your email, so I can reply"
+                  aria-label="Your email"
+                  autocomplete="email"
+              /></label>
+            </div>
+            <div class="ct-act">
               <button class="btn b" id="fs" type="button">
                 send it with a paper plane
-                <svg
-                  id="pln"
-                  viewBox="0 0 60 60"
-                  aria-hidden="true"
-                  style="
-                    display: inline-block;
-                    width: 18px;
-                    height: 18px;
-                    vertical-align: -3px;
-                    margin-right: 0px;
-                    fill: none;
-                    stroke: currentColor;
-                    stroke-width: 4;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
-                  "
-                >
+                <svg id="pln" viewBox="0 0 60 60" aria-hidden="true">
                   <path
-                    class="dr"
                     d="M6 30L54 8L40 52L28 36Z M28 36L54 8 M28 36L26 50L34 43"
                   />
                 </svg>
               </button>
+              <p id="fst" class="lab" role="status" aria-live="polite"></p>
             </div>
-            <p id="fst" class="lab" role="status" aria-live="polite"></p>
+            <svg class="ct-pen" viewBox="0 0 110 24" aria-hidden="true">
+              <path d="M20 3H92V21H20Z" fill="#f2c14e" />
+              <path
+                d="M92 3H102a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H92Z"
+                fill="#e07a7a"
+              />
+              <path d="M20 3L3 12L20 21Z" fill="#f3d9a8" />
+              <path d="M3 12L9 9V15Z" fill="#2a2823" />
+              <path
+                d="M30 9H82M30 15H82"
+                fill="none"
+                stroke-width="2"
+                opacity=".5"
+              />
+            </svg>
+            <svg class="ct-cup" viewBox="0 0 72 72" aria-hidden="true">
+              <g class="ct-steam" stroke="#2a2823">
+                <path d="M24 24q-5-6 0-11t0-9" />
+                <path d="M34 24q-5-6 0-11t0-9" />
+                <path d="M44 24q-5-6 0-11t0-9" />
+              </g>
+              <path d="M12 28H52V46C52 57 45 62 32 62S12 57 12 46Z" />
+              <path d="M52 33h5a7 7 0 0 1 0 14h-6" fill="none" />
+              <path d="M6 67H58" fill="none" />
+              <path d="M22 38q10 6 20 0" fill="none" stroke="#e07a7a" />
+            </svg>
           </div>
-          <div class="r">
-            <div class="st">first<br />class</div>
-            <div class="ad">
-              <span class="lab">or write to:</span><br /><svg
-                viewBox="0 0 60 60"
-                aria-hidden="true"
-                style="
-                  display: inline-block;
-                  width: 18px;
-                  height: 18px;
-                  vertical-align: -4px;
-                  margin-right: 6px;
-                  fill: none;
-                  stroke: currentColor;
-                  stroke-width: 4;
-                  stroke-linecap: round;
-                  stroke-linejoin: round;
-                "
-              >
-                <path class="dr" d="M6 14H54V46H6Z M6 14L30 33L54 14" /></svg
-              ><a href="mailto:eijkeyalpakhrin7@gmail.com"
-                >eijkeyalpakhrin7@gmail.com</a
-              ><button
-                id="cpy"
-                type="button"
-                aria-label="Copy email address"
-                title="Copy email"
-              >
+
+          <!-- postcard + mailbox -->
+          <aside>
+            <div class="ct-card">
+              <div class="ct-top">
+                <span class="ct-to">or write to:</span>
                 <svg
-                  viewBox="0 0 60 60"
+                  class="ct-pm ct-wob"
+                  viewBox="0 0 120 120"
                   aria-hidden="true"
-                  style="
-                    display: inline-block;
-                    width: 16px;
-                    height: 16px;
-                    vertical-align: 0px;
-                    margin-right: 0px;
-                    fill: none;
-                    stroke: currentColor;
-                    stroke-width: 4;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
-                  "
                 >
-                  <path class="dr" d="M14 12H46V54H14Z M22 6H38V18H22Z" />
-                </svg></button
-              ><span
-                id="cpm"
-                class="lab"
-                role="status"
-                aria-live="polite"
-                style="margin-left: 6px"
-              ></span
-              ><br /><svg
-                viewBox="0 0 60 60"
-                aria-hidden="true"
-                style="
-                  display: inline-block;
-                  width: 18px;
-                  height: 18px;
-                  vertical-align: -4px;
-                  margin-right: 6px;
-                  fill: none;
-                  stroke: currentColor;
-                  stroke-width: 4;
-                  stroke-linecap: round;
-                  stroke-linejoin: round;
-                "
-              >
-                <path
-                  class="dr"
-                  d="M20 18L8 30L20 42 M40 18L52 30L40 42 M34 14L26 46"
-                /></svg
-              >github:
-              <a
-                href="https://github.com/Eijkeyal"
-                target="_blank"
-                rel="noopener"
-                >Eijkeyal</a
-              ><br /><svg
-                viewBox="0 0 60 60"
-                aria-hidden="true"
-                style="
-                  display: inline-block;
-                  width: 18px;
-                  height: 18px;
-                  vertical-align: -4px;
-                  margin-right: 6px;
-                  fill: none;
-                  stroke: currentColor;
-                  stroke-width: 4;
-                  stroke-linecap: round;
-                  stroke-linejoin: round;
-                "
-              >
-                <path
-                  class="dr"
-                  d="M12 22V46 M12 11V12 M24 46V22 M24 32C24 21 46 20 46 32V46"
-                /></svg
-              >linkedin:
-              <a
-                href="https://www.linkedin.com/in/eijkeyalpakhrin/"
-                target="_blank"
-                rel="noopener"
-                >Eijkeyal</a
-              ><br /><svg
-                viewBox="0 0 60 60"
-                aria-hidden="true"
-                style="
-                  display: inline-block;
-                  width: 18px;
-                  height: 18px;
-                  vertical-align: -4px;
-                  margin-right: 6px;
-                  fill: none;
-                  stroke: currentColor;
-                  stroke-width: 4;
-                  stroke-linecap: round;
-                  stroke-linejoin: round;
-                "
-              >
-                <path
-                  class="dr"
-                  d="M30 10A8 8 0 1 1 29.9 10Z M24 24H36 M26 24C26 34 22 38 20 46H40C38 38 34 34 34 24 M16 50H44"
-                /></svg
-              >chess.com:
-              <a
-                href="https://www.chess.com/member/jessica_babe"
-                target="_blank"
-                rel="noopener"
-                >jessica_babe</a
-              ><br /><svg
-                viewBox="0 0 60 60"
-                aria-hidden="true"
-                style="
-                  display: inline-block;
-                  width: 18px;
-                  height: 18px;
-                  vertical-align: -4px;
-                  margin-right: 6px;
-                  fill: none;
-                  stroke: currentColor;
-                  stroke-width: 4;
-                  stroke-linecap: round;
-                  stroke-linejoin: round;
-                "
-              >
-                <path
-                  class="dr"
-                  d="M30 54C18 40 14 32 14 24A16 16 0 0 1 46 24C46 32 42 40 30 54Z M30 18A6 6 0 1 1 29.9 18Z"
-                /></svg
-              >Nepal
+                  <defs>
+                    <path
+                      id="ct-cir"
+                      d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"
+                    />
+                  </defs>
+                  <g class="ct-spin" fill="none" stroke="#2a2823">
+                    <circle cx="60" cy="60" r="55" stroke-width="2" />
+                    <circle cx="60" cy="60" r="28" stroke-width="1.5" />
+                    <text
+                      stroke="none"
+                      fill="#2a2823"
+                      font-family="'Special Elite',monospace"
+                      font-size="11"
+                    >
+                      <textPath
+                        href="#ct-cir"
+                        textLength="256"
+                        lengthAdjust="spacing"
+                      >
+                        eijkeyal · nepal · write soon ·
+                      </textPath>
+                    </text>
+                    <path
+                      d="M60 48v24M48 60h24M52 52l16 16M68 52L52 68"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                </svg>
+                <svg
+                  class="ct-stamp ct-wob"
+                  viewBox="0 0 96 112"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="5"
+                    y="5"
+                    width="86"
+                    height="102"
+                    rx="2"
+                    fill="#f2c14e"
+                    stroke="#fbf8ee"
+                    stroke-width="9"
+                    stroke-dasharray="0 11"
+                    stroke-linecap="round"
+                  />
+                  <rect
+                    x="14"
+                    y="14"
+                    width="68"
+                    height="84"
+                    fill="none"
+                    stroke="#2a2823"
+                    stroke-width="2.5"
+                  />
+                  <g
+                    transform="translate(24 18) scale(.8)"
+                    fill="none"
+                    stroke="#2a2823"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      class="ct-dd"
+                      pathLength="1"
+                      style="--i: 3"
+                      d="M10 50L14 36L40 10L50 20L24 46Z M34 16L44 26 M10 50L24 46"
+                    />
+                  </g>
+                  <text
+                    x="48"
+                    y="88"
+                    text-anchor="middle"
+                    font-family="Caveat,cursive"
+                    font-weight="700"
+                    font-size="14"
+                    fill="#2a2823"
+                  >
+                    first class
+                  </text>
+                </svg>
+              </div>
+              <ul class="ct-links">
+                <li>
+                  <svg viewBox="0 0 60 60" aria-hidden="true">
+                    <path d="M6 14H54V46H6Z M6 14L30 33L54 14" /></svg
+                  ><a href="mailto:eijkeyalpakhrin7@gmail.com"
+                    >eijkeyalpakhrin7@gmail.com</a
+                  ><button
+                    id="cpy"
+                    type="button"
+                    aria-label="Copy email address"
+                    title="Copy email"
+                  >
+                    <svg viewBox="0 0 60 60" aria-hidden="true">
+                      <path d="M14 12H46V54H14Z M22 6H38V18H22Z" />
+                    </svg></button
+                  ><span
+                    id="cpm"
+                    class="lab"
+                    role="status"
+                    aria-live="polite"
+                  ></span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 60 60" aria-hidden="true">
+                    <path
+                      d="M20 18L8 30L20 42 M40 18L52 30L40 42 M34 14L26 46"
+                    /></svg
+                  ><b>github:</b
+                  ><a
+                    href="https://github.com/Eijkeyal"
+                    target="_blank"
+                    rel="noopener"
+                    >Eijkeyal</a
+                  >
+                </li>
+                <li>
+                  <svg viewBox="0 0 60 60" aria-hidden="true">
+                    <path
+                      d="M12 22V46 M12 11V12 M24 46V22 M24 32C24 21 46 20 46 32V46"
+                    /></svg
+                  ><b>linkedin:</b
+                  ><a
+                    href="https://www.linkedin.com/in/eijkeyalpakhrin/"
+                    target="_blank"
+                    rel="noopener"
+                    >Eijkeyal</a
+                  >
+                </li>
+                <li>
+                  <svg viewBox="0 0 60 60" aria-hidden="true">
+                    <path
+                      d="M30 10A8 8 0 1 1 29.9 10Z M24 24H36 M26 24C26 34 22 38 20 46H40C38 38 34 34 34 24 M16 50H44"
+                    /></svg
+                  ><b>chess.com:</b
+                  ><a
+                    href="https://www.chess.com/member/jessica_babe"
+                    target="_blank"
+                    rel="noopener"
+                    >jessica_babe</a
+                  >
+                </li>
+                <li>
+                  <svg viewBox="0 0 60 60" aria-hidden="true">
+                    <path
+                      d="M30 54C18 40 14 32 14 24A16 16 0 0 1 46 24C46 32 42 40 30 54Z M30 18A6 6 0 1 1 29.9 18Z"
+                    /></svg
+                  >Nepal
+                </li>
+              </ul>
             </div>
-          </div>
+
+            <div class="ct-mbx" id="ctm">
+              <div class="ct-svgw">
+                <button
+                  type="button"
+                  class="ct-catbtn"
+                  id="ctcat"
+                  aria-label="Poke the sleeping cat"
+                ></button
+                ><span
+                  class="ct-say"
+                  id="cts"
+                  role="status"
+                  aria-live="polite"
+                ></span>
+                <svg class="ct-wob" viewBox="0 -40 170 240" aria-hidden="true">
+                  <path
+                    class="ct-dd"
+                    pathLength="1"
+                    style="--i: 0"
+                    d="M86 112V192 M60 192H112 M120 192q4-14 10-18 M128 192q8-8 16-8 M42 192q-2-12-10-16"
+                  />
+                  <g class="ct-body">
+                    <path
+                      class="ct-dd"
+                      pathLength="1"
+                      style="--i: 1"
+                      d="M38 112V74C38 46 58 30 85 30s47 16 47 44v38Z"
+                    />
+                    <path
+                      class="ct-dd"
+                      pathLength="1"
+                      style="--i: 2"
+                      d="M58 80H112"
+                    />
+                    <text
+                      x="85"
+                      y="104"
+                      text-anchor="middle"
+                      font-family="Caveat,cursive"
+                      font-size="22"
+                      fill="currentColor"
+                      stroke="none"
+                    >
+                      mail
+                    </text>
+                    <g class="ct-cat">
+                      <path class="ct-tail" d="M108 28C124 28 126 10 120 4" />
+                      <path d="M62 30C60 14 70 6 85 8C100 6 110 14 108 30" />
+                      <circle cx="85" cy="-6" r="14" />
+                      <path d="M73 -16L71 -31L83 -20M97 -16L99 -31L87 -20" />
+                      <g class="ct-ec">
+                        <path d="M77 -7q3 3 6 0M87 -7q3 3 6 0" />
+                      </g>
+                      <g class="ct-eo">
+                        <circle cx="80" cy="-7" r="1.8" fill="currentColor" />
+                        <circle cx="90" cy="-7" r="1.8" fill="currentColor" />
+                      </g>
+                      <path
+                        d="M83 -1l2 2 2-2M72 -2h-9M98 -2h9"
+                        stroke-width="2.5"
+                      />
+                      <text
+                        class="ct-zz"
+                        x="108"
+                        y="-18"
+                        fill="currentColor"
+                        stroke="none"
+                      >
+                        z
+                      </text>
+                    </g>
+                    <g class="ct-flag">
+                      <path d="M132 92V42" />
+                      <path d="M132 42H158V60H132" fill="#e07a7a" />
+                      <circle cx="132" cy="92" r="3.5" fill="currentColor" />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <p class="ct-cap" id="ctc">
+                the flag pops up when you start writing
+              </p>
+            </div>
+          </aside>
         </div>
-        <footer>
-          <svg
-            viewBox="0 0 60 60"
-            aria-hidden="true"
-            style="
-              display: inline-block;
-              width: 16px;
-              height: 16px;
-              vertical-align: -3px;
-              margin-right: 4px;
-              fill: none;
-              stroke: currentColor;
-              stroke-width: 4;
-              stroke-linecap: round;
-              stroke-linejoin: round;
-            "
-          >
+
+        <svg
+          class="ct-scene ct-wob"
+          id="ctsc"
+          viewBox="0 0 1000 230"
+          aria-hidden="true"
+        >
+          <g class="ct-sc-sun">
+            <circle
+              cx="890"
+              cy="52"
+              r="20"
+              fill="#f2c14e"
+              fill-opacity=".45"
+              stroke="#f2c14e"
+            />
+            <g class="ct-sun-r2" stroke="#f2c14e">
+              <path
+                d="M890 14v10M890 80v10M852 52h10M918 52h10M863 25l7 7M910 72l7 7M917 25l-7 7M870 72l-7 7"
+              />
+            </g>
+          </g>
+          <g class="ct-cl" style="--d: 22s">
             <path
-              class="dr"
-              d="M30 50C10 36 6 22 14 14C21 8 28 12 30 18C32 12 39 8 46 14C54 22 50 36 30 50Z"
-            /></svg
-          >made by hand, with a little code · © 2026 Eijkeyal Pakhrin
+              transform="translate(120 34)"
+              d="M8 32a10 10 0 0 1 2-20 14 14 0 0 1 26-4 12 12 0 0 1 22 8 9 9 0 0 1-2 16Z"
+              fill="#6f9bbd"
+              fill-opacity=".25"
+              stroke="#6f9bbd"
+            />
+          </g>
+          <g class="ct-cl" style="--d: 30s; animation-delay: -9s">
+            <path
+              transform="translate(560 16) scale(.8)"
+              d="M8 32a10 10 0 0 1 2-20 14 14 0 0 1 26-4 12 12 0 0 1 22 8 9 9 0 0 1-2 16Z"
+              fill="#6f9bbd"
+              fill-opacity=".25"
+              stroke="#6f9bbd"
+            />
+          </g>
+          <g class="ct-bird">
+            <g class="ct-wing">
+              <path d="M0 0q6-9 12 0q6-9 12 0" stroke-width="2.5" />
+            </g>
+          </g>
+          <path
+            class="ct-dd"
+            pathLength="1"
+            style="--i: 0"
+            d="M0 182C70 160 170 158 250 176C330 190 420 178 520 178S800 180 1000 168"
+          />
+          <path
+            d="M0 206C120 194 300 202 460 198S800 204 1000 196"
+            opacity=".35"
+            stroke-dasharray="6 10"
+          />
+          <path
+            d="M20 184l2-9M27 184l-1-7M410 182l2-8M418 182l-2-6M690 182l2-8M698 182l-1-6M930 172l2-8M938 172l-2-6"
+            stroke="#8fbf7a"
+            stroke-width="2.5"
+          />
+          <!-- house -->
+          <path
+            class="ct-dd"
+            pathLength="1"
+            style="--i: 1"
+            d="M80 178V128H170V178 M72 130L125 92L178 130Z M150 108V92h12v22"
+          />
+          <rect
+            class="ct-glow"
+            x="138"
+            y="138"
+            width="20"
+            height="16"
+            fill="#f2c14e"
+            stroke="none"
+          />
+          <path
+            d="M104 178V150H122V178 M138 138h20v16h-20Z M148 138v16 M138 146h20"
+          />
+          <circle
+            class="ct-smoke"
+            cx="156"
+            cy="86"
+            r="6"
+            fill="currentColor"
+            fill-opacity=".3"
+            stroke="none"
+          />
+          <circle
+            class="ct-smoke"
+            cx="156"
+            cy="86"
+            r="6"
+            fill="currentColor"
+            fill-opacity=".3"
+            stroke="none"
+            style="animation-delay: 1.2s"
+          />
+          <circle
+            class="ct-smoke"
+            cx="156"
+            cy="86"
+            r="6"
+            fill="currentColor"
+            fill-opacity=".3"
+            stroke="none"
+            style="animation-delay: 2.4s"
+          />
+          <!-- tree -->
+          <g class="ct-tree">
+            <path d="M280 178V138" />
+            <path
+              d="M258 142a16 16 0 0 1 8-28 18 18 0 0 1 32 4 15 15 0 0 1-4 26Z"
+              fill="#8fbf7a"
+              fill-opacity=".5"
+              stroke="#6f9f5a"
+            />
+          </g>
+          <!-- flowers -->
+          <g transform="translate(450 178)">
+            <g class="ct-fw">
+              <path d="M0 0V-16" stroke="#6f9f5a" />
+              <circle cy="-21" r="5" fill="#e07a7a" stroke="none" />
+            </g>
+          </g>
+          <g transform="translate(480 178)">
+            <g class="ct-fw">
+              <path d="M0 0V-12" stroke="#6f9f5a" />
+              <circle cy="-17" r="4.5" fill="#f2c14e" stroke="none" />
+            </g>
+          </g>
+          <g transform="translate(620 178)">
+            <g class="ct-fw">
+              <path d="M0 0V-15" stroke="#6f9f5a" />
+              <circle cy="-20" r="5" fill="#6f9bbd" stroke="none" />
+            </g>
+          </g>
+          <!-- little post box at the end of the path -->
+          <g transform="translate(790 178)" id="ctpb">
+            <g class="ct-pbhop">
+              <g class="ct-pbflag">
+                <path d="M12 -16V-44" />
+                <path d="M12 -44h14v10H12" fill="#e07a7a" />
+              </g>
+              <path
+                class="ct-dd ct-pbody"
+                pathLength="1"
+                style="--i: 2"
+                d="M-12 0V-34a12 12 0 0 1 24 0V0Z"
+                fill="#e07a7a"
+                fill-opacity=".5"
+              />
+              <path d="M-6 -26h12" />
+              <g class="ct-env">
+                <path d="M-7 -33h14v8h-14Z M-7 -33l7 5 7-5" fill="#fbf8ee" />
+              </g>
+              <g class="ct-pbn">
+                <circle
+                  cx="-15"
+                  cy="-46"
+                  r="9"
+                  fill="#e07a7a"
+                  stroke-width="2"
+                />
+                <text
+                  id="ctpbt"
+                  x="-15"
+                  y="-42"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-weight="700"
+                  font-size="14"
+                  fill="#fff"
+                  stroke="none"
+                >
+                  1
+                </text>
+              </g>
+            </g>
+          </g>
+          <!-- the postman -->
+          <g transform="translate(340 178)">
+            <g class="ct-walk">
+              <g class="ct-man">
+                <g class="ct-lg1"><path d="M-3 -22V0h7" /></g>
+                <g class="ct-lg2"><path d="M3 -22V0h7" /></g>
+                <g class="ct-bob">
+                  <path
+                    d="M-10 -52H10V-22H-10Z"
+                    fill="#6f9bbd"
+                    fill-opacity=".6"
+                  />
+                  <path
+                    d="M-14 -35h13v12h-13Z"
+                    fill="#f2c14e"
+                    fill-opacity=".85"
+                  />
+                  <path d="M-10 -48L-17 -34" />
+                  <g class="ct-arm2">
+                    <path d="M10 -48L22 -40" />
+                    <path
+                      class="ct-let"
+                      d="M20 -50h12v9h-12Z M20 -50l6 5 6-5"
+                      fill="#fbf8ee"
+                    />
+                  </g>
+                  <circle cy="-62" r="10" fill="#f3d9a8" />
+                  <path d="M4 -64h.1M0 -58q5 4 9 0" stroke-width="2.5" />
+                  <path
+                    d="M-11 -66a11 11 0 0 1 22 0Z M6 -66h10"
+                    fill="#e07a7a"
+                  />
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+
+        <footer style="text-align: center; padding: 40px 20px">
+          <p style="margin: 0">
+            <svg
+              viewBox="0 0 60 60"
+              aria-hidden="true"
+              style="
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                vertical-align: -3px;
+                margin-right: 4px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 4;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              "
+            >
+              <path
+                class="dr"
+                d="M30 50C10 36 6 22 14 14C21 8 28 12 30 18C32 12 39 8 46 14C54 22 50 36 30 50Z"
+              />
+            </svg>
+            made by hand, with a little code · © 2026 Eijkeyal Pakhrin
+          </p>
+
+          <p
+            class="lab"
+            style="margin-top: 8px; font-size: 0.85em; opacity: 0.85"
+          >
+            Just one more adjustment... (the tea went cold hours ago, but the
+            optimization continues).
+          </p>
         </footer>
+
         <script>
           (function () {
-            // paper plane takes off when you press send (your own send code is untouched)
-            var plane = document.getElementById("pln");
-            var reduce = window.matchMedia(
-              "(prefers-reduced-motion: reduce)",
-            ).matches;
-            document
-              .getElementById("fs")
-              .addEventListener("click", function () {
-                if (reduce || !document.getElementById("fm").value.trim())
-                  return;
-                plane.classList.remove("fly");
-                void plane.getBoundingClientRect();
-                plane.classList.add("fly");
-                setTimeout(function () {
-                  plane.classList.remove("fly");
-                }, 1400);
+            var $ = function (i) {
+              return document.getElementById(i);
+            };
+            var root = $("contact"),
+              grid = root.querySelector(".ct-grid"),
+              fm = $("fm"),
+              fs = $("fs"),
+              pln = $("pln"),
+              mb = $("ctm"),
+              cap = $("ctc"),
+              letter = root.querySelector(".ct-letter"),
+              pen = root.querySelector(".ct-pen"),
+              wt,
+              tr = $("ctt"),
+              mp = $("ct-mp"),
+              busy = false,
+              reduce = window.matchMedia(
+                "(prefers-reduced-motion: reduce)",
+              ).matches;
+
+            if (reduce)
+              root.querySelectorAll("animate").forEach(function (a) {
+                a.remove();
               });
 
-            // copy email button
-            var msg = document.getElementById("cpm");
-            document
-              .getElementById("cpy")
-              .addEventListener("click", function () {
-                var email = "eijkeyalpakhrin7@gmail.com";
-                function done(ok) {
-                  msg.textContent = ok ? "copied ✓" : "press Ctrl+C to copy";
-                  setTimeout(function () {
-                    msg.textContent = "";
-                  }, 2000);
+            // doodles draw themselves once when the section scrolls into view
+            if (!reduce && "IntersectionObserver" in window) {
+              root.classList.add("ct-js");
+              var io = new IntersectionObserver(
+                function (e) {
+                  if (e[0].isIntersecting) {
+                    root.classList.add("ct-in");
+                    io.disconnect();
+                  }
+                },
+                { threshold: 0.2 },
+              );
+              io.observe(root);
+            }
+
+            // lined paper: the textarea grows in whole lines; the mailbox flag follows your writing
+            function sync() {
+              fm.style.height = "auto";
+              fm.style.height =
+                Math.max(170, Math.ceil(fm.scrollHeight / 34) * 34) + "px";
+              var on = fm.value.trim() !== "";
+              letter.classList.toggle("has", on);
+              mb.classList.toggle("up", on);
+              cap.textContent = on
+                ? "flag's up: your letter is ready to go"
+                : "the flag pops up when you start writing";
+            }
+            fm.addEventListener("input", function () {
+              sync();
+              pen.classList.add("wr");
+              clearTimeout(wt);
+              wt = setTimeout(function () {
+                pen.classList.remove("wr");
+              }, 260);
+            });
+            sync();
+
+            // starter lines (only fill an empty page, never overwrite your own words)
+            var chips = [].slice.call(
+              root.querySelectorAll(".ct-chips button"),
+            );
+            var starters = chips.map(function (c) {
+              return c.getAttribute("data-t");
+            });
+            chips.forEach(function (b) {
+              b.addEventListener("click", function () {
+                if (fm.value.trim() === "" || starters.indexOf(fm.value) > -1) {
+                  fm.value = b.getAttribute("data-t");
+                  chips.forEach(function (c) {
+                    c.setAttribute("aria-pressed", c === b ? "true" : "false");
+                  });
+                  fm.dispatchEvent(new Event("input", { bubbles: true }));
                 }
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                  navigator.clipboard.writeText(email).then(
-                    function () {
-                      done(true);
+                fm.focus();
+                fm.setSelectionRange(fm.value.length, fm.value.length);
+              });
+            });
+
+            function burst(x, y) {
+              if (reduce) return;
+              for (var i = 0; i < 9; i++) {
+                var s = document.createElement("i"),
+                  a = (i / 9) * 6.283 + Math.random() * 0.6,
+                  r = 26 + Math.random() * 28;
+                s.className = i % 3 ? "ct-sp" : "ct-sp ct-h";
+                if (!(i % 3)) s.textContent = "♥";
+                s.style.left = x + "px";
+                s.style.top = y + "px";
+                s.style.background = i % 2 ? "#f2c14e" : "#e07a7a";
+                grid.appendChild(s);
+                s.animate(
+                  [
+                    { transform: "translate(-50%,-50%) scale(1)", opacity: 1 },
+                    {
+                      transform:
+                        "translate(calc(-50% + " +
+                        Math.cos(a) * r +
+                        "px),calc(-50% + " +
+                        Math.sin(a) * r +
+                        "px)) scale(.2)",
+                      opacity: 0,
                     },
-                    function () {
-                      done(false);
+                  ],
+                  { duration: 650, easing: "ease-out" },
+                ).onfinish = (function (el) {
+                  return function () {
+                    el.remove();
+                  };
+                })(s);
+              }
+            }
+
+            // paper plane flies along a curve to the mailbox, leaving a dotted trail
+            var cnt = 0;
+            function curX(el) {
+              var m = getComputedStyle(el).transform;
+              return m && m !== "none" ? new DOMMatrix(m).m41 : 0;
+            }
+            fs.addEventListener("click", function () {
+              if (busy || fm.value.trim() === "" || reduce) return;
+              busy = true;
+              var air = root.querySelector(".ct-air");
+              air.animate(
+                [
+                  {
+                    opacity: 0,
+                    transform: "translate(-50%,-50%) rotate(-14deg) scale(2.4)",
+                  },
+                  {
+                    opacity: 0.9,
+                    transform: "translate(-50%,-50%) rotate(-14deg) scale(1)",
+                    offset: 0.14,
+                  },
+                  { opacity: 0.9, offset: 0.8 },
+                  { opacity: 0 },
+                ],
+                { duration: 1800, easing: "ease-out" },
+              );
+              letter.animate(
+                [
+                  { transform: "rotate(-.9deg)" },
+                  { transform: "rotate(.4deg) translateY(2px)", offset: 0.15 },
+                  { transform: "rotate(-.9deg)" },
+                ],
+                { duration: 420, delay: 230 },
+              );
+              // the postman stops walking, faces right and looks up for the plane
+              var sc = $("ctsc"),
+                walk = sc.querySelector(".ct-walk"),
+                man = sc.querySelector(".ct-man"),
+                hand = sc.querySelector(".ct-arm2"),
+                lt = sc.querySelector(".ct-let"),
+                x0w = curX(walk);
+              walk.style.animation = "none";
+              walk.style.transform = "translateX(" + x0w + "px)";
+              man.style.animation = "none";
+              man.style.transform = "scaleX(1)";
+              sc.classList.add("stop");
+              sc.scrollIntoView({ behavior: "smooth", block: "nearest" });
+              var pr = pln.getBoundingClientRect(),
+                gr = grid.getBoundingClientRect(),
+                hr = hand.getBoundingClientRect();
+              var sx = pr.left + pr.width / 2,
+                sy = pr.top + pr.height / 2,
+                tx = hr.left + hr.width * 0.7,
+                ty = hr.top + hr.height * 0.4;
+              var dx = tx - sx,
+                dy = ty - sy,
+                cx = dx / 2,
+                cy = dy / 2 - 90,
+                f = [];
+              for (var i = 0; i <= 12; i++) {
+                var t = i / 12,
+                  u = 1 - t,
+                  x = 2 * u * t * cx + t * t * dx,
+                  y = 2 * u * t * cy + t * t * dy,
+                  vx = 2 * u * cx + 2 * t * (dx - cx),
+                  vy = 2 * u * cy + 2 * t * (dy - cy),
+                  ang = (Math.atan2(vy, vx) * 180) / Math.PI + 42.5;
+                f.push({
+                  offset: t,
+                  opacity: t < 0.85 ? 1 : (1 - t) / 0.15,
+                  transform:
+                    "translate(" +
+                    x +
+                    "px," +
+                    y +
+                    "px) rotate(" +
+                    ang +
+                    "deg) scale(" +
+                    (1 - 0.6 * t * t) +
+                    ")",
+                });
+              }
+              var x0 = sx - gr.left,
+                y0 = sy - gr.top,
+                d =
+                  "M" +
+                  x0 +
+                  " " +
+                  y0 +
+                  " Q" +
+                  (x0 + cx) +
+                  " " +
+                  (y0 + cy) +
+                  " " +
+                  (x0 + dx) +
+                  " " +
+                  (y0 + dy);
+              tr.getAnimations().forEach(function (a) {
+                a.cancel();
+              });
+              tr.setAttribute("d", d);
+              mp.setAttribute("d", d);
+              var len = mp.getTotalLength(),
+                ease = "cubic-bezier(.35,0,.7,.7)";
+              mp.setAttribute("stroke-dasharray", len);
+              mp.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], {
+                duration: 1100,
+                easing: ease,
+                fill: "forwards",
+              });
+              var a = pln.animate(f, {
+                duration: 1100,
+                easing: ease,
+                fill: "forwards",
+              });
+              a.finished.then(function () {
+                a.cancel();
+                pln.animate(
+                  [
+                    { opacity: 0, transform: "scale(.2) rotate(-12deg)" },
+                    { opacity: 1, transform: "none" },
+                  ],
+                  { duration: 400, delay: 150, fill: "backwards" },
+                );
+                burst(tx - gr.left, ty - gr.top);
+                mb.classList.remove("up");
+                mb.classList.add("got");
+                cap.textContent = "the postman has it!";
+                tr.animate([{ opacity: 1 }, { opacity: 0 }], {
+                  duration: 600,
+                  delay: 300,
+                  fill: "forwards",
+                });
+                setTimeout(function () {
+                  mb.classList.remove("got");
+                }, 1300);
+
+                // the postman runs the letter to the post box
+                var BOX = 420,
+                  run = walk.animate(
+                    [
+                      { transform: "translateX(" + x0w + "px)" },
+                      { transform: "translateX(" + BOX + "px)" },
+                    ],
+                    {
+                      duration: Math.max(900, (BOX - x0w) * 3.4),
+                      easing: "ease-in-out",
+                      fill: "forwards",
                     },
                   );
-                } else {
-                  done(false);
-                }
+                sc.classList.remove("stop");
+                sc.classList.add("run");
+                run.finished.then(function () {
+                  sc.classList.remove("run");
+                  sc.classList.add("stop");
+                  lt.animate(
+                    [
+                      { transform: "none", opacity: 1 },
+                      {
+                        transform: "translate(6px,16px)",
+                        opacity: 1,
+                        offset: 0.6,
+                      },
+                      { transform: "translate(6px,16px)", opacity: 0 },
+                    ],
+                    { duration: 800, fill: "forwards" },
+                  );
+                  setTimeout(function () {
+                    // the post box changes: yellow, flag up, letter peeking out, count badge
+                    cnt++;
+                    $("ctpbt").textContent = cnt;
+                    sc.classList.add("full");
+                    var pb = $("ctpb"),
+                      r = pb.getBoundingClientRect(),
+                      g = grid.getBoundingClientRect();
+                    burst(
+                      r.left + r.width / 2 - g.left,
+                      r.top + r.height * 0.3 - g.top,
+                    );
+                    pb.firstElementChild.animate(
+                      [
+                        { transform: "translateY(0)" },
+                        { transform: "translateY(-9px)", offset: 0.35 },
+                        { transform: "translateY(0)", offset: 0.6 },
+                        { transform: "translateY(-4px)", offset: 0.8 },
+                        { transform: "translateY(0)" },
+                      ],
+                      { duration: 650 },
+                    );
+                    $("ctpbt").parentNode.animate(
+                      [
+                        { transform: "scale(.2)" },
+                        { transform: "scale(1.3)", offset: 0.6 },
+                        { transform: "scale(1)" },
+                      ],
+                      { duration: 500 },
+                    );
+                    sc.classList.add("wave");
+                    setTimeout(function () {
+                      sc.classList.remove("wave");
+                    }, 2200);
+                    // then he strolls back and the usual walk loop resumes
+                    setTimeout(function () {
+                      man.style.transform = "scaleX(-1)";
+                      sc.classList.remove("stop");
+                      var back = walk.animate(
+                        [
+                          { transform: "translateX(" + BOX + "px)" },
+                          { transform: "translateX(0px)" },
+                        ],
+                        {
+                          duration: 6000,
+                          easing: "ease-in-out",
+                          fill: "forwards",
+                        },
+                      );
+                      back.finished.then(function () {
+                        back.cancel();
+                        run.cancel();
+                        lt.getAnimations().forEach(function (an) {
+                          an.cancel();
+                        });
+                        walk.style.animation = "";
+                        walk.style.transform = "";
+                        man.style.animation = "";
+                        man.style.transform = "";
+                        busy = false;
+                        sync();
+                      });
+                    }, 1700);
+                  }, 700);
+                });
               });
+            });
+
+            // poke the cat: it wakes up and says something
+            var say = $("cts"),
+              ci = 0,
+              ctm,
+              lines = [
+                "psst… write something!",
+                "meow. (that means hi)",
+                "I'm awake, I'm awake…",
+                "purr purr ♥",
+                "Eijkeyal reads every message",
+                "nap interrupted. worth it.",
+              ];
+            $("ctcat").addEventListener("click", function () {
+              say.textContent = lines[ci++ % lines.length];
+              say.classList.add("on");
+              if (!busy) mb.classList.add("got");
+              var r = this.getBoundingClientRect(),
+                g = grid.getBoundingClientRect();
+              burst(
+                r.left + r.width / 2 - g.left,
+                r.top + r.height * 0.3 - g.top,
+              );
+              clearTimeout(ctm);
+              ctm = setTimeout(function () {
+                say.classList.remove("on");
+                if (!busy) mb.classList.remove("got");
+              }, 2800);
+            });
+
+            // doodle stickers add a little drawing to your note
+            [].forEach.call(
+              root.querySelectorAll(".ct-stk button"),
+              function (b) {
+                b.addEventListener("click", function () {
+                  fm.value += b.getAttribute("data-s");
+                  fm.dispatchEvent(new Event("input", { bubbles: true }));
+                  var r = b.getBoundingClientRect(),
+                    g = grid.getBoundingClientRect();
+                  burst(
+                    r.left + r.width / 2 - g.left,
+                    r.top + r.height / 2 - g.top,
+                  );
+                });
+              },
+            );
+
+            // the placeholder keeps suggesting things while the page is empty
+            var ph = [
+                "write your message here… a question, a project idea, or just hello",
+                "tell me about the thing you want to build…",
+                "got a bug that needs a second pair of eyes?",
+                "or just say hi. I like hi.",
+                "what should we make together?",
+              ],
+              pi = 0;
+            if (!reduce)
+              setInterval(function () {
+                if (fm.value === "" && document.activeElement !== fm)
+                  fm.setAttribute("placeholder", ph[++pi % ph.length]);
+              }, 3800);
+
+            // copy email button
+            var msg = $("cpm");
+            $("cpy").addEventListener("click", function (ev) {
+              var email = "eijkeyalpakhrin7@gmail.com",
+                b = ev.currentTarget.getBoundingClientRect(),
+                gr = grid.getBoundingClientRect();
+              function done(ok) {
+                msg.textContent = ok ? "copied ✓" : "press Ctrl+C to copy";
+                if (ok)
+                  burst(
+                    b.left + b.width / 2 - gr.left,
+                    b.top + b.height / 2 - gr.top,
+                  );
+                setTimeout(function () {
+                  msg.textContent = "";
+                }, 2000);
+              }
+              if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(
+                  function () {
+                    done(true);
+                  },
+                  function () {
+                    done(false);
+                  },
+                );
+              } else {
+                done(false);
+              }
+            });
           })();
         </script>
       </section>
@@ -3454,81 +5477,105 @@
         [
           "Project Management System",
           "A full-stack tool for tracking project timelines, managing team tasks, and visualizing workflow progress.",
-          "React · Node.js · Express · TypeScript · PostgreSQL",
+          "React · Node.js · Express · TypeScript · PostgreSQL · Supabase · CI/CD",
+          "https://github.com/Eijkeyal/project-management-devops.git", // Live Demo (Same as Source)
+          "https://github.com/Eijkeyal/project-management-devops.git", // Source
         ],
         [
-          "QuizArena",
+          "QuizArena DevOps",
           "A full-stack quiz platform featuring real-time scoring, user authentication, and a fully automated CI/CD deployment pipeline.",
-          "React · Node.js · Express · AWS · Docker · CI/CD",
+          "React · Node.js · Express · AWS · Docker · CI/CD · MongoDB",
+          "https://github.com/Eijkeyal/quuizArena-devops.git", // Live Demo (Same as Source)
+          "https://github.com/Eijkeyal/quuizArena-devops.git", // Source
         ],
         [
           "DSA PlayGround",
           "An interactive visualization tool that animates how data structures and algorithms work step-by-step, complete with detailed explanations to help learners grasp complex logic.",
           "JavaScript · Algorithms · Data Structures",
+          "https://dsa-play-ground.vercel.app/", // Live Demo
+          "https://github.com/Eijkeyal/Dsa-PlayGround.git", // Source
         ],
         [
-          "Thaha Messaging App",
+          "Thaha Messaging WebApp",
           "A real-time chat application designed for instant messaging with a clean, responsive user interface.",
-          "Java · Spring Boot · AWS · DevOps · Socket.io",
+          "Java · Spring Boot · AWS · DevOps · Socket.io · MySql",
+          "https://github.com/Eijkeyal/thaha-messaging-webapp.git", // Live Demo (Same as Source)
+          "https://github.com/Eijkeyal/thaha-messaging-webapp.git", // Source
         ],
         [
           "JerseyPasal E-commerce",
           "A complete online shopping platform featuring secure user authentication, cart management, and order processing.",
           "Java · JSP · Servlets · SQL",
+          "https://github.com/Eijkeyal/JerseyPasal-Ecommerce.git", // Live Demo (Same as Source)
+          "https://github.com/Eijkeyal/JerseyPasal-Ecommerce.git", // Source
         ],
         [
           "GoCart DevOps Pipeline",
           "A robust e-commerce backend integrated with a complete CI/CD pipeline for automated testing and seamless deployment.",
           "Docker · DevOps · CI/CD · AWS · EC2",
+          "https://gocart-gs.vercel.app", // Live Demo
+          "https://github.com/Eijkeyal/gocart.git", // Source
         ],
-
         [
           "SajiloYatra Database Design",
           "A comprehensive relational database architecture designed to manage intercity travel bookings, routes, and user data.",
           "SQL · Database Architecture · ERD · Normalization",
+          "https://github.com/Eijkeyal/SajiloYatra-Intercity-Travel-Management-System-Database-Design.git", // Live Demo (Same as Source)
+          "https://github.com/Eijkeyal/SajiloYatra-Intercity-Travel-Management-System-Database-Design.git", // Source
+        ],
+        [
+          "DevOps Cycle",
+          "A live implementation of a complete DevOps workflow, featuring automated deployments and continuous integration.",
+          "DevOps · CI/CD · Vercel · GitHub Actions",
+          "https://devops-cycle.vercel.app/", // Live Demo
+          "https://github.com/Eijkeyal/Devops-Cycle.git", // Source
         ],
         [
           "Shoes Wear Management System",
           "A responsive, interactive storefront interface for browsing and managing shoe inventory with dynamic cart features.",
           "HTML · CSS · JavaScript",
+          "https://github.com/Eijkeyal/SpeedzWear-shoe-Management-System.git", // Live Demo (Same as Source)
+          "https://github.com/Eijkeyal/SpeedzWear-shoe-Management-System.git", // Source
         ],
       ];
+
       document.getElementById("gr").innerHTML = projects
         .map(
-          ([t, d, s]) => `
-    <div class="rvw rv" style="height: 100%;">
-      <div class="cw" style="height: 100%;">
-        <div class="card" role="button" tabindex="0" aria-label="${t}, tap to flip">
-          
-          <!-- FRONT -->
-          <div class="f">
-            <h3>${t}</h3>
-            <p>${d}</p>
-            <span class="lab hint">tap to flip →</span>
-          </div>
-
-          <!-- BACK -->
-          <div class="f back">
-            <h3>${t}</h3>
-            
-            <div class="tech-stack">
-              <span class="lab">built with:</span>
-              <p>${s}</p>
-            </div>
-            
-            <div class="back-links">
-              <a href="#">live demo ↗</a>
-              <a href="#">source ↗</a>
-            </div>
-            
-            <span class="lab hint">← flip back</span>
-          </div>
-
+          ([t, d, s, demoLink, sourceLink]) => `
+  <div class="rvw rv" style="height: 100%;">
+    <div class="cw" style="height: 100%;">
+      <div class="card" role="button" tabindex="0" aria-label="${t}, tap to flip">
+        
+        <!-- FRONT -->
+        <div class="f">
+          <h3>${t}</h3>
+          <p>${d}</p>
+          <span class="lab hint">tap to flip →</span>
         </div>
+
+        <!-- BACK -->
+        <div class="f back">
+          <h3>${t}</h3>
+          
+          <div class="tech-stack">
+            <span class="lab">built with:</span>
+            <p>${s}</p>
+          </div>
+          
+          <div class="back-links">
+            ${demoLink ? `<a href="${demoLink}" target="_blank" rel="noopener">live demo ↗</a>` : ""}
+            ${sourceLink ? `<a href="${sourceLink}" target="_blank" rel="noopener">source ↗</a>` : ""}
+          </div>
+          
+          <span class="lab hint">← flip back</span>
+        </div>
+
       </div>
-    </div>`,
+    </div>
+  </div>`,
         )
         .join("");
+
       // flip cards
       $(".card").forEach((c) => {
         let f = false;
@@ -3571,10 +5618,8 @@
         cv: "M10 4 L25 4 L32 11 L32 36 L10 36 Z M25 4 L25 11 L32 11 M15 19 L27 19 M15 25 L27 25 M15 31 L23 31",
       };
       // ===== Résumé links: replace REPO with your GitHub repository name (and "main" if your branch differs) =====
-      const CV_VIEW =
-        "https://github.com/Eijkeyal/REPO/blob/main/Eijkeyal-Pakhrin-CV.pdf";
-      const CV_DOWNLOAD =
-        "https://raw.githubusercontent.com/Eijkeyal/REPO/main/Eijkeyal-Pakhrin-CV.pdf";
+      const CV_VIEW = "Eijkeyal_Pakhrin_Software_Developer_CV.pdf";
+      const CV_DOWNLOAD = "Eijkeyal_Pakhrin_Software_Developer_CV.pdf";
 
       const LK = [
         [
@@ -3626,11 +5671,27 @@
           if (dl) {
             const ico = (d) =>
               `<svg viewBox="0 0 40 40" aria-hidden="true" style="width:13px;height:13px;flex:none;fill:none;stroke:currentColor;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round"><path d="${d}"/></svg>`;
+
             const pill = (attrs, d, label) =>
-              `<a class="rb" ${attrs} style="display:inline-flex;align-items:center;gap:5px;padding:2px 11px;border:1.5px solid currentColor;border-radius:99px;font-size:.78em;line-height:1.3;color:inherit;text-decoration:none;background:transparent;box-shadow:1.5px 2px 0 currentColor">${ico(d)}${label}</a>`;
+              `<a class="rb" ${attrs} style="display:inline-flex;align-items:center;gap:5px;padding:2px 11px;border:1.5px solid currentColor;border-radius:99px;font-size:.78em;line-height:1.3;color:inherit;text-decoration:none;background:transparent;box-shadow:1.5px 2px 0 currentColor;white-space:nowrap">${ico(d)}${label}</a>`;
+
             // a <div class="lc"> (not a link) so the two buttons can be real links inside the card
-            return `<div class="rv lw"><style>#lk .rb{transition:transform .15s ease,box-shadow .15s ease}#lk .rb:hover{transform:translate(1px,1px);box-shadow:.5px .5px 0 currentColor}#lk .rb:focus-visible{outline:2px dashed currentColor;outline-offset:3px}@media(prefers-reduced-motion:reduce){#lk .rb{transition:none}}</style><div class="lc"><svg viewBox="0 0 40 40" aria-hidden="true"><path class="dr" d="${ICO[k]}"/></svg><span><h3>${n}</h3><span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">${pill(`href="${u}" target="_blank" rel="noopener" aria-label="View ${n} in a new tab"`, "M3 20C9 9 31 9 37 20C31 31 9 31 3 20Z M20 16A4 4 0 1 1 19.9 16Z", "view")}${pill(`href="${dl}" download="Eijkeyal-Pakhrin-CV.pdf" data-dl="Eijkeyal-Pakhrin-CV.pdf" aria-label="Download ${n} as a PDF"`, "M20 6V24 M12 17L20 25L28 17 M8 33H32", "download")}</span></span></div></div>`;
+            return `<div class="rv lw">
+              <style>#lk .rb{transition:transform .15s ease,box-shadow .15s ease}#lk .rb:hover{transform:translate(1px,1px);box-shadow:.5px .5px 0 currentColor}#lk .rb:focus-visible{outline:2px dashed currentColor;outline-offset:3px}@media(prefers-reduced-motion:reduce){#lk .rb{transition:none}}</style>
+              <div class="lc">
+                <svg viewBox="0 0 40 40" aria-hidden="true"><path class="dr" d="${ICO[k]}"/></svg>
+                <span style="flex: 1; min-width: 0;">
+                  <h3>${n}</h3>
+                  <span style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+                    ${pill(`href="${u}" target="_blank" rel="noopener" aria-label="View ${n} in a new tab"`, "M3 20C9 9 31 9 37 20C31 31 9 31 3 20Z M20 16A4 4 0 1 1 19.9 16Z", "view")}
+                    ${pill(`href="${dl}" download="Eijkeyal-Pakhrin-CV.pdf" data-dl="Eijkeyal-Pakhrin-CV.pdf" aria-label="Download ${n} as a PDF"`, "M20 6V24 M12 17L20 25L28 17 M8 33H32", "download")}
+                  </span>
+                </span>
+              </div>
+            </div>`;
           }
+
+          // (Keep your existing return statement for the other cards here)
 
           // Chess card: same card, plus two small doodles (a crown and a mini board) in the corners.
           if (k === "chess") {
@@ -3829,6 +5890,14 @@
           u: "s",
         },
         {
+          t: "Docker Foundations",
+          issuer: "Docker · LinkedIn Learning",
+          lv: "Professional Certificate",
+          d: "2026",
+          id: "7a59fe225cd0e909ea094a862276e2cb8a423fd5819b519cc40043a3e758562b",
+          u: "",
+        },
+        {
           t: "Full Stack Development",
           issuer: "Islington College", // The top label now correctly says Islington
           lv: "MERN Stack", // The bottom label
@@ -3870,11 +5939,35 @@
         },
         {
           t: "DevOps Foundations",
-          issuer: "LinkedIn Learning · CompTIA Authorized Partner",
-          lv: "3.0 CEUs",
+          issuer: "CompTIA",
+          lv: "Intermediate",
           d: "2026",
           id: "0bf2cfd924196b6ff2996db81a5df46748c6ac5f90231f06f783fb94f20014411",
           u: "s",
+        },
+        {
+          t: "Learning Docker",
+          issuer: "LinkedIn Learning",
+          lv: "Intermediate",
+          d: "2026",
+          id: "7ec741f80ae6b0a8d0edc843ce7b466afbaab3788060fd3lee03f56c8c205cd0",
+          u: "i",
+        },
+        {
+          t: "Learning Docker Compose",
+          issuer: "LinkedIn Learning",
+          lv: "Intermediate",
+          d: "2026",
+          id: "12a12c79c01dac85f77e75e909bd0746166eebc31b5a572ce746bf8e7643357a",
+          u: "i",
+        },
+        {
+          t: "Docker: Your First Project",
+          issuer: "LinkedIn Learning",
+          lv: "Intermediate",
+          d: "2026",
+          id: "99516f874a761243c16b7bdb0238376d525a605073e9d5e6ce4aae2235a2d91",
+          u: "i",
         },
         {
           t: "Next Certification",
