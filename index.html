@@ -2862,12 +2862,12 @@
         </div>
         <div class="two2 rv">
           <div class="sn">
-            <span class="lab">2024 – 2027</span>
+            <span class="lab">2024 – 2027 · London Met</span>
             <h3>B.Sc. Computer Science <span>@ Islington College</span></h3>
             <p>
               Studying with London Metropolitan University. Programming,
-              databases, algorithms, web development and software engineering,
-              which I put to work in side projects and group work.
+              databases, algorithms, web development and software engineering. I
+              put it all to work in side projects, hackathons, and group work.
             </p>
           </div>
 
@@ -2896,7 +2896,7 @@
             <span class="lab">on the side</span>
             <h3>Always learning</h3>
             <p>
-              12+ certifications earned. Active in GDG Kathmandu, Frogtoberfest,
+              17+ certifications earned. Active in GDG Kathmandu, Frogtoberfest,
               HackerRank, and AWS Cloud Club Tribhuvan University. Currently
               exploring Databricks, cloud, and databases.
             </p>
@@ -2914,7 +2914,1334 @@
         </div>
         <div class="tgrid" id="tg"></div>
       </section>
+      <!--Comment Here
+      <section id="achievements">
+        <style>
+          #achievements {
+            --ink: #2a2823;
+            --paper: #fbf9f1;
+            --sun: #f2c14e;
+            --coral: #e07a7a;
+            --sky: #6f9bbd;
+            --hand: Caveat, "Patrick Hand", cursive;
+            --pen: "Patrick Hand", Caveat, cursive;
+            position: relative;
+            overflow-x: clip;
+          }
 
+          /* filters (appear on their own once there are 5+ cards in 2+ groups) */
+          #achievements .ac-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 0;
+          }
+          #achievements .ac-filters:empty {
+            display: none;
+          }
+          #achievements .ac-filters button {
+            all: unset;
+            box-sizing: border-box;
+            cursor: pointer;
+            color: inherit;
+            font: 18px/1 var(--pen);
+            padding: 9px 16px 10px;
+            border: 2px solid currentColor;
+            border-radius: 255px 18px 225px 16px/16px 225px 18px 255px;
+            transition:
+              transform 0.2s,
+              background 0.2s;
+          }
+          #achievements .ac-filters button:hover {
+            transform: rotate(-2deg) translateY(-1px);
+          }
+          #achievements .ac-filters button[aria-pressed="true"] {
+            background: rgba(242, 193, 78, 0.45);
+          }
+
+          /* the board */
+          #achievements .ac-board {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 52px 34px;
+            padding: 38px 0 56px;
+          }
+          #achievements .ac-card {
+            position: relative;
+            margin: 0;
+            width: 100%;
+            max-width: 360px;
+            justify-self: center;
+            transform: rotate(var(--tilt, 0deg));
+            transition:
+              transform 0.35s cubic-bezier(0.3, 1.5, 0.5, 1),
+              opacity 0.25s;
+          }
+          #achievements .ac-card:hover,
+          #achievements .ac-card:focus-within {
+            transform: rotate(0) translateY(-6px) scale(1.03);
+            z-index: 4;
+          }
+          #achievements .ac-card.ac-slide {
+            animation: acslide 0.5s cubic-bezier(0.3, 1.4, 0.5, 1) backwards;
+          }
+          @keyframes acslide {
+            from {
+              opacity: 0;
+              transform: translateY(24px) scale(0.92);
+            }
+          }
+          #achievements .ac-card.ac-out {
+            opacity: 0;
+            transform: scale(0.9) rotate(var(--tilt, 0deg));
+          }
+          #achievements .ac-open {
+            all: unset;
+            display: block;
+            width: 100%;
+            cursor: zoom-in;
+          }
+          #achievements .ac-open:focus-visible {
+            outline: 2px dashed var(--coral);
+            outline-offset: 6px;
+          }
+          #achievements .ac-frame {
+            display: block;
+            position: relative;
+            background: var(--paper);
+            padding: 12px 12px 58px;
+            border: 1px solid #e0d8c8;
+            box-shadow:
+              4px 8px 0 rgba(42, 40, 35, 0.14),
+              0 1px 3px rgba(0, 0, 0, 0.18);
+          }
+          #achievements .ac-pic {
+            display: block;
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: #e9e3d3;
+          }
+          #achievements .ac-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          #achievements figcaption {
+            position: absolute;
+            left: 8px;
+            right: 8px;
+            bottom: 12px;
+            text-align: center;
+            color: var(--ink);
+            font: 700 25px/1.05 var(--hand);
+            transform: rotate(1deg);
+            pointer-events: none;
+          }
+          #achievements figcaption small {
+            display: block;
+            font: 17px/1.2 var(--pen);
+            opacity: 0.65;
+            margin-top: 2px;
+          }
+          #achievements .ac-tape {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            width: 86px;
+            height: 26px;
+            margin-left: -43px;
+            z-index: 5;
+            background: var(--tape, rgba(242, 193, 78, 0.82));
+            transform: rotate(-3deg);
+            clip-path: polygon(
+              0 0,
+              5% 25%,
+              0 50%,
+              5% 75%,
+              0 100%,
+              100% 100%,
+              95% 75%,
+              100% 50%,
+              95% 25%,
+              100% 0
+            );
+            transition: transform 0.35s;
+          }
+          #achievements .ac-card:nth-child(3n + 2) .ac-tape {
+            --tape: rgba(111, 155, 189, 0.72);
+            transform: rotate(4deg);
+          }
+          #achievements .ac-card:nth-child(3n) .ac-tape {
+            --tape: rgba(224, 122, 122, 0.7);
+            transform: rotate(-1deg);
+          }
+          #achievements .ac-card:hover .ac-tape {
+            transform: rotate(-8deg) translateY(-3px);
+          }
+
+          /* badges */
+          #achievements .ac-badge {
+            position: absolute;
+            top: -12px;
+            right: -10px;
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 13px 6px 8px;
+            background: var(--sun);
+            color: var(--ink);
+            border: 2px solid var(--ink);
+            border-radius: 255px 14px 225px 12px/12px 225px 14px 255px;
+            font: 19px/1 var(--pen);
+            transform: rotate(5deg);
+            box-shadow: 2px 3px 0 var(--ink);
+            overflow: hidden;
+          }
+          #achievements .ac-badge svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          #achievements .ac-badge::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -40%;
+            width: 30%;
+            background: linear-gradient(
+              100deg,
+              transparent,
+              rgba(255, 255, 255, 0.7),
+              transparent
+            );
+            transform: skewX(-20deg);
+            animation: acshine 4.5s ease-in-out infinite;
+          }
+          @keyframes acshine {
+            0%,
+            60% {
+              left: -40%;
+            }
+            100% {
+              left: 130%;
+            }
+          }
+
+          /* photos "develop" like a polaroid when they scroll in */
+          #achievements.ac-js .ac-img {
+            filter: grayscale(1) sepia(0.6) blur(7px) brightness(1.35);
+            transition: filter 1.5s ease 0.35s;
+          }
+          #achievements.ac-js .ac-card.in .ac-img {
+            filter: none;
+          }
+          #achievements.ac-js .ac-card:not(.in) {
+            opacity: 0;
+          }
+          #achievements.ac-js .ac-card.in {
+            animation: acdrop 0.85s cubic-bezier(0.3, 1.4, 0.5, 1) var(--d, 0s)
+              backwards;
+          }
+          @keyframes acdrop {
+            from {
+              opacity: 0;
+              transform: translateY(-44px) rotate(calc(var(--tilt, 0deg) * -3))
+                scale(0.94);
+            }
+          }
+
+          /* a photo that is not there yet */
+          #achievements .ac-miss .ac-img {
+            display: none;
+          }
+          #achievements .ac-miss .ac-open {
+            cursor: default;
+          }
+          #achievements .ac-miss .ac-pic,
+          #achievements .ac-soon .ac-pic {
+            display: grid;
+            place-content: center;
+            text-align: center;
+            color: #c0504d;
+            background: radial-gradient(
+              circle at 50% 38%,
+              #fbf6e8 0,
+              #efe7d3 72%
+            );
+            box-shadow: inset 0 0 0 1px rgba(42, 40, 35, 0.08);
+          }
+          #achievements .ac-miss .ac-pic::before,
+          #achievements .ac-soon .ac-pic::before {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            pointer-events: none;
+            opacity: 0.5;
+            animation: acvf 3.8s ease-in-out infinite;
+            background:
+              linear-gradient(#2a2823, #2a2823) 0 0/24px 3px no-repeat,
+              linear-gradient(#2a2823, #2a2823) 0 0/3px 24px no-repeat,
+              linear-gradient(#2a2823, #2a2823) 100% 0/24px 3px no-repeat,
+              linear-gradient(#2a2823, #2a2823) 100% 0/3px 24px no-repeat,
+              linear-gradient(#2a2823, #2a2823) 0 100%/24px 3px no-repeat,
+              linear-gradient(#2a2823, #2a2823) 0 100%/3px 24px no-repeat,
+              linear-gradient(#2a2823, #2a2823) 100% 100%/24px 3px no-repeat,
+              linear-gradient(#2a2823, #2a2823) 100% 100%/3px 24px no-repeat;
+          }
+          #achievements .ac-miss .ac-pic::after,
+          #achievements .ac-soon .ac-pic::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: #fff;
+            opacity: 0;
+            pointer-events: none;
+            animation: acflash 3.8s ease-in-out infinite;
+          }
+          @keyframes acvf {
+            0%,
+            72%,
+            100% {
+              inset: 14px;
+              opacity: 0.5;
+            }
+            80% {
+              inset: 5px;
+              opacity: 1;
+            }
+            90% {
+              inset: 14px;
+              opacity: 0.5;
+            }
+          }
+          @keyframes acflash {
+            0%,
+            80% {
+              opacity: 0;
+            }
+            83% {
+              opacity: 0.8;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+          #achievements .ac-ph {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            justify-items: center;
+            gap: 8px;
+            padding: 0 12px;
+          }
+          #achievements .ac-camw {
+            position: relative;
+            display: block;
+          }
+          #achievements .ac-cam {
+            display: block;
+            width: 108px;
+            height: 80px;
+            fill: none;
+            stroke: var(--ink);
+            stroke-width: 3.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            overflow: visible;
+            animation: accam 3.8s ease-in-out infinite;
+          }
+          @keyframes accam {
+            0%,
+            100% {
+              transform: translateY(0) rotate(-2deg);
+            }
+            50% {
+              transform: translateY(-5px) rotate(2deg);
+            }
+          }
+          #achievements .ac-rec {
+            animation: acrec 1.2s steps(2, start) infinite;
+          }
+          @keyframes acrec {
+            50% {
+              opacity: 0;
+            }
+          }
+          #achievements .ac-st {
+            position: absolute;
+            font: 700 20px/1 sans-serif;
+            font-style: normal;
+            color: var(--sun);
+            animation: acst 2.2s ease-in-out infinite alternate;
+          }
+          @keyframes acst {
+            from {
+              transform: scale(0.5) rotate(0);
+              opacity: 0.3;
+            }
+            to {
+              transform: scale(1.2) rotate(40deg);
+              opacity: 1;
+            }
+          }
+          #achievements .ac-ph b {
+            font: 700 29px/1.05 var(--hand);
+            transform: rotate(-3deg);
+          }
+
+          /* upcoming graduation card */
+          #achievements .ac-soon .ac-frame {
+            opacity: 0.92;
+          }
+          #achievements .ac-soon .ac-pic {
+            gap: 2px;
+            padding: 10px;
+          }
+          #achievements .ac-soon .ac-hat {
+            width: 92px;
+            height: 70px;
+            margin: 0 auto;
+            fill: none;
+            stroke: var(--ink);
+            stroke-width: 3.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            overflow: visible;
+          }
+          #achievements .ac-cap {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: accap 3.8s ease-in-out infinite;
+          }
+          @keyframes accap {
+            0%,
+            52%,
+            100% {
+              transform: translateY(0) rotate(0);
+            }
+            68% {
+              transform: translateY(-34px) rotate(190deg);
+            }
+            84% {
+              transform: translateY(-6px) rotate(345deg);
+            }
+            92% {
+              transform: translateY(0) rotate(360deg);
+            }
+          }
+          #achievements .ac-soon .ac-big {
+            font: 700 32px/1.05 var(--hand);
+            transform: rotate(-4deg);
+          }
+          #achievements .ac-count {
+            font: 700 26px/1.1 var(--hand);
+            color: var(--ink);
+          }
+          #achievements .ac-count:empty {
+            display: none;
+          }
+          #achievements .ac-next {
+            position: absolute;
+            top: -44px;
+            right: 6px;
+            z-index: 6;
+            font: 700 25px/1 var(--hand);
+            color: var(--coral);
+            transform: rotate(6deg);
+            pointer-events: none;
+            white-space: nowrap;
+          }
+          #achievements .ac-next svg {
+            display: block;
+            width: 54px;
+            margin: 0 0 0 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+
+          /* round two: events, stats, tickets, more doodles */
+          #achievements .ac-badge svg use {
+            pointer-events: none;
+          }
+          #achievements .ac-ticket {
+            position: absolute;
+            left: -16px;
+            top: 58px;
+            z-index: 6;
+            display: flex;
+            align-items: stretch;
+            transform: rotate(-6deg);
+            filter: drop-shadow(2px 3px 0 rgba(42, 40, 35, 0.35));
+            transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+          }
+          #achievements .ac-card:hover .ac-ticket {
+            transform: rotate(2deg) translateY(-4px);
+          }
+          #achievements .ac-ticket b,
+          #achievements .ac-ticket i {
+            display: block;
+            padding: 6px 11px 7px;
+            background: #ffe9a8;
+            color: var(--ink);
+            border: 2px solid var(--ink);
+            font: 700 19px/1 var(--hand);
+            font-style: normal;
+          }
+          #achievements .ac-ticket b {
+            border-radius: 10px 0 0 10px;
+            border-right: 2px dashed var(--ink);
+          }
+          #achievements .ac-ticket i {
+            border-left: 0;
+            border-radius: 0 10px 10px 0;
+            font: 17px/1.15 var(--pen);
+          }
+          #achievements .ac-card::after {
+            content: "✦";
+            position: absolute;
+            left: -10px;
+            top: 26px;
+            z-index: 7;
+            font: 28px/1 sans-serif;
+            color: var(--sun);
+            text-shadow: 0 0 0 var(--ink);
+            opacity: 0;
+            transform: scale(0) rotate(-40deg);
+            transition:
+              transform 0.45s cubic-bezier(0.3, 1.8, 0.5, 1),
+              opacity 0.2s;
+            pointer-events: none;
+          }
+          #achievements .ac-card:hover::after,
+          #achievements .ac-card:focus-within::after {
+            opacity: 1;
+            transform: scale(1) rotate(12deg);
+          }
+          #achievements.ac-js .ac-card.in .ac-tape {
+            animation: actape 0.5s cubic-bezier(0.3, 1.5, 0.5, 1)
+              calc(var(--d, 0s) + 0.55s) backwards;
+          }
+          @keyframes actape {
+            from {
+              opacity: 0;
+              transform: translateY(-18px) scaleX(0.3) rotate(-14deg);
+            }
+          }
+          #achievements .ac-fl {
+            position: absolute;
+            pointer-events: none;
+            fill: none;
+            stroke-width: 3.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            animation: acfl 6s ease-in-out infinite alternate;
+            opacity: 0.9;
+          }
+          @keyframes acfl {
+            to {
+              transform: translateY(-10px) rotate(7deg);
+            }
+          }
+          #achievements .ac-heading-doodle {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            margin-left: 8px;
+            vertical-align: -4px;
+            fill: none;
+            stroke: var(--sun);
+            stroke-width: 3.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            animation: acspin 14s linear infinite;
+          }
+          @keyframes acspin {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          @media (hover: hover) and (pointer: fine) {
+            #achievements .ac-card {
+              transform: rotate(var(--tilt, 0deg)) perspective(900px)
+                rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+            }
+            #achievements .ac-card:hover,
+            #achievements .ac-card:focus-within {
+              transform: rotate(0) translateY(-6px) scale(1.03)
+                perspective(900px) rotateX(var(--rx, 0deg))
+                rotateY(var(--ry, 0deg));
+            }
+          }
+          @media (max-width: 700px) {
+            #achievements .ac-fl {
+              display: none;
+            }
+          }
+          @media (max-width: 700px) {
+            #achievements .ac-board {
+              gap: 46px 22px;
+              grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+            #achievements .ac-next {
+              display: none;
+            }
+            #achievements .ac-filters button {
+              padding: 11px 16px 12px;
+            }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            #achievements *,
+            #achievements *::after {
+              animation: none !important;
+              transition: none !important;
+            }
+          }
+
+          /* photo viewer (lives on <body> while open) */
+          .ac-lb {
+            position: fixed;
+            inset: 0;
+            z-index: 99997;
+            display: grid;
+            place-items: center;
+            padding: 18px;
+            background: rgba(42, 40, 35, 0.86);
+            opacity: 0;
+            visibility: hidden;
+            transition:
+              opacity 0.25s,
+              visibility 0.25s;
+          }
+          .ac-lb.on {
+            opacity: 1;
+            visibility: visible;
+          }
+          .ac-lbf {
+            position: relative;
+            box-sizing: border-box;
+            width: min(92vw, 560px);
+            max-height: 92vh;
+            overflow: auto;
+            padding: 14px 14px 18px;
+            background: #fbf9f1;
+            color: #2a2823;
+            border: 1px solid #e0d8c8;
+            box-shadow: 6px 10px 0 rgba(0, 0, 0, 0.35);
+            transform: scale(0.88) rotate(-2deg);
+            transition: transform 0.45s cubic-bezier(0.3, 1.5, 0.5, 1);
+          }
+          .ac-lb.on .ac-lbf {
+            transform: scale(1) rotate(-0.6deg);
+          }
+          .ac-lbt {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            width: 90px;
+            height: 26px;
+            margin-left: -45px;
+            background: rgba(242, 193, 78, 0.85);
+            transform: rotate(-3deg);
+          }
+          .ac-lbp {
+            background: #e9e3d3;
+            display: grid;
+            place-items: center;
+          }
+          .ac-lbp img {
+            display: block;
+            max-width: 100%;
+            max-height: 62vh;
+            object-fit: contain;
+            filter: grayscale(1) sepia(0.5) blur(8px) brightness(1.3);
+            transition: filter 1.1s ease;
+          }
+          .ac-lbp img.dev {
+            filter: none;
+          }
+          .ac-lbc {
+            padding: 12px 6px 0;
+            text-align: center;
+          }
+          .ac-lbh {
+            display: block;
+            font:
+              700 30px/1.05 Caveat,
+              "Patrick Hand",
+              cursive;
+          }
+          .ac-lbs {
+            display: block;
+            font:
+              19px/1.3 "Patrick Hand",
+              Caveat,
+              cursive;
+            opacity: 0.65;
+          }
+          .ac-lbx {
+            margin: 6px 0 0;
+            font:
+              20px/1.35 "Patrick Hand",
+              Caveat,
+              cursive;
+          }
+          .ac-lbx:empty {
+            display: none;
+          }
+          .ac-lb button {
+            all: unset;
+            position: absolute;
+            box-sizing: border-box;
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            color: #2a2823;
+            background: #f2c14e;
+            border: 2.5px solid #2a2823;
+            border-radius: 50% 46% 52% 48%;
+            font: 700 30px/1 sans-serif;
+            box-shadow: 2px 3px 0 #2a2823;
+            transition: transform 0.2s;
+          }
+          .ac-lb button:hover {
+            transform: rotate(-8deg) scale(1.1);
+          }
+          .ac-lb button:focus-visible {
+            outline: 3px dashed #fbf9f1;
+            outline-offset: 3px;
+          }
+          .ac-lbclose {
+            top: 14px;
+            right: 14px;
+          }
+          .ac-lbprev {
+            left: 14px;
+            top: 50%;
+            margin-top: -23px;
+          }
+          .ac-lbnext {
+            right: 14px;
+            top: 50%;
+            margin-top: -23px;
+          }
+          .ac-lbn {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font:
+              19px/1 "Patrick Hand",
+              Caveat,
+              cursive;
+            color: #fbf9f1;
+          }
+          @media (max-width: 640px) {
+            .ac-lbprev {
+              left: 8px;
+              top: auto;
+              bottom: 10px;
+              margin: 0;
+            }
+            .ac-lbnext {
+              right: 8px;
+              top: auto;
+              bottom: 10px;
+              margin: 0;
+            }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .ac-lb,
+            .ac-lb * {
+              transition: none !important;
+            }
+          }
+        </style>
+
+        <svg
+          width="0"
+          height="0"
+          style="position: absolute"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <symbol id="ac-i-award" viewBox="0 0 40 40">
+            <circle cx="20" cy="15" r="9" />
+            <path d="M14 23l-4 13 8-4 2 5 2-5 8 4-4-13" />
+          </symbol>
+          <symbol id="ac-i-cap" viewBox="0 0 40 40">
+            <path d="M3 15L20 7L37 15L20 23Z" />
+            <path d="M11 19v9c0 3 18 3 18 0v-9" />
+            <path d="M37 15v10" />
+          </symbol>
+          <symbol id="ac-i-code" viewBox="0 0 40 40">
+            <path d="M14 12L4 20l10 8M26 12l10 8-10 8M23 8l-6 24" />
+          </symbol>
+          <symbol id="ac-i-laptop" viewBox="0 0 40 40">
+            <rect x="7" y="9" width="26" height="17" rx="2" />
+            <path d="M3 31h34" />
+          </symbol>
+          <symbol id="ac-i-bolt" viewBox="0 0 40 40">
+            <path d="M23 4L9 23h10l-3 13 15-21H21z" />
+          </symbol>
+          <symbol id="ac-i-mic" viewBox="0 0 40 40">
+            <rect x="15" y="5" width="10" height="17" rx="5" />
+            <path d="M9 19a11 11 0 0 0 22 0M20 30v6M14 36h12" />
+          </symbol>
+          <symbol id="ac-i-trophy" viewBox="0 0 40 40">
+            <path
+              d="M12 6h16v10a8 8 0 0 1-16 0zM12 9H6c0 6 3 8 6 8M28 9h6c0 6-3 8-6 8M20 24v6M13 34h14"
+            />
+          </symbol>
+        </svg>
+
+        <div class="rv">
+          <h2 class="sh">
+            milestones &amp; <span class="hl">memories</span
+            ><svg
+              class="ac-heading-doodle"
+              viewBox="0 0 60 60"
+              aria-hidden="true"
+            >
+              <path
+                d="M30 4V20 M30 40V56 M4 30H20 M40 30H56 M14 14L22 22 M38 38L46 46 M46 14L38 22 M22 38L14 46"
+              />
+            </svg>
+          </h2>
+        </div>
+        <div class="ac-filters" role="group" aria-label="Filter memories"></div>
+
+        <div class="ac-board">
+          
+          <figure
+            class="ac-card"
+            data-cat="awards"
+            data-title="Class 10 · SEE"
+            data-photos="eijkeyalPakhrin.jpeg"
+            style="--tilt: -2deg"
+          >
+            <i class="ac-tape"></i>
+            <span class="ac-badge"
+              ><svg viewBox="0 0 40 40" aria-hidden="true">
+                <use href="#ac-i-award" /></svg
+              >award</span
+            >
+            <button
+              type="button"
+              class="ac-open"
+              aria-label="Open photo: Class 10 SEE award"
+            >
+              <span class="ac-frame"
+                ><span class="ac-pic"
+                  ><img
+                    class="ac-img"
+                    src="AWS cloud.jpeg"
+                    alt="Class 10 SEE award"
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="750" /></span
+              ></span>
+            </button>
+            <figcaption>Class 10 · SEE</figcaption>
+          </figure>
+
+      
+          <figure
+            class="ac-card"
+            data-cat="school"
+            data-title="Class 12 · +2"
+            data-photos="eijkeyalPakhrin.jpeg"
+            style="--tilt: 1.5deg"
+          >
+            <i class="ac-tape"></i>
+            <span class="ac-badge"
+              ><svg viewBox="0 0 40 40" aria-hidden="true">
+                <use href="#ac-i-cap" /></svg
+              >graduation</span
+            >
+            <button
+              type="button"
+              class="ac-open"
+              aria-label="Open photo: Class 12 graduation"
+            >
+              <span class="ac-frame"
+                ><span class="ac-pic"
+                  ><img
+                    class="ac-img"
+                    src="class12.jpg"
+                    alt="Class 12 graduation"
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="750" /></span
+              ></span>
+            </button>
+            <figcaption>Class 12 · +2</figcaption>
+          </figure>
+
+         
+          <figure
+            class="ac-card"
+            data-cat="events"
+            data-title="GDG event"
+            data-photos="gdg-event.jpg"
+            style="--tilt: -1.5deg"
+          >
+            <i class="ac-tape"></i>
+            <span class="ac-badge"
+              ><svg viewBox="0 0 40 40" aria-hidden="true">
+                <use href="#ac-i-code" /></svg
+              >community</span
+            >
+            <button
+              type="button"
+              class="ac-open"
+              aria-label="Open photo: GDG event"
+            >
+              <span class="ac-frame"
+                ><span class="ac-pic"
+                  ><img
+                    class="ac-img"
+                    src="GDG.jpeg"
+                    alt="Me at a GDG event"
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="750" /></span
+              ></span>
+            </button>
+            <span class="ac-ticket"><b>GDG</b><i>participant</i></span>
+            <figcaption>GDG event</figcaption>
+          </figure>
+
+          <figure
+            class="ac-card ac-soon"
+            data-cat="upcoming"
+            data-date=""
+            style="--tilt: 1deg"
+          >
+            <i class="ac-tape"></i>
+            <span class="ac-next" aria-hidden="true"
+              >next up!<svg viewBox="0 0 70 50">
+                <path
+                  d="M10 6C12 26 34 40 62 40M62 40l-12-10M62 40l-13 8"
+                /></svg
+            ></span>
+            <span class="ac-frame"
+              ><span class="ac-pic">
+                <svg class="ac-hat" viewBox="0 0 80 62" aria-hidden="true">
+                  <g class="ac-cap">
+                    <path d="M6 24L40 8L74 24L40 40Z" fill="#fbf9f1" />
+                    <path d="M74 24v16" />
+                    <circle cx="74" cy="44" r="3.4" fill="#e07a7a" />
+                  </g>
+                  <path d="M22 34v13c0 6 36 6 36 0V34" fill="none" />
+                </svg>
+                <span class="ac-big">coming soon</span>
+                <span class="ac-count" aria-live="polite"></span> </span
+            ></span>
+            <figcaption>B.Sc. Graduation</figcaption>
+          </figure>
+
+      
+      ADD A NEW MEMORY: copy one block below, paste it above this comment, then change the words and photo names.
+      data-cat   = a group name for the filter buttons: school, events or upcoming (or make up your own)
+      data-photos= one or more photos separated by | , the first one is the cover. Several photos open as a slideshow.
+      (the ticket stub line is optional, delete it if you do not want it)
+      badge icons you can use inside <use href="#ac-i-…">: award, cap, code, laptop, bolt, mic, trophy
+      data-cat   = awards | school | events | upcoming (these become the filter buttons)
+
+      <figure class="ac-card" data-cat="events" data-title="Event name" data-year="2026" data-caption="One line about it (optional)" data-photos="event-1.jpg|event-2.jpg" style="--tilt:2deg">
+        <i class="ac-tape"></i>
+        <span class="ac-badge"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#ac-i-bolt"/></svg>hackathon</span>
+        <span class="ac-ticket"><b>Event</b><i>participant</i></span>
+        <button type="button" class="ac-open" aria-label="Open photo: Event name">
+          <span class="ac-frame"><span class="ac-pic"><img class="ac-img" src="event-1.jpg" alt="Describe the photo here" loading="lazy" decoding="async" width="600" height="750"></span></span>
+        </button>
+        <figcaption>Event name<small>2026</small></figcaption>
+      </figure>
+    
+          <svg
+            class="ac-fl"
+            style="
+              left: calc(50% - 30px);
+              top: -40px;
+              width: 58px;
+              stroke: #6f9bbd;
+            "
+            viewBox="0 0 40 40"
+            aria-hidden="true"
+          >
+            <use href="#ac-i-code" />
+          </svg>
+          <svg
+            class="ac-fl"
+            style="
+              left: -6px;
+              bottom: -46px;
+              width: 44px;
+              stroke: #f2c14e;
+              animation-delay: -2s;
+            "
+            viewBox="0 0 40 40"
+            aria-hidden="true"
+          >
+            <use href="#ac-i-bolt" />
+          </svg>
+          <svg
+            class="ac-fl"
+            style="
+              right: 30%;
+              bottom: -50px;
+              width: 46px;
+              stroke: #e07a7a;
+              animation-delay: -4s;
+            "
+            viewBox="0 0 40 40"
+            aria-hidden="true"
+          >
+            <use href="#ac-i-trophy" />
+          </svg>
+        </div>
+
+        <script>
+          (function () {
+            var root = document.getElementById("achievements"),
+              board = root.querySelector(".ac-board"),
+              cards = [].slice.call(board.querySelectorAll(".ac-card")),
+              reduce = window.matchMedia(
+                "(prefers-reduced-motion: reduce)",
+              ).matches;
+
+            // a card whose photo cannot be loaded shows a friendly "photo coming soon" box
+            cards.forEach(function (c) {
+              var im = c.querySelector(".ac-img");
+              if (!im) return;
+              function miss() {
+                c.classList.add("ac-miss");
+                var pic = c.querySelector(".ac-pic"),
+                  btn = c.querySelector(".ac-open");
+                if (btn) {
+                  btn.disabled = true;
+                  btn.setAttribute("tabindex", "-1");
+                }
+                if (pic && !pic.querySelector(".ac-ph"))
+                  pic.insertAdjacentHTML(
+                    "beforeend",
+                    '<span class="ac-ph" aria-hidden="true"><span class="ac-camw"><svg class="ac-cam" viewBox="0 0 120 90"><path d="M14 26h24l6-10h32l6 10h24a6 6 0 0 1 6 6v42a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V32a6 6 0 0 1 6-6Z" fill="#fbf9f1"/><circle cx="60" cy="52" r="22" fill="#fbf9f1"/><circle cx="60" cy="52" r="12" fill="#6f9bbd" fill-opacity=".4"/><path d="M53 47a9 9 0 0 1 7-4"/><rect x="92" y="32" width="12" height="7" rx="2" fill="#f2c14e"/><circle class="ac-rec" cx="22" cy="36" r="3.6" fill="#e07a7a" stroke="none"/></svg><i class="ac-st" style="left:-14px;top:-8px">✦</i><i class="ac-st" style="right:-10px;top:12px;animation-delay:-1.3s">✦</i></span><b>photo coming soon</b></span>',
+                  );
+              }
+              im.addEventListener("error", miss);
+              if (
+                im.complete &&
+                im.naturalWidth === 0 &&
+                im.getAttribute("src")
+              )
+                miss();
+            });
+
+            // countdown to the next graduation (only when data-date is filled in)
+            var soon = root.querySelector(".ac-soon"),
+              cnt = soon && soon.querySelector(".ac-count");
+            function daysLeft() {
+              var d = soon && soon.getAttribute("data-date");
+              if (!d) return null;
+              var t = new Date(d + "T00:00:00");
+              if (isNaN(t)) return null;
+              return Math.ceil((t - new Date()) / 86400000);
+            }
+            function showCount(animate) {
+              var n = daysLeft();
+              if (!cnt || n === null) return;
+              if (n <= 0) {
+                cnt.textContent = n === 0 ? "it's today!" : "";
+                return;
+              }
+              if (!animate || reduce) {
+                cnt.textContent = n + (n === 1 ? " day to go" : " days to go");
+                return;
+              }
+              var t0 = performance.now();
+              (function step(t) {
+                var k = Math.min(1, (t - t0) / 1100),
+                  v = Math.round(n * (1 - Math.pow(1 - k, 3)));
+                cnt.textContent = v + (v === 1 ? " day to go" : " days to go");
+                if (k < 1) requestAnimationFrame(step);
+              })(t0);
+            }
+
+            // cards tilt toward the pointer (mouse only)
+            if (
+              !reduce &&
+              window.matchMedia("(hover:hover) and (pointer:fine)").matches
+            )
+              cards.forEach(function (c) {
+                c.addEventListener("pointermove", function (e) {
+                  var r = c.getBoundingClientRect();
+                  c.style.setProperty(
+                    "--ry",
+                    ((e.clientX - r.left) / r.width - 0.5) * 8 + "deg",
+                  );
+                  c.style.setProperty(
+                    "--rx",
+                    -((e.clientY - r.top) / r.height - 0.5) * 8 + "deg",
+                  );
+                });
+                c.addEventListener("pointerleave", function () {
+                  c.style.setProperty("--ry", "0deg");
+                  c.style.setProperty("--rx", "0deg");
+                });
+              });
+
+            // entrance: cards drop in one after another and their photos develop
+            if (!reduce && "IntersectionObserver" in window) {
+              root.classList.add("ac-js");
+              var io = new IntersectionObserver(
+                function (es) {
+                  es.forEach(function (e) {
+                    if (!e.isIntersecting) return;
+                    e.target.style.setProperty(
+                      "--d",
+                      (cards.indexOf(e.target) % 4) * 0.12 + "s",
+                    );
+                    e.target.classList.add("in");
+                    if (e.target === soon) showCount(true);
+                    io.unobserve(e.target);
+                  });
+                },
+                { threshold: 0.15 },
+              );
+              cards.forEach(function (c) {
+                io.observe(c);
+              });
+            } else {
+              showCount(false);
+            }
+
+            // filter buttons appear on their own once there are enough cards
+            var groups = [],
+              names = {
+                school: "school days",
+                events: "events",
+                awards: "awards",
+                upcoming: "coming up",
+              },
+              fbox = root.querySelector(".ac-filters");
+            cards.forEach(function (c) {
+              var g = c.getAttribute("data-cat");
+              if (g && groups.indexOf(g) < 0) groups.push(g);
+            });
+            if (cards.length >= 4 && groups.length >= 3) {
+              ["all"].concat(groups).forEach(function (g, i) {
+                var b = document.createElement("button");
+                b.type = "button";
+                b.textContent = g === "all" ? "everything" : names[g] || g;
+                b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+                b.addEventListener("click", function () {
+                  [].forEach.call(fbox.children, function (x) {
+                    x.setAttribute("aria-pressed", x === b ? "true" : "false");
+                  });
+                  cards.forEach(function (c) {
+                    var show = g === "all" || c.getAttribute("data-cat") === g;
+                    if (show) {
+                      var was = c.hidden;
+                      c.hidden = false;
+                      void c.offsetWidth;
+                      c.classList.remove("ac-out");
+                      if (was && !reduce) {
+                        c.classList.remove("ac-slide");
+                        void c.offsetWidth;
+                        c.classList.add("ac-slide");
+                      }
+                    } else {
+                      c.classList.add("ac-out");
+                      setTimeout(
+                        function () {
+                          if (c.classList.contains("ac-out")) c.hidden = true;
+                        },
+                        reduce ? 0 : 240,
+                      );
+                    }
+                  });
+                });
+                fbox.appendChild(b);
+              });
+            }
+
+            // photo viewer
+            var lb = document.createElement("div"),
+              list = [],
+              at = 0,
+              opener = null,
+              sx = null;
+            lb.className = "ac-lb";
+            lb.setAttribute("role", "dialog");
+            lb.setAttribute("aria-modal", "true");
+            lb.setAttribute("aria-label", "Photo viewer");
+            lb.innerHTML =
+              '<div class="ac-lbf"><i class="ac-lbt"></i><div class="ac-lbp"><img alt=""></div><div class="ac-lbc"><b class="ac-lbh"></b><span class="ac-lbs"></span><p class="ac-lbx"></p></div></div><button type="button" class="ac-lbclose" aria-label="Close photo">×</button><button type="button" class="ac-lbprev" aria-label="Previous photo">‹</button><button type="button" class="ac-lbnext" aria-label="Next photo">›</button><span class="ac-lbn" aria-live="polite"></span>';
+            document.body.appendChild(lb);
+            var lim = lb.querySelector("img"),
+              bClose = lb.querySelector(".ac-lbclose"),
+              bPrev = lb.querySelector(".ac-lbprev"),
+              bNext = lb.querySelector(".ac-lbnext");
+
+            function buildList() {
+              list = [];
+              cards.forEach(function (c) {
+                if (
+                  c.hidden ||
+                  c.classList.contains("ac-miss") ||
+                  !c.querySelector(".ac-open")
+                )
+                  return;
+                var ph = (
+                  c.getAttribute("data-photos") ||
+                  c.querySelector(".ac-img").getAttribute("src")
+                ).split("|");
+                ph.forEach(function (src, i) {
+                  list.push({
+                    src: src.trim(),
+                    card: c,
+                    n: i,
+                    of: ph.length,
+                    title: c.getAttribute("data-title") || "",
+                    year: c.getAttribute("data-year") || "",
+                    cap: c.getAttribute("data-caption") || "",
+                    alt:
+                      i === 0
+                        ? c.querySelector(".ac-img").alt
+                        : (c.getAttribute("data-title") || "Photo") +
+                          " photo " +
+                          (i + 1),
+                  });
+                });
+              });
+            }
+            function show(i, dir) {
+              at = (i + list.length) % list.length;
+              if (dir && !reduce)
+                lb.querySelector(".ac-lbf").animate(
+                  [
+                    {
+                      opacity: 0,
+                      transform:
+                        "translateX(" +
+                        dir * 46 +
+                        "px) rotate(" +
+                        dir * 3 +
+                        "deg)",
+                    },
+                    { opacity: 1, transform: "none" },
+                  ],
+                  { duration: 320, easing: "cubic-bezier(.3,1.4,.5,1)" },
+                );
+              var it = list[at];
+              lim.classList.remove("dev");
+              lim.alt = it.alt;
+              lim.onload = function () {
+                requestAnimationFrame(function () {
+                  lim.classList.add("dev");
+                });
+              };
+              lim.src = it.src;
+              lb.querySelector(".ac-lbh").textContent = it.title;
+              lb.querySelector(".ac-lbs").textContent =
+                it.year +
+                (it.of > 1
+                  ? (it.year ? " · " : "") +
+                    "photo " +
+                    (it.n + 1) +
+                    " of " +
+                    it.of
+                  : "");
+              lb.querySelector(".ac-lbx").textContent = it.cap;
+              lb.querySelector(".ac-lbn").textContent =
+                list.length > 1 ? at + 1 + " / " + list.length : "";
+              bPrev.style.display = bNext.style.display =
+                list.length > 1 ? "" : "none";
+              [1, -1].forEach(function (d) {
+                var nx = list[(at + d + list.length) % list.length];
+                if (nx) new Image().src = nx.src;
+              });
+            }
+            function open(card, btn) {
+              buildList();
+              var i = 0;
+              list.forEach(function (x, k) {
+                if (x.card === card && x.n === 0) i = k;
+              });
+              if (!list.length) return;
+              opener = btn;
+              show(i);
+              lb.classList.add("on");
+              document.documentElement.style.overflow = "hidden";
+              bClose.focus();
+            }
+            function close() {
+              lb.classList.remove("on");
+              document.documentElement.style.overflow = "";
+              if (opener) opener.focus();
+            }
+            board.addEventListener("click", function (e) {
+              var b = e.target.closest(".ac-open"),
+                c = b && b.closest(".ac-card");
+              if (b && c && !c.classList.contains("ac-miss")) open(c, b);
+            });
+            bClose.addEventListener("click", close);
+            bPrev.addEventListener("click", function () {
+              show(at - 1, -1);
+            });
+            bNext.addEventListener("click", function () {
+              show(at + 1, 1);
+            });
+            lb.addEventListener("click", function (e) {
+              if (e.target === lb) close();
+            });
+            document.addEventListener("keydown", function (e) {
+              if (!lb.classList.contains("on")) return;
+              if (e.key === "Escape") close();
+              else if (e.key === "ArrowLeft") show(at - 1, -1);
+              else if (e.key === "ArrowRight") show(at + 1, 1);
+              else if (e.key === "Tab") {
+                var f = [bClose, bPrev, bNext].filter(function (x) {
+                    return x.style.display !== "none";
+                  }),
+                  i = f.indexOf(document.activeElement);
+                e.preventDefault();
+                f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+              }
+            });
+            lb.addEventListener("pointerdown", function (e) {
+              sx = e.clientX;
+            });
+            lb.addEventListener("pointerup", function (e) {
+              if (sx === null) return;
+              var dx = e.clientX - sx;
+              sx = null;
+              if (Math.abs(dx) > 60 && list.length > 1)
+                show(at + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+            });
+          })();
+        </script>
+      </section>
+    
+      Comment Down to here -->
       <section id="pad">
         <div class="rv">
           <h2 class="sh">doodle <span class="hl">with me</span></h2>
@@ -2975,7 +4302,6 @@
         </div>
         <div class="lk" id="lk"></div>
       </section>
-
       <section id="contact">
         <style>
           #contact {
@@ -4006,6 +5332,832 @@
               transform: translate(2px, -3px) rotate(-12deg);
             }
           }
+          /* round five: real responsive layout, contact upgrades, day/night scene */
+          #contact {
+            overflow-x: clip;
+          }
+          #contact .ct-hello {
+            font-size: clamp(27px, 7.4vw, 34px);
+          }
+          #contact .ct-to {
+            position: relative;
+            display: inline-block;
+            font-size: clamp(25px, 6.5vw, 30px);
+            padding-bottom: 6px;
+          }
+          #contact .ct-to::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 8px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='8'%3E%3Cpath d='M0 4Q4 0 8 4T16 4' fill='none' stroke='%23e07a7a' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E")
+              repeat-x;
+          }
+          #contact .ct-card,
+          #contact .ct-letter {
+            transition: transform 0.4s ease;
+          }
+          #contact .ct-card:hover {
+            transform: rotate(0.3deg) translateY(-3px);
+          }
+          #contact .ct-letter:focus-within {
+            transform: rotate(-0.4deg);
+          }
+          #contact .ct-alt {
+            margin: 14px 0 0;
+            font: 18px/1.3 var(--pen);
+          }
+          #contact .ct-now {
+            opacity: 0.65;
+            font-size: 0.82em;
+          }
+          #contact .ct-scenew {
+            overflow: hidden;
+            margin: 60px 0 6px;
+          }
+          #contact .ct-scene {
+            margin: 0;
+          }
+          #contact .ct-sc-sun,
+          #contact .ct-bf,
+          #contact .ct-night {
+            transition: opacity 0.8s;
+          }
+          #contact .ct-night {
+            opacity: 0;
+          }
+          #contact .ct-scene.night .ct-night {
+            opacity: 1;
+          }
+          #contact .ct-scene.night .ct-sc-sun,
+          #contact .ct-scene.night .ct-bf {
+            opacity: 0;
+          }
+          #contact .ct-scene.night .ct-rb {
+            animation: none;
+            opacity: 0;
+          }
+          #contact .ct-scene.night .ct-glow {
+            animation: none;
+            opacity: 0.95;
+          }
+          #contact .ct-tw {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: cttw 2.4s ease-in-out infinite alternate;
+          }
+          @keyframes cttw {
+            from {
+              transform: scale(0.5);
+              opacity: 0.4;
+            }
+            to {
+              transform: scale(1.25);
+              opacity: 1;
+            }
+          }
+          #contact .ct-ff {
+            fill: #f2c14e;
+            stroke: none;
+            animation: ctff 4s ease-in-out infinite alternate;
+          }
+          @keyframes ctff {
+            from {
+              transform: translate(0, 0);
+              opacity: 0.15;
+            }
+            to {
+              transform: translate(22px, -16px);
+              opacity: 1;
+            }
+          }
+          @media (max-width: 820px) {
+            #contact aside {
+              display: grid;
+              grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+              gap: 26px;
+              align-items: center;
+            }
+            #contact .ct-mbx {
+              margin-top: 0;
+            }
+          }
+          @media (max-width: 640px) {
+            #contact .ct-scene {
+              width: 143%;
+              max-width: none;
+              margin-left: -18.6%;
+            }
+            #contact .ct-scenew {
+              margin-top: 44px;
+            }
+          }
+          @media (max-width: 620px) {
+            #contact aside {
+              grid-template-columns: 1fr;
+              gap: 0;
+            }
+            #contact .ct-mbx {
+              margin-top: 26px;
+            }
+            #contact .ct-card {
+              padding: 20px 16px 18px;
+            }
+            #contact .ct-top {
+              min-height: 90px;
+            }
+            #contact .ct-stamp {
+              width: 70px;
+              height: 82px;
+            }
+            #contact .ct-pm {
+              width: 92px;
+              height: 92px;
+              right: 46px;
+              top: -6px;
+            }
+            #contact .ct-chips button {
+              padding: 10px 15px 11px;
+              font-size: 19px;
+            }
+            #contact .ct-stk {
+              flex-wrap: wrap;
+            }
+            #contact .ct-stk button {
+              width: 42px;
+              height: 42px;
+            }
+            #contact .ct-act {
+              flex-direction: column;
+              align-items: stretch;
+              gap: 12px;
+            }
+            #contact #fs {
+              justify-content: center;
+              width: 100%;
+              padding: 14px 18px 15px;
+            }
+            #contact #fst {
+              text-align: center;
+            }
+            #contact .ct-links {
+              font-size: 19px;
+            }
+            #contact .ct-say {
+              max-width: 160px;
+              font-size: 18px;
+            }
+            #contact .ct-cup {
+              width: 58px;
+              bottom: -22px;
+              right: -4px;
+            }
+            #contact .ct-alt {
+              text-align: center;
+            }
+          }
+          @media (max-width: 380px) {
+            #contact .ct-letter {
+              padding: 26px 14px 20px;
+            }
+            #contact .ct-chips {
+              gap: 6px;
+            }
+            #contact .ct-chips button {
+              padding: 9px 12px 10px;
+              font-size: 18px;
+            }
+            #contact #fm {
+              font-size: 21px;
+              padding-left: 44px;
+            }
+            #contact .ct-pad::before {
+              left: 30px;
+            }
+            #contact .ct-mg {
+              left: 4px;
+              width: 20px;
+              height: 20px;
+            }
+            #contact .ct-f input {
+              font-size: 21px;
+            }
+          }
+          @media (max-width: 620px) {
+            #contact .ct-stk span {
+              flex-basis: 100%;
+            }
+          }
+          @media (max-width: 480px) {
+            #contact .ct-scene {
+              width: 175%;
+              margin-left: -45.5%;
+            }
+          }
+          /* round six: natural walk cycle, dog personality, scene props, pop-up */
+          #contact .ct-sh1 {
+            transform-origin: -3px -11px;
+            animation: ctknee 0.6s ease-in infinite alternate;
+          }
+          #contact .ct-sh2 {
+            transform-origin: 3px -11px;
+            animation: ctknee 0.6s ease-in infinite alternate-reverse;
+          }
+          @keyframes ctknee {
+            from {
+              transform: rotate(0);
+            }
+            to {
+              transform: rotate(38deg);
+            }
+          }
+          #contact .ct-arm1 {
+            transform-origin: -10px -48px;
+            animation: ctarm 0.6s ease-in-out infinite alternate-reverse;
+          }
+          #contact .ct-arm2 {
+            transform-origin: 10px -48px;
+            animation: ctarm2 0.6s ease-in-out infinite alternate;
+          }
+          @keyframes ctarm {
+            from {
+              transform: rotate(-24deg);
+            }
+            to {
+              transform: rotate(24deg);
+            }
+          }
+          @keyframes ctarm2 {
+            from {
+              transform: rotate(-4deg);
+            }
+            to {
+              transform: rotate(7deg);
+            }
+          }
+          #contact .ct-scene.stop .ct-sh1,
+          #contact .ct-scene.stop .ct-sh2,
+          #contact .ct-scene.stop .ct-arm1,
+          #contact .ct-scene.stop:not(.wave) .ct-arm2 {
+            animation: none;
+          }
+          #contact .ct-scene.run .ct-sh1,
+          #contact .ct-scene.run .ct-sh2,
+          #contact .ct-scene.run .ct-arm1,
+          #contact .ct-scene.run .ct-arm2 {
+            animation-duration: 0.26s;
+          }
+          #contact .ct-dog {
+            animation: ctdogb 0.5s ease-in-out infinite alternate;
+          }
+          @keyframes ctdogb {
+            to {
+              transform: translateY(-2.5px);
+            }
+          }
+          #contact .ct-dhead {
+            transform-origin: -36px -22px;
+            transition: transform 0.35s ease;
+          }
+          #contact .ct-ear {
+            transform-origin: -33px -33px;
+            animation: ctear 0.25s ease-in-out infinite alternate;
+          }
+          @keyframes ctear {
+            from {
+              transform: rotate(-14deg);
+            }
+            to {
+              transform: rotate(10deg);
+            }
+          }
+          #contact .ct-tng {
+            opacity: 0;
+            transition: opacity 0.3s;
+          }
+          #contact .ct-scene.run .ct-tng {
+            opacity: 1;
+          }
+          #contact .ct-scene.stop .ct-dog {
+            animation: none;
+          }
+          #contact .ct-scene.stop .ct-dhead {
+            transform: rotate(22deg);
+          }
+          #contact .ct-scene.joy .ct-dog {
+            animation: ctjoy 0.32s ease-out 4;
+          }
+          #contact .ct-scene.joy .ct-bob {
+            animation: ctjoy 0.32s ease-out 3;
+          }
+          @keyframes ctjoy {
+            50% {
+              transform: translateY(-13px);
+            }
+          }
+          #contact .ct-notes {
+            transition: opacity 0.3s;
+          }
+          #contact .ct-scene.stop .ct-notes {
+            opacity: 0;
+          }
+          #contact .ct-nt {
+            font: 700 15px sans-serif;
+            fill: #e07a7a;
+            stroke: none;
+            opacity: 0;
+            animation: ctnt 2.6s ease-out infinite;
+          }
+          @keyframes ctnt {
+            0% {
+              transform: translate(0, 6px);
+              opacity: 0;
+            }
+            30% {
+              opacity: 0.95;
+            }
+            100% {
+              transform: translate(12px, -18px);
+              opacity: 0;
+            }
+          }
+          #contact .ct-ex {
+            opacity: 0;
+            transform-box: fill-box;
+            transform-origin: center bottom;
+          }
+          #contact .ct-scene.alert .ct-ex {
+            animation: ctex 1s ease-out;
+          }
+          @keyframes ctex {
+            0% {
+              transform: scale(0);
+              opacity: 0;
+            }
+            25% {
+              transform: scale(1.35);
+              opacity: 1;
+            }
+            45% {
+              transform: scale(1);
+            }
+            80% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+          #contact .ct-leaf {
+            transform-box: fill-box;
+            transform-origin: center;
+            opacity: 0;
+            animation: ctleaf 7s ease-in infinite;
+          }
+          @keyframes ctleaf {
+            0% {
+              transform: translate(0, 0) rotate(0);
+              opacity: 0;
+            }
+            10% {
+              opacity: 0.9;
+            }
+            100% {
+              transform: translate(42px, 54px) rotate(240deg);
+              opacity: 0;
+            }
+          }
+          #contact .ct-lamp-g {
+            opacity: 0;
+            transition: opacity 0.8s;
+          }
+          #contact .ct-scene.night .ct-lamp-g {
+            opacity: 0.55;
+          }
+          .ct-toast {
+            position: fixed;
+            left: 50%;
+            bottom: 20px;
+            z-index: 99999;
+            box-sizing: border-box;
+            width: min(420px, calc(100vw - 28px));
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 46px 22px 16px;
+            background: #fbf8ee;
+            color: #2a2823;
+            border: 2.5px solid #2a2823;
+            border-radius: 14px 22px 12px 20px;
+            box-shadow: 4px 6px 0 rgba(42, 40, 35, 0.28);
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 36px) scale(0.86) rotate(-2deg);
+            transition:
+              opacity 0.25s,
+              transform 0.45s cubic-bezier(0.3, 1.6, 0.5, 1);
+          }
+          .ct-toast.on {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, 0) scale(1) rotate(-0.6deg);
+          }
+          .ct-tt-tape {
+            position: absolute;
+            top: -12px;
+            left: 22px;
+            width: 84px;
+            height: 24px;
+            background: rgba(242, 193, 78, 0.88);
+            transform: rotate(-4deg);
+          }
+          .ct-tt-ic {
+            flex: none;
+            width: 38px;
+            height: 38px;
+            fill: none;
+            stroke: #2a2823;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+          .ct-toast.on .ct-tt-ic {
+            animation: cttti 0.7s cubic-bezier(0.3, 1.6, 0.5, 1);
+          }
+          @keyframes cttti {
+            0% {
+              transform: scale(0.3) rotate(-25deg);
+            }
+            100% {
+              transform: none;
+            }
+          }
+          .ct-tt-b {
+            display: grid;
+            gap: 2px;
+            min-width: 0;
+          }
+          .ct-ttl {
+            font:
+              700 27px/1.05 Caveat,
+              "Patrick Hand",
+              cursive;
+          }
+          .ct-ttx {
+            font:
+              19px/1.3 "Patrick Hand",
+              Caveat,
+              cursive;
+            overflow-wrap: anywhere;
+          }
+          .ct-tt-x {
+            all: unset;
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            width: 30px;
+            height: 30px;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            font: 700 24px/1 sans-serif;
+            border-radius: 50%;
+          }
+          .ct-tt-x:hover {
+            background: rgba(242, 193, 78, 0.5);
+          }
+          .ct-tt-x:focus-visible {
+            outline: 2px dashed #e07a7a;
+            outline-offset: 2px;
+          }
+          .ct-tt-bar {
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 8px;
+            height: 4px;
+            border-radius: 4px;
+            background: #e07a7a;
+            transform-origin: left;
+          }
+          .ct-toast.on .ct-tt-bar {
+            animation: cttbar 7s linear forwards;
+          }
+          @keyframes cttbar {
+            to {
+              transform: scaleX(0);
+            }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .ct-toast,
+            .ct-toast * {
+              animation: none !important;
+              transition: none !important;
+            }
+          }
+          /* round seven: play with the scene, weather, draft saving, pause off-screen */
+          #contact.ct-off * {
+            animation-play-state: paused !important;
+          }
+          #contact .ct-ctl {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 8px 0 4px;
+          }
+          #contact .ct-ctl button {
+            all: unset;
+            box-sizing: border-box;
+            cursor: pointer;
+            color: inherit;
+            font: 18px/1 var(--pen);
+            padding: 10px 16px 11px;
+            border: 2px solid currentColor;
+            border-radius: 255px 18px 225px 16px/16px 225px 18px 255px;
+            transition:
+              transform 0.2s,
+              background 0.2s;
+          }
+          #contact .ct-ctl button:hover {
+            transform: rotate(-2deg) translateY(-1px);
+            background: rgba(242, 193, 78, 0.35);
+          }
+          #contact .ct-ctl button:active {
+            transform: scale(0.95);
+          }
+          #contact .ct-sbub {
+            opacity: 0;
+            transition: opacity 0.25s;
+          }
+          #contact .ct-sbub.on {
+            opacity: 1;
+          }
+          #contact .ct-scene.pet .ct-dog {
+            animation: ctjoy 0.32s ease-out 3;
+          }
+          #contact .ct-scene.pet .ct-tail2 {
+            animation-duration: 0.1s;
+          }
+          #contact .ct-rain {
+            opacity: 0;
+            transition: opacity 0.6s;
+          }
+          #contact .ct-scene.rain .ct-rain {
+            opacity: 1;
+          }
+          #contact .ct-scene.rain .ct-sc-sun,
+          #contact .ct-scene.rain .ct-bf {
+            opacity: 0;
+          }
+          #contact .ct-scene.rain .ct-rb {
+            animation: none;
+            opacity: 0;
+          }
+          #contact .ct-scene.rain .ct-cl path {
+            fill: #6f8aa0;
+            fill-opacity: 0.55;
+          }
+          #contact .ct-rd {
+            stroke: #6f9bbd;
+            stroke-width: 2;
+            opacity: 0.75;
+            animation: ctrain 0.9s linear infinite;
+          }
+          @keyframes ctrain {
+            from {
+              transform: translate(0, -24px);
+            }
+            to {
+              transform: translate(-18px, 232px);
+            }
+          }
+          #contact .ct-dn {
+            opacity: 0.6;
+            margin-left: 6px;
+            font-size: 16px;
+          }
+          @media (max-width: 620px) {
+            #contact .ct-dn {
+              display: block;
+              margin: 2px 0 0;
+            }
+          }
+          @media (hover: none) {
+            #contact .ct-kb {
+              display: none;
+            }
+          }
+          @media (max-width: 480px) {
+            #contact .ct-ctl button {
+              flex: 1 1 100%;
+              text-align: center;
+            }
+          }
+          /* round eight: entrance choreography, road traffic, tilt, confetti */
+          #contact.ct-js:not(.ct-in) .ct-letter,
+          #contact.ct-js:not(.ct-in) .ct-card,
+          #contact.ct-js:not(.ct-in) .ct-mbx,
+          #contact.ct-js:not(.ct-in) .ct-ctl {
+            opacity: 0;
+          }
+          #contact.ct-js.ct-in .ct-letter {
+            animation: ctdrop 0.9s cubic-bezier(0.3, 1.35, 0.5, 1) backwards;
+          }
+          #contact.ct-js.ct-in .ct-card {
+            animation: ctslide 0.85s cubic-bezier(0.3, 1.3, 0.5, 1) 0.18s
+              backwards;
+          }
+          #contact.ct-js.ct-in .ct-mbx {
+            animation: ctpop 0.7s cubic-bezier(0.3, 1.7, 0.5, 1) 0.42s backwards;
+          }
+          #contact.ct-js.ct-in .ct-ctl {
+            animation: ctfade 0.6s ease 0.9s backwards;
+          }
+          @keyframes ctdrop {
+            from {
+              opacity: 0;
+              transform: translateY(-46px) rotate(-6deg) scale(0.96);
+            }
+          }
+          @keyframes ctslide {
+            from {
+              opacity: 0;
+              transform: translateX(50px) rotate(5deg);
+            }
+          }
+          @keyframes ctpop {
+            from {
+              opacity: 0;
+              transform: scale(0.6) translateY(24px);
+            }
+          }
+          @keyframes ctfade {
+            from {
+              opacity: 0;
+              transform: translateY(10px);
+            }
+          }
+          #contact .ct-stamp {
+            animation: ctstw 9s ease-in-out infinite;
+          }
+          @keyframes ctstw {
+            0%,
+            88%,
+            100% {
+              transform: rotate(3deg);
+            }
+            91% {
+              transform: rotate(-3deg) scale(1.04);
+            }
+            94% {
+              transform: rotate(7deg);
+            }
+            97% {
+              transform: rotate(2deg);
+            }
+          }
+          #contact .ct-eartw {
+            transform-origin: 78px -18px;
+            animation: ctet 6s ease-in-out infinite;
+          }
+          @keyframes ctet {
+            0%,
+            88%,
+            100% {
+              transform: rotate(0);
+            }
+            91% {
+              transform: rotate(-16deg);
+            }
+            94% {
+              transform: rotate(5deg);
+            }
+          }
+          #contact .ct-van {
+            animation: ctvan 30s linear infinite;
+          }
+          @keyframes ctvan {
+            0% {
+              transform: translateX(-130px);
+            }
+            38%,
+            100% {
+              transform: translateX(1130px);
+            }
+          }
+          #contact .ct-vanb {
+            animation: ctvb 0.35s ease-in-out infinite alternate;
+          }
+          @keyframes ctvb {
+            to {
+              transform: translateY(-1.4px);
+            }
+          }
+          #contact .ct-wh {
+            animation: ctwh 0.45s linear infinite;
+          }
+          @keyframes ctwh {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          #contact .ct-puff {
+            fill: currentColor;
+            stroke: none;
+            opacity: 0;
+            animation: ctpf 1s ease-out infinite;
+          }
+          @keyframes ctpf {
+            0% {
+              transform: translate(0, 0) scale(0.5);
+              opacity: 0.4;
+            }
+            100% {
+              transform: translate(-22px, -6px) scale(1.6);
+              opacity: 0;
+            }
+          }
+          #contact .ct-hl {
+            opacity: 0;
+            transition: opacity 0.8s;
+          }
+          #contact .ct-scene.night .ct-hl {
+            opacity: 1;
+          }
+          @media (hover: hover) and (pointer: fine) {
+            #contact .ct-card {
+              transform: rotate(1.1deg) perspective(900px)
+                rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+              transition: transform 0.15s ease-out;
+            }
+            #contact .ct-card:hover {
+              transform: rotate(0.3deg) translateY(-3px) perspective(900px)
+                rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+            }
+          }
+          /* little improvements: calm mode, clearer states */
+          #contact.ct-calm *,
+          #contact.ct-calm *::after {
+            animation: none !important;
+            transition: none !important;
+          }
+          #contact.ct-calm .ct-dd {
+            stroke-dasharray: none !important;
+            stroke-dashoffset: 0 !important;
+          }
+          #contact.ct-calm .ct-letter,
+          #contact.ct-calm .ct-card,
+          #contact.ct-calm .ct-mbx,
+          #contact.ct-calm .ct-ctl {
+            opacity: 1 !important;
+          }
+          #contact .ct-ctl button[aria-pressed="true"] {
+            background: rgba(242, 193, 78, 0.4);
+          }
+          #contact .ct-f input[aria-invalid="true"] {
+            border-bottom-color: var(--coral);
+          }
+          #contact .ct-f input[aria-invalid="true"]::placeholder {
+            color: var(--coral);
+          }
+          #contact #fs[aria-disabled="true"] {
+            opacity: 0.8;
+            cursor: progress;
+          }
+          .ct-toast:hover .ct-tt-bar,
+          .ct-toast:focus-within .ct-tt-bar {
+            animation-play-state: paused;
+          }
+          #contact .ct-hint {
+            margin: -4px 0 10px;
+            font: 18px/1.3 var(--pen);
+            color: #c4585a;
+          }
+          #contact .ct-hint:empty {
+            display: none;
+          }
+          #contact .ct-help {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            font: 19px/1 var(--pen);
+          }
+          #contact .ct-help b {
+            font-weight: 400;
+            opacity: 0.7;
+            margin-right: 2px;
+          }
+          #contact .ct-help span {
+            padding: 5px 11px 6px;
+            border: 2px solid var(--ink);
+            border-radius: 255px 14px 225px 12px/12px 225px 14px 255px;
+            background: rgba(242, 193, 78, 0.35);
+          }
           #contact a:focus-visible,
           #contact button:focus-visible {
             outline: 2px dashed var(--coral);
@@ -4160,32 +6312,45 @@
               <button
                 type="button"
                 aria-pressed="false"
-                data-t="Hi Eijkeyal, just saying hello! "
+                data-t="Hi Eijkeyal, I'd like to talk about a job opportunity: "
+                data-h="helpful to include: the role, the company and your timeline"
               >
-                say hi
+                job opportunity
               </button>
               <button
                 type="button"
                 aria-pressed="false"
-                data-t="Hi Eijkeyal, I have a project idea: "
+                data-t="Hi Eijkeyal, I have a project I'd like help with: "
+                data-h="helpful to include: what you're building, your timeline and a rough budget"
               >
-                a project
+                freelance project
+              </button>
+              <button
+                type="button"
+                aria-pressed="false"
+                data-t="Hi Eijkeyal, I'd love to collaborate on "
+                data-h="helpful to include: what you're making and where I could help"
+              >
+                collaboration
               </button>
               <button
                 type="button"
                 aria-pressed="false"
                 data-t="Hi Eijkeyal, quick question: "
+                data-h="helpful to include: what you've already tried"
               >
                 a question
               </button>
               <button
                 type="button"
                 aria-pressed="false"
-                data-t="Hi Eijkeyal, I'd love to work with you on "
+                data-t="Hi Eijkeyal, just saying hello! "
+                data-h=""
               >
-                work together
+                just saying hi
               </button>
             </div>
+            <p class="ct-hint" id="cthint" aria-live="polite"></p>
             <div class="ct-pad">
               <svg
                 class="ct-mg"
@@ -4276,6 +6441,10 @@
               </button>
               <p id="fst" class="lab" role="status" aria-live="polite"></p>
             </div>
+            <p class="ct-alt">
+              <span class="ct-kb">ctrl + enter to send</span
+              ><span id="ctdn" class="ct-dn" aria-live="polite"></span>
+            </p>
             <svg class="ct-pen" viewBox="0 0 110 24" aria-hidden="true">
               <path d="M20 3H92V21H20Z" fill="#f2c14e" />
               <path
@@ -4429,7 +6598,7 @@
                   ><a
                     href="https://github.com/Eijkeyal"
                     target="_blank"
-                    rel="noopener"
+                    rel="me noopener"
                     >Eijkeyal</a
                   >
                 </li>
@@ -4442,7 +6611,7 @@
                   ><a
                     href="https://www.linkedin.com/in/eijkeyalpakhrin/"
                     target="_blank"
-                    rel="noopener"
+                    rel="me noopener"
                     >Eijkeyal</a
                   >
                 </li>
@@ -4464,9 +6633,13 @@
                     <path
                       d="M30 54C18 40 14 32 14 24A16 16 0 0 1 46 24C46 32 42 40 30 54Z M30 18A6 6 0 1 1 29.9 18Z"
                     /></svg
-                  >Nepal
+                  >Nepal<span id="ctnow" class="ct-now"></span>
                 </li>
               </ul>
+              <div class="ct-help">
+                <b>I can help with:</b><span>web development</span
+                ><span>JavaScript</span><span>AWS</span><span>DevOps</span>
+              </div>
             </div>
 
             <div class="ct-mbx" id="ctm">
@@ -4518,7 +6691,8 @@
                       <path class="ct-tail" d="M108 28C124 28 126 10 120 4" />
                       <path d="M62 30C60 14 70 6 85 8C100 6 110 14 108 30" />
                       <circle cx="85" cy="-6" r="14" />
-                      <path d="M73 -16L71 -31L83 -20M97 -16L99 -31L87 -20" />
+                      <g class="ct-eartw"><path d="M73 -16L71 -31L83 -20" /></g>
+                      <path d="M97 -16L99 -31L87 -20" />
                       <g class="ct-ec">
                         <path d="M77 -7q3 3 6 0M87 -7q3 3 6 0" />
                       </g>
@@ -4553,265 +6727,533 @@
           </aside>
         </div>
 
-        <svg
-          class="ct-scene ct-wob"
-          id="ctsc"
-          viewBox="0 0 1000 230"
-          aria-hidden="true"
-        >
-          <g class="ct-sc-sun">
-            <circle
-              cx="890"
-              cy="52"
-              r="20"
+        <div class="ct-scenew">
+          <svg
+            class="ct-scene ct-wob"
+            id="ctsc"
+            viewBox="0 0 1000 230"
+            aria-hidden="true"
+          >
+            <g class="ct-rain" id="ctrn"></g>
+            <g class="ct-night">
+              <g class="ct-moon">
+                <path
+                  d="M880 30a24 24 0 1 0 22 36a20 20 0 0 1-22-36Z"
+                  fill="#f6eec2"
+                  fill-opacity=".7"
+                  stroke="#d8c97a"
+                />
+              </g>
+              <g fill="#f2c14e" stroke="none">
+                <g transform="translate(300 40)">
+                  <path
+                    class="ct-tw"
+                    d="M0-6L1.6-1.6L6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"
+                  />
+                </g>
+                <g transform="translate(470 24)">
+                  <path
+                    class="ct-tw"
+                    style="animation-delay: -0.8s"
+                    d="M0-6L1.6-1.6L6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"
+                  />
+                </g>
+                <g transform="translate(660 52)">
+                  <path
+                    class="ct-tw"
+                    style="animation-delay: -1.6s"
+                    d="M0-6L1.6-1.6L6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"
+                  />
+                </g>
+                <g transform="translate(760 22)">
+                  <path
+                    class="ct-tw"
+                    style="animation-delay: -0.4s"
+                    d="M0-6L1.6-1.6L6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"
+                  />
+                </g>
+                <g transform="translate(60 56)">
+                  <path
+                    class="ct-tw"
+                    style="animation-delay: -1.2s"
+                    d="M0-6L1.6-1.6L6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"
+                  />
+                </g>
+              </g>
+              <circle class="ct-ff" cx="230" cy="160" r="3" />
+              <circle
+                class="ct-ff"
+                style="animation-delay: -1.3s"
+                cx="520"
+                cy="150"
+                r="2.6"
+              />
+              <circle
+                class="ct-ff"
+                style="animation-delay: -2.4s"
+                cx="700"
+                cy="140"
+                r="3"
+              />
+            </g>
+            <g class="ct-sc-sun">
+              <circle
+                cx="890"
+                cy="52"
+                r="20"
+                fill="#f2c14e"
+                fill-opacity=".45"
+                stroke="#f2c14e"
+              />
+              <g class="ct-sun-r2" stroke="#f2c14e">
+                <path
+                  d="M890 14v10M890 80v10M852 52h10M918 52h10M863 25l7 7M910 72l7 7M917 25l-7 7M870 72l-7 7"
+                />
+              </g>
+            </g>
+            <g class="ct-cl" style="--d: 22s">
+              <path
+                transform="translate(120 34)"
+                d="M8 32a10 10 0 0 1 2-20 14 14 0 0 1 26-4 12 12 0 0 1 22 8 9 9 0 0 1-2 16Z"
+                fill="#6f9bbd"
+                fill-opacity=".25"
+                stroke="#6f9bbd"
+              />
+            </g>
+            <g class="ct-cl" style="--d: 30s; animation-delay: -9s">
+              <path
+                transform="translate(560 16) scale(.8)"
+                d="M8 32a10 10 0 0 1 2-20 14 14 0 0 1 26-4 12 12 0 0 1 22 8 9 9 0 0 1-2 16Z"
+                fill="#6f9bbd"
+                fill-opacity=".25"
+                stroke="#6f9bbd"
+              />
+            </g>
+            <g class="ct-bf">
+              <g class="ct-bfw">
+                <path
+                  d="M0 0c-6-8-14-4-10 3s8 3 10-3ZM0 0c6-8 14-4 10 3s-8 3-10-3Z"
+                  fill="#e07a7a"
+                  fill-opacity=".6"
+                  stroke="#e07a7a"
+                  stroke-width="2"
+                />
+              </g>
+            </g>
+            <g class="ct-bird">
+              <g class="ct-wing">
+                <path d="M0 0q6-9 12 0q6-9 12 0" stroke-width="2.5" />
+              </g>
+            </g>
+            <g
+              class="ct-bird"
+              style="animation-delay: -13s; animation-duration: 33s"
+            >
+              <g class="ct-wing" style="animation-delay: -0.2s">
+                <path d="M0 0q6-9 12 0q6-9 12 0" stroke-width="2.5" />
+              </g>
+            </g>
+            <g class="ct-rb" fill="none" stroke-width="5">
+              <path d="M590 178A90 90 0 0 1 770 178" stroke="#e07a7a" />
+              <path d="M600 178A80 80 0 0 1 760 178" stroke="#f2c14e" />
+              <path d="M610 178A70 70 0 0 1 750 178" stroke="#8fbf7a" />
+              <path d="M620 178A60 60 0 0 1 740 178" stroke="#6f9bbd" />
+            </g>
+            <path
+              class="ct-dd"
+              pathLength="1"
+              style="--i: 0"
+              d="M0 182C70 160 170 158 250 176C330 190 420 178 520 178S800 180 1000 168"
+            />
+            <path
+              d="M0 206C120 194 300 202 460 198S800 204 1000 196"
+              opacity=".35"
+              stroke-dasharray="6 10"
+            />
+            <g class="ct-van">
+              <g transform="translate(0 205)">
+                <g class="ct-vanb" stroke-width="2.6">
+                  <circle class="ct-puff" cx="-44" cy="-10" r="3" />
+                  <circle
+                    class="ct-puff"
+                    style="animation-delay: -0.5s"
+                    cx="-44"
+                    cy="-10"
+                    r="3"
+                  />
+                  <path
+                    d="M-42 -8V-34H-6V-8Z"
+                    fill="#e07a7a"
+                    fill-opacity=".6"
+                  />
+                  <path d="M-6 -8V-26H8L20 -16V-8Z" fill="#f3d9a8" />
+                  <path
+                    d="M-2 -23H6L12 -17H-2Z"
+                    fill="#6f9bbd"
+                    fill-opacity=".5"
+                  />
+                  <path
+                    d="M-34 -27h14v9h-14Z M-34 -27l7 5 7-5"
+                    fill="#fbf8ee"
+                  />
+                  <circle
+                    class="ct-hl"
+                    cx="20"
+                    cy="-13"
+                    r="3.5"
+                    fill="#f2c14e"
+                    stroke="none"
+                  />
+                  <g transform="translate(-28 -4)">
+                    <g class="ct-wh">
+                      <circle r="6" fill="#fbf8ee" />
+                      <path d="M0-6V6M-6 0H6" stroke-width="2" />
+                    </g>
+                  </g>
+                  <g transform="translate(10 -4)">
+                    <g class="ct-wh">
+                      <circle r="6" fill="#fbf8ee" />
+                      <path d="M0-6V6M-6 0H6" stroke-width="2" />
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <path
+              d="M20 184l2-9M27 184l-1-7M410 182l2-8M418 182l-2-6M690 182l2-8M698 182l-1-6M930 172l2-8M938 172l-2-6"
+              stroke="#8fbf7a"
+              stroke-width="2.5"
+            />
+            <!-- house -->
+            <path
+              class="ct-dd"
+              pathLength="1"
+              style="--i: 1"
+              d="M80 178V128H170V178 M72 130L125 92L178 130Z M150 108V92h12v22"
+            />
+            <rect
+              class="ct-glow"
+              x="138"
+              y="138"
+              width="20"
+              height="16"
               fill="#f2c14e"
-              fill-opacity=".45"
-              stroke="#f2c14e"
+              stroke="none"
             />
-            <g class="ct-sun-r2" stroke="#f2c14e">
+            <path
+              d="M104 178V150H122V178 M138 138h20v16h-20Z M148 138v16 M138 146h20"
+            />
+            <circle
+              class="ct-smoke"
+              cx="156"
+              cy="86"
+              r="6"
+              fill="currentColor"
+              fill-opacity=".3"
+              stroke="none"
+            />
+            <circle
+              class="ct-smoke"
+              cx="156"
+              cy="86"
+              r="6"
+              fill="currentColor"
+              fill-opacity=".3"
+              stroke="none"
+              style="animation-delay: 1.2s"
+            />
+            <circle
+              class="ct-smoke"
+              cx="156"
+              cy="86"
+              r="6"
+              fill="currentColor"
+              fill-opacity=".3"
+              stroke="none"
+              style="animation-delay: 2.4s"
+            />
+            <!-- tree -->
+            <g class="ct-tree">
+              <path d="M280 178V138" />
               <path
-                d="M890 14v10M890 80v10M852 52h10M918 52h10M863 25l7 7M910 72l7 7M917 25l-7 7M870 72l-7 7"
+                d="M258 142a16 16 0 0 1 8-28 18 18 0 0 1 32 4 15 15 0 0 1-4 26Z"
+                fill="#8fbf7a"
+                fill-opacity=".5"
+                stroke="#6f9f5a"
               />
             </g>
-          </g>
-          <g class="ct-cl" style="--d: 22s">
+            <!-- flowers -->
+            <g transform="translate(450 178)">
+              <g class="ct-fw">
+                <path d="M0 0V-16" stroke="#6f9f5a" />
+                <circle cy="-21" r="5" fill="#e07a7a" stroke="none" />
+              </g>
+            </g>
+            <g transform="translate(480 178)">
+              <g class="ct-fw">
+                <path d="M0 0V-12" stroke="#6f9f5a" />
+                <circle cy="-17" r="4.5" fill="#f2c14e" stroke="none" />
+              </g>
+            </g>
+            <g transform="translate(620 178)">
+              <g class="ct-fw">
+                <path d="M0 0V-15" stroke="#6f9f5a" />
+                <circle cy="-20" r="5" fill="#6f9bbd" stroke="none" />
+              </g>
+            </g>
+            <!-- more things to look at -->
             <path
-              transform="translate(120 34)"
-              d="M8 32a10 10 0 0 1 2-20 14 14 0 0 1 26-4 12 12 0 0 1 22 8 9 9 0 0 1-2 16Z"
-              fill="#6f9bbd"
-              fill-opacity=".25"
-              stroke="#6f9bbd"
+              d="M190 169V150M200 169V150M210 169V150M220 169V150M186 158H226M186 165H226"
+              stroke-width="2.5"
             />
-          </g>
-          <g class="ct-cl" style="--d: 30s; animation-delay: -9s">
-            <path
-              transform="translate(560 16) scale(.8)"
-              d="M8 32a10 10 0 0 1 2-20 14 14 0 0 1 26-4 12 12 0 0 1 22 8 9 9 0 0 1-2 16Z"
-              fill="#6f9bbd"
-              fill-opacity=".25"
-              stroke="#6f9bbd"
-            />
-          </g>
-          <g class="ct-bf">
-            <g class="ct-bfw">
+            <g>
+              <path d="M240 175V102" />
+              <path d="M240 104q0-12 14-12" fill="none" />
+              <circle
+                class="ct-lamp-g"
+                cx="254"
+                cy="97"
+                r="22"
+                fill="#f2c14e"
+                stroke="none"
+              />
+              <circle cx="254" cy="96" r="5" fill="#f2c14e" />
+            </g>
+            <g transform="translate(545 178)">
+              <path d="M0 0V-8" />
               <path
-                d="M0 0c-6-8-14-4-10 3s8 3 10-3ZM0 0c6-8 14-4 10 3s-8 3-10-3Z"
+                d="M-8 -8a8 7 0 0 1 16 0Z"
                 fill="#e07a7a"
-                fill-opacity=".6"
-                stroke="#e07a7a"
-                stroke-width="2"
+                fill-opacity=".7"
               />
+              <path d="M-3 -11h.1M3 -10h.1" stroke-width="2" />
             </g>
-          </g>
-          <g class="ct-bird">
-            <g class="ct-wing">
-              <path d="M0 0q6-9 12 0q6-9 12 0" stroke-width="2.5" />
-            </g>
-          </g>
-          <g class="ct-rb" fill="none" stroke-width="5">
-            <path d="M590 178A90 90 0 0 1 770 178" stroke="#e07a7a" />
-            <path d="M600 178A80 80 0 0 1 760 178" stroke="#f2c14e" />
-            <path d="M610 178A70 70 0 0 1 750 178" stroke="#8fbf7a" />
-            <path d="M620 178A60 60 0 0 1 740 178" stroke="#6f9bbd" />
-          </g>
-          <path
-            class="ct-dd"
-            pathLength="1"
-            style="--i: 0"
-            d="M0 182C70 160 170 158 250 176C330 190 420 178 520 178S800 180 1000 168"
-          />
-          <path
-            d="M0 206C120 194 300 202 460 198S800 204 1000 196"
-            opacity=".35"
-            stroke-dasharray="6 10"
-          />
-          <path
-            d="M20 184l2-9M27 184l-1-7M410 182l2-8M418 182l-2-6M690 182l2-8M698 182l-1-6M930 172l2-8M938 172l-2-6"
-            stroke="#8fbf7a"
-            stroke-width="2.5"
-          />
-          <!-- house -->
-          <path
-            class="ct-dd"
-            pathLength="1"
-            style="--i: 1"
-            d="M80 178V128H170V178 M72 130L125 92L178 130Z M150 108V92h12v22"
-          />
-          <rect
-            class="ct-glow"
-            x="138"
-            y="138"
-            width="20"
-            height="16"
-            fill="#f2c14e"
-            stroke="none"
-          />
-          <path
-            d="M104 178V150H122V178 M138 138h20v16h-20Z M148 138v16 M138 146h20"
-          />
-          <circle
-            class="ct-smoke"
-            cx="156"
-            cy="86"
-            r="6"
-            fill="currentColor"
-            fill-opacity=".3"
-            stroke="none"
-          />
-          <circle
-            class="ct-smoke"
-            cx="156"
-            cy="86"
-            r="6"
-            fill="currentColor"
-            fill-opacity=".3"
-            stroke="none"
-            style="animation-delay: 1.2s"
-          />
-          <circle
-            class="ct-smoke"
-            cx="156"
-            cy="86"
-            r="6"
-            fill="currentColor"
-            fill-opacity=".3"
-            stroke="none"
-            style="animation-delay: 2.4s"
-          />
-          <!-- tree -->
-          <g class="ct-tree">
-            <path d="M280 178V138" />
             <path
-              d="M258 142a16 16 0 0 1 8-28 18 18 0 0 1 32 4 15 15 0 0 1-4 26Z"
+              d="M830 176a14 14 0 0 1 8-24 16 16 0 0 1 28 4 12 12 0 0 1 2 20Z"
               fill="#8fbf7a"
               fill-opacity=".5"
               stroke="#6f9f5a"
             />
-          </g>
-          <!-- flowers -->
-          <g transform="translate(450 178)">
-            <g class="ct-fw">
-              <path d="M0 0V-16" stroke="#6f9f5a" />
-              <circle cy="-21" r="5" fill="#e07a7a" stroke="none" />
-            </g>
-          </g>
-          <g transform="translate(480 178)">
-            <g class="ct-fw">
-              <path d="M0 0V-12" stroke="#6f9f5a" />
-              <circle cy="-17" r="4.5" fill="#f2c14e" stroke="none" />
-            </g>
-          </g>
-          <g transform="translate(620 178)">
-            <g class="ct-fw">
-              <path d="M0 0V-15" stroke="#6f9f5a" />
-              <circle cy="-20" r="5" fill="#6f9bbd" stroke="none" />
-            </g>
-          </g>
-          <!-- little post box at the end of the path -->
-          <g transform="translate(790 178)" id="ctpb">
-            <g class="ct-pbhop">
-              <g class="ct-pbflag">
-                <path d="M12 -16V-44" />
-                <path d="M12 -44h14v10H12" fill="#e07a7a" />
-              </g>
+            <g>
+              <path d="M708 178V128" />
               <path
-                class="ct-dd ct-pbody"
-                pathLength="1"
-                style="--i: 2"
-                d="M-12 0V-34a12 12 0 0 1 24 0V0Z"
-                fill="#e07a7a"
-                fill-opacity=".5"
+                d="M690 124h44l9 8-9 8h-44Z"
+                fill="#f2c14e"
+                fill-opacity=".6"
               />
-              <path d="M-6 -26h12" />
-              <g class="ct-env">
-                <path d="M-7 -33h14v8h-14Z M-7 -33l7 5 7-5" fill="#fbf8ee" />
-              </g>
-              <g class="ct-pbn">
-                <circle
-                  cx="-15"
-                  cy="-46"
-                  r="9"
+              <text
+                x="698"
+                y="137"
+                font-family="Caveat,cursive"
+                font-weight="700"
+                font-size="14"
+                fill="currentColor"
+                stroke="none"
+              >
+                post
+              </text>
+            </g>
+            <path
+              class="ct-leaf"
+              d="M274 128q6-6 12 0q-6 6-12 0Z"
+              fill="#8fbf7a"
+              stroke="none"
+            />
+            <path
+              class="ct-leaf"
+              style="animation-delay: -2.4s"
+              d="M290 122q6-6 12 0q-6 6-12 0Z"
+              fill="#e0a45a"
+              stroke="none"
+            />
+            <path
+              class="ct-leaf"
+              style="animation-delay: -4.8s"
+              d="M266 134q6-6 12 0q-6 6-12 0Z"
+              fill="#8fbf7a"
+              stroke="none"
+            />
+            <!-- little post box at the end of the path -->
+            <g transform="translate(790 178)" id="ctpb">
+              <g class="ct-pbhop">
+                <g class="ct-pbflag">
+                  <path d="M12 -16V-44" />
+                  <path d="M12 -44h14v10H12" fill="#e07a7a" />
+                </g>
+                <path
+                  class="ct-dd ct-pbody"
+                  pathLength="1"
+                  style="--i: 2"
+                  d="M-12 0V-34a12 12 0 0 1 24 0V0Z"
                   fill="#e07a7a"
-                  stroke-width="2"
+                  fill-opacity=".5"
                 />
-                <text
-                  id="ctpbt"
-                  x="-15"
-                  y="-42"
-                  text-anchor="middle"
-                  font-family="Caveat,cursive"
-                  font-weight="700"
-                  font-size="14"
-                  fill="#fff"
-                  stroke="none"
-                >
-                  1
-                </text>
+                <path d="M-6 -26h12" />
+                <g class="ct-env">
+                  <path d="M-7 -33h14v8h-14Z M-7 -33l7 5 7-5" fill="#fbf8ee" />
+                </g>
+                <g class="ct-pbn">
+                  <circle
+                    cx="-15"
+                    cy="-46"
+                    r="9"
+                    fill="#e07a7a"
+                    stroke-width="2"
+                  />
+                  <text
+                    id="ctpbt"
+                    x="-15"
+                    y="-42"
+                    text-anchor="middle"
+                    font-family="Caveat,cursive"
+                    font-weight="700"
+                    font-size="14"
+                    fill="#fff"
+                    stroke="none"
+                  >
+                    1
+                  </text>
+                </g>
               </g>
             </g>
-          </g>
-          <!-- the postman -->
-          <g transform="translate(340 178)">
-            <g class="ct-walk">
-              <g class="ct-man">
-                <g class="ct-dog" stroke-width="2.8">
-                  <g class="ct-dl2"><path d="M-62 -11V0M-55 -11V0" /></g>
-                  <g class="ct-dl1"><path d="M-42 -11V0M-35 -11V0" /></g>
-                  <path
-                    d="M-66 -24h26a6 6 0 0 1 6 6v7h-38v-7a6 6 0 0 1 6-6Z"
-                    fill="#f3d9a8"
-                  />
-                  <g class="ct-tail2"><path d="M-66 -21q-9-2-8-13" /></g>
-                  <circle cx="-30" cy="-27" r="8" fill="#f3d9a8" />
-                  <path d="M-35 -33l-2-9 8 4Z" fill="#a8794a" />
-                  <circle
-                    cx="-27"
-                    cy="-29"
-                    r="1.4"
-                    fill="currentColor"
-                    stroke="none"
-                  />
-                  <circle
-                    cx="-21"
-                    cy="-26"
-                    r="1.8"
-                    fill="currentColor"
-                    stroke="none"
-                  />
-                </g>
-                <g class="ct-lg1"><path d="M-3 -22V0h7" /></g>
-                <g class="ct-lg2"><path d="M3 -22V0h7" /></g>
-                <g class="ct-bob">
-                  <path
-                    d="M-10 -52H10V-22H-10Z"
-                    fill="#6f9bbd"
-                    fill-opacity=".6"
-                  />
-                  <path
-                    d="M-14 -35h13v12h-13Z"
-                    fill="#f2c14e"
-                    fill-opacity=".85"
-                  />
-                  <path d="M-10 -48L-17 -34" />
-                  <g class="ct-arm2">
-                    <path d="M10 -48L22 -40" />
+            <!-- the postman -->
+            <g transform="translate(340 178)">
+              <g class="ct-walk">
+                <g class="ct-man">
+                  <g class="ct-dog" stroke-width="2.8">
+                    <g class="ct-dl2"><path d="M-62 -11V0M-55 -11V0" /></g>
+                    <g class="ct-dl1"><path d="M-42 -11V0M-35 -11V0" /></g>
                     <path
-                      class="ct-let"
-                      d="M20 -50h12v9h-12Z M20 -50l6 5 6-5"
-                      fill="#fbf8ee"
+                      d="M-66 -24h26a6 6 0 0 1 6 6v7h-38v-7a6 6 0 0 1 6-6Z"
+                      fill="#f3d9a8"
+                    />
+                    <g class="ct-tail2"><path d="M-66 -21q-9-2-8-13" /></g>
+                    <g class="ct-dhead">
+                      <circle cx="-30" cy="-27" r="8" fill="#f3d9a8" />
+                      <g class="ct-ear">
+                        <path d="M-35 -33l-2-9 8 4Z" fill="#a8794a" />
+                      </g>
+                      <path
+                        class="ct-tng"
+                        d="M-22 -23q1 6 4 2"
+                        stroke="#e07a7a"
+                        stroke-width="2.4"
+                      />
+                      <circle
+                        cx="-27"
+                        cy="-29"
+                        r="1.4"
+                        fill="currentColor"
+                        stroke="none"
+                      />
+                      <circle
+                        cx="-21"
+                        cy="-26"
+                        r="1.8"
+                        fill="currentColor"
+                        stroke="none"
+                      />
+                    </g>
+                  </g>
+                  <g class="ct-lg1">
+                    <path d="M-3 -22V-11" />
+                    <g class="ct-sh1"><path d="M-3 -11V0h7" /></g>
+                  </g>
+                  <g class="ct-lg2">
+                    <path d="M3 -22V-11" />
+                    <g class="ct-sh2"><path d="M3 -11V0h7" /></g>
+                  </g>
+                  <g class="ct-bob">
+                    <g class="ct-arm1"><path d="M-10 -48L-17 -34" /></g>
+                    <path
+                      d="M-10 -52H10V-22H-10Z"
+                      fill="#6f9bbd"
+                      fill-opacity=".6"
+                    />
+                    <path
+                      d="M-14 -35h13v12h-13Z"
+                      fill="#f2c14e"
+                      fill-opacity=".85"
+                    />
+                    <g class="ct-arm2">
+                      <path d="M10 -48L22 -40" />
+                      <path
+                        class="ct-let"
+                        d="M20 -50h12v9h-12Z M20 -50l6 5 6-5"
+                        fill="#fbf8ee"
+                      />
+                    </g>
+                    <circle cy="-62" r="10" fill="#f3d9a8" />
+                    <path d="M4 -64h.1M0 -58q5 4 9 0" stroke-width="2.5" />
+                    <path
+                      d="M-11 -66a11 11 0 0 1 22 0Z M6 -66h10"
+                      fill="#e07a7a"
                     />
                   </g>
-                  <circle cy="-62" r="10" fill="#f3d9a8" />
-                  <path d="M4 -64h.1M0 -58q5 4 9 0" stroke-width="2.5" />
+                </g>
+                <g class="ct-notes">
+                  <text class="ct-nt" x="-4" y="-84">♪</text>
+                  <text
+                    class="ct-nt"
+                    style="animation-delay: -1.3s"
+                    x="8"
+                    y="-90"
+                  >
+                    ♫
+                  </text>
+                </g>
+                <g class="ct-sbub" id="ctsb" transform="translate(0 -92)">
+                  <rect
+                    id="ctsbr"
+                    x="-30"
+                    y="-24"
+                    width="60"
+                    height="24"
+                    rx="10"
+                    fill="#fbf8ee"
+                    stroke="#2a2823"
+                    stroke-width="2.5"
+                  />
                   <path
-                    d="M-11 -66a11 11 0 0 1 22 0Z M6 -66h10"
-                    fill="#e07a7a"
+                    d="M-4 -1l4 9 4-9"
+                    fill="#fbf8ee"
+                    stroke="#2a2823"
+                    stroke-width="2.5"
+                  />
+                  <path d="M-3 -1.3h6" stroke="#fbf8ee" stroke-width="3.4" />
+                  <text
+                    id="ctsbt"
+                    y="-8"
+                    text-anchor="middle"
+                    font-family="Caveat,cursive"
+                    font-weight="700"
+                    font-size="16"
+                    fill="#2a2823"
+                    stroke="none"
+                  >
+                    hi!
+                  </text>
+                </g>
+                <g class="ct-ex">
+                  <path
+                    d="M0 -96v11M0 -78h.1"
+                    stroke="#e07a7a"
+                    stroke-width="4.5"
                   />
                 </g>
               </g>
             </g>
-          </g>
-        </svg>
+          </svg>
+        </div>
+
+        <div class="ct-ctl" role="group" aria-label="Play with the scene">
+          <button type="button" id="ctpet">pet the dog</button>
+          <button type="button" id="cthi">wave at the postman</button>
+          <button type="button" id="ctwx">weather: live from Nepal</button>
+          <button type="button" id="ctcalm" aria-pressed="false">
+            calm mode: off
+          </button>
+        </div>
 
         <footer style="text-align: center; padding: 40px 20px">
           <p style="margin: 0">
@@ -4838,7 +7280,6 @@
             </svg>
             made by hand, with a little code · © 2026 Eijkeyal Pakhrin
           </p>
-
           <p
             class="lab"
             style="margin-top: 8px; font-size: 0.85em; opacity: 0.85"
@@ -4866,9 +7307,14 @@
               busy = false,
               reduce = window.matchMedia(
                 "(prefers-reduced-motion: reduce)",
-              ).matches;
+              ).matches,
+              sysReduce = reduce;
 
-            if (reduce)
+            if (
+              reduce ||
+              window.innerWidth < 640 ||
+              (navigator.hardwareConcurrency || 8) <= 4
+            )
               root.querySelectorAll("animate").forEach(function (a) {
                 a.remove();
               });
@@ -4921,6 +7367,7 @@
               b.addEventListener("click", function () {
                 if (fm.value.trim() === "" || starters.indexOf(fm.value) > -1) {
                   fm.value = b.getAttribute("data-t");
+                  $("cthint").textContent = b.getAttribute("data-h") || "";
                   chips.forEach(function (c) {
                     c.setAttribute("aria-pressed", c === b ? "true" : "false");
                   });
@@ -4965,6 +7412,199 @@
               }
             }
 
+            // pop-up message (a paper note that pops up; it shows what your own send code says)
+            var wx = 0,
+              DK = "ct-draft-v1",
+              dt;
+            var DONE_TITLE = "Postman says:",
+              DONE_MSG =
+                "Your letter is in the post box! I'll write back as soon as I can.", // edit this line
+              toastEl,
+              toastT,
+              following = false,
+              fst = $("fst");
+            function hideToast() {
+              if (toastEl) toastEl.classList.remove("on");
+              following = false;
+            }
+            function toast(title, text, follow) {
+              if (!toastEl) {
+                toastEl = document.createElement("div");
+                toastEl.className = "ct-toast";
+                toastEl.setAttribute("role", "status");
+                toastEl.setAttribute("aria-live", "polite");
+                toastEl.innerHTML =
+                  '<i class="ct-tt-tape"></i><svg class="ct-tt-ic" viewBox="0 0 60 60" aria-hidden="true"><path d="M6 14H54V46H6Z"/><path d="M6 14L30 33L54 14"/></svg><div class="ct-tt-b"><b class="ct-ttl"></b><span class="ct-ttx"></span></div><button type="button" class="ct-tt-x" aria-label="Close message">×</button><span class="ct-tt-bar"></span>';
+                toastEl
+                  .querySelector(".ct-tt-x")
+                  .addEventListener("click", hideToast);
+                ["mouseenter", "focusin"].forEach(function (ev) {
+                  toastEl.addEventListener(ev, function () {
+                    clearTimeout(toastT);
+                  });
+                });
+                ["mouseleave", "focusout"].forEach(function (ev) {
+                  toastEl.addEventListener(ev, function () {
+                    if (toastEl.classList.contains("on")) {
+                      clearTimeout(toastT);
+                      toastT = setTimeout(hideToast, 3000);
+                    }
+                  });
+                });
+                document.addEventListener("keydown", function (e) {
+                  if (e.key === "Escape") hideToast();
+                });
+                document.body.appendChild(toastEl);
+              }
+              toastEl.querySelector(".ct-ttl").textContent = title;
+              toastEl.querySelector(".ct-ttx").textContent = text;
+              following = !!follow;
+              toastEl.classList.remove("on");
+              void toastEl.offsetWidth;
+              toastEl.classList.add("on");
+              clearTimeout(toastT);
+              toastT = setTimeout(hideToast, 7000);
+            }
+            // paper confetti when the letter is delivered
+            function confetti() {
+              if (reduce) return;
+              var cols = [
+                "#f2c14e",
+                "#e07a7a",
+                "#6f9bbd",
+                "#8fbf7a",
+                "#fbf8ee",
+              ];
+              for (var i = 0; i < 34; i++) {
+                var c = document.createElement("i"),
+                  x = Math.random() * 100,
+                  dx = (Math.random() - 0.5) * 160,
+                  w = 6 + Math.random() * 6;
+                c.style.cssText =
+                  "position:fixed;top:-16px;left:" +
+                  x +
+                  "vw;width:" +
+                  w +
+                  "px;height:" +
+                  w * 1.6 +
+                  "px;background:" +
+                  cols[i % 5] +
+                  ";border:1.5px solid #2a2823;border-radius:2px;pointer-events:none;z-index:99998";
+                document.body.appendChild(c);
+                c.animate(
+                  [
+                    { transform: "translate(0,0) rotate(0)", opacity: 1 },
+                    {
+                      transform:
+                        "translate(" +
+                        dx +
+                        "px," +
+                        window.innerHeight * 0.55 +
+                        "px) rotate(" +
+                        (Math.random() * 540 - 270) +
+                        "deg)",
+                      opacity: 1,
+                      offset: 0.7,
+                    },
+                    {
+                      transform:
+                        "translate(" +
+                        dx * 1.3 +
+                        "px," +
+                        (window.innerHeight + 30) +
+                        "px) rotate(" +
+                        (Math.random() * 720 - 360) +
+                        "deg)",
+                      opacity: 0,
+                    },
+                  ],
+                  {
+                    duration: 1700 + Math.random() * 1200,
+                    delay: Math.random() * 350,
+                    easing: "cubic-bezier(.3,.5,.6,1)",
+                  },
+                ).onfinish = (function (el) {
+                  return function () {
+                    el.remove();
+                  };
+                })(c);
+              }
+            }
+            // a doodle floats up from the sticker you pressed
+            function floatUp(b) {
+              if (reduce) return;
+              var r = b.getBoundingClientRect(),
+                f = document.createElement("span");
+              f.textContent = b.textContent;
+              f.setAttribute("aria-hidden", "true");
+              f.style.cssText =
+                "position:fixed;left:" +
+                (r.left + r.width / 2) +
+                "px;top:" +
+                r.top +
+                "px;font:26px/1 sans-serif;pointer-events:none;z-index:99998;color:" +
+                getComputedStyle(b).color;
+              document.body.appendChild(f);
+              f.animate(
+                [
+                  {
+                    transform: "translate(-50%,0) scale(.8) rotate(0)",
+                    opacity: 1,
+                  },
+                  {
+                    transform:
+                      "translate(-50%,-70px) scale(1.7) rotate(-14deg)",
+                    opacity: 0,
+                  },
+                ],
+                { duration: 950, easing: "ease-out" },
+              ).onfinish = function () {
+                f.remove();
+              };
+            }
+            function showDone() {
+              confetti();
+              var say = fst.textContent.trim();
+              toast(DONE_TITLE, say || DONE_MSG, true);
+            }
+            // if your send code writes its own status a moment later, the pop-up shows that text instead
+            if (window.MutationObserver)
+              new MutationObserver(function () {
+                var say = fst.textContent.trim();
+                if (
+                  following &&
+                  say &&
+                  toastEl &&
+                  toastEl.classList.contains("on")
+                )
+                  toastEl.querySelector(".ct-ttx").textContent = say;
+              }).observe(fst, {
+                childList: true,
+                characterData: true,
+                subtree: true,
+              });
+            function nudge() {
+              var f = $("fe").parentNode;
+              $("fe").setAttribute("aria-invalid", "true");
+              $("fe").focus();
+              if (!reduce)
+                f.animate(
+                  [
+                    { transform: "translateX(0)" },
+                    { transform: "translateX(-7px)" },
+                    { transform: "translateX(6px)" },
+                    { transform: "translateX(-4px)" },
+                    { transform: "translateX(0)" },
+                  ],
+                  { duration: 380 },
+                );
+              toast(
+                "One thing first:",
+                "Add a valid email so I can write back.",
+                false,
+              );
+            }
+
             // send: stamp slams, mailbox flag goes up, the postman posts the letter
             var cnt = 0;
             function curX(el) {
@@ -4972,8 +7612,17 @@
               return m && m !== "none" ? new DOMMatrix(m).m41 : 0;
             }
             fs.addEventListener("click", function () {
-              if (busy || fm.value.trim() === "" || reduce) return;
+              if (busy || fm.value.trim() === "") return;
+              if (!/^\S+@\S+\.\S+$/.test($("fe").value.trim())) {
+                nudge();
+                return;
+              }
+              if (reduce) {
+                setTimeout(showDone, 1200);
+                return;
+              }
               busy = true;
+              fs.setAttribute("aria-disabled", "true");
               root.querySelector(".ct-air").animate(
                 [
                   {
@@ -5025,6 +7674,10 @@
               man.style.transform = "scaleX(1)";
               sc.classList.add("stop");
               sc.scrollIntoView({ behavior: "smooth", block: "nearest" });
+              sc.classList.add("alert");
+              setTimeout(function () {
+                sc.classList.remove("alert");
+              }, 1000);
               setTimeout(function () {
                 sc.classList.remove("stop");
                 sc.classList.add("run");
@@ -5059,6 +7712,11 @@
                     cnt++;
                     $("ctpbt").textContent = cnt;
                     sc.classList.add("full");
+                    sc.classList.add("joy");
+                    setTimeout(function () {
+                      sc.classList.remove("joy");
+                    }, 1500);
+                    showDone();
                     var pb = $("ctpb"),
                       r = pb.getBoundingClientRect(),
                       g2 = grid.getBoundingClientRect();
@@ -5114,7 +7772,11 @@
                         man.style.animation = "";
                         man.style.transform = "";
                         busy = false;
+                        fs.removeAttribute("aria-disabled");
                         sync();
+                        try {
+                          if (!fm.value.trim()) localStorage.removeItem(DK);
+                        } catch (e) {}
                       });
                     }, 1700);
                   }, 700);
@@ -5157,6 +7819,7 @@
               function (b) {
                 b.addEventListener("click", function () {
                   fm.value += b.getAttribute("data-s");
+                  floatUp(b);
                   fm.dispatchEvent(new Event("input", { bubbles: true }));
                   var r = b.getBoundingClientRect(),
                     g = grid.getBoundingClientRect();
@@ -5182,6 +7845,223 @@
                 if (fm.value === "" && document.activeElement !== fm)
                   fm.setAttribute("placeholder", ph[++pi % ph.length]);
               }, 3800);
+
+            var fn = $("fn");
+
+            // the scene follows the clock in Nepal: moon and stars at night
+            function nepal() {
+              try {
+                var d = new Date(),
+                  h = +new Intl.DateTimeFormat("en-GB", {
+                    timeZone: "Asia/Kathmandu",
+                    hour: "numeric",
+                    hourCycle: "h23",
+                  }).format(d),
+                  t = new Intl.DateTimeFormat("en-US", {
+                    timeZone: "Asia/Kathmandu",
+                    hour: "numeric",
+                    minute: "2-digit",
+                  })
+                    .format(d)
+                    .toLowerCase();
+                if (wx === 0)
+                  $("ctsc").classList.toggle("night", h >= 19 || h < 6);
+                $("ctnow").textContent = " · " + t + " there now";
+              } catch (e) {}
+            }
+            nepal();
+            setInterval(nepal, 30000);
+
+            // play with the scene: pet the dog, wave at the postman, change the weather
+            var sc0 = $("ctsc"),
+              man0 = sc0.querySelector(".ct-man"),
+              sbT;
+            function facing() {
+              var m = getComputedStyle(man0).transform;
+              return m && m !== "none" ? (new DOMMatrix(m).a < 0 ? -1 : 1) : 1;
+            }
+            function bubble(text, dx) {
+              var w = text.length * 7.5 + 22;
+              $("ctsbt").textContent = text;
+              $("ctsbr").setAttribute("x", -w / 2);
+              $("ctsbr").setAttribute("width", w);
+              $("ctsb").setAttribute("transform", "translate(" + dx + " -92)");
+              $("ctsb").classList.add("on");
+              clearTimeout(sbT);
+              sbT = setTimeout(function () {
+                $("ctsb").classList.remove("on");
+              }, 1900);
+            }
+            function pick(a) {
+              return a[Math.floor(Math.random() * a.length)];
+            }
+            function after(cls, ms) {
+              sc0.classList.add(cls);
+              setTimeout(function () {
+                sc0.classList.remove(cls);
+              }, ms);
+            }
+            $("ctpet").addEventListener("click", function () {
+              if (busy) return;
+              bubble(
+                pick(["woof!", "arf arf!", "*wags tail*", "good dog!"]),
+                -48 * facing(),
+              );
+              if (!reduce) after("pet", 1100);
+              var r = sc0.querySelector(".ct-dog").getBoundingClientRect(),
+                g = grid.getBoundingClientRect();
+              burst(r.left + r.width / 2 - g.left, r.top - g.top);
+            });
+            $("cthi").addEventListener("click", function () {
+              if (busy) return;
+              bubble(
+                pick(["hi there!", "got mail?", "nice day for it!", "hello!"]),
+                0,
+              );
+              if (!reduce) after("wave", 2200);
+            });
+            var WX = ["clock", "rain", "night", "day"],
+              WL = ["live from Nepal", "rainy", "night", "sunny"];
+            $("ctwx").addEventListener("click", function () {
+              wx = (wx + 1) % 4;
+              sc0.classList.toggle("rain", wx === 1);
+              if (wx === 0) nepal();
+              else sc0.classList.toggle("night", wx === 2);
+              this.textContent = "weather: " + WL[wx];
+            });
+            // rain drops (made here so the markup stays small)
+            var rn = $("ctrn");
+            for (var i = 0; i < 26; i++) {
+              var dp = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "path",
+              );
+              dp.setAttribute("class", "ct-rd");
+              dp.setAttribute(
+                "d",
+                "M" + Math.round(i * 40 + Math.random() * 30) + " 0l-5 14",
+              );
+              dp.style.animationDelay =
+                "-" + (Math.random() * 0.9).toFixed(2) + "s";
+              dp.style.animationDuration =
+                (0.7 + Math.random() * 0.5).toFixed(2) + "s";
+              rn.appendChild(dp);
+            }
+
+            // keep a draft on this device, and ctrl/cmd + enter sends
+            var dn = $("ctdn");
+            try {
+              var d = JSON.parse(localStorage.getItem(DK) || "null");
+              if (d) {
+                if (d.m && !fm.value) fm.value = d.m;
+                if (d.n && !fn.value) fn.value = d.n;
+                if (d.e && !$("fe").value) $("fe").value = d.e;
+                fm.dispatchEvent(new Event("input", { bubbles: true }));
+              }
+            } catch (e) {}
+            function saveDraft() {
+              clearTimeout(dt);
+              dt = setTimeout(function () {
+                try {
+                  if (!fm.value.trim()) {
+                    localStorage.removeItem(DK);
+                    dn.textContent = "";
+                    return;
+                  }
+                  localStorage.setItem(
+                    DK,
+                    JSON.stringify({
+                      m: fm.value,
+                      n: fn.value,
+                      e: $("fe").value,
+                    }),
+                  );
+                  dn.textContent = "draft saved on this device";
+                  setTimeout(function () {
+                    dn.textContent = "";
+                  }, 2200);
+                } catch (e) {}
+              }, 700);
+            }
+            ["fm", "fn", "fe"].forEach(function (id) {
+              $(id).addEventListener("input", saveDraft);
+            });
+            fm.addEventListener("keydown", function (e) {
+              if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+                e.preventDefault();
+                fs.click();
+              }
+            });
+
+            // pause everything while the section is off-screen (saves battery)
+            var fsvg = root.querySelector('svg[width="0"]');
+            if ("IntersectionObserver" in window)
+              new IntersectionObserver(
+                function (e) {
+                  var on = e[0].isIntersecting;
+                  root.classList.toggle("ct-off", !on);
+                  try {
+                    if (fsvg) {
+                      on && !root.classList.contains("ct-calm")
+                        ? fsvg.unpauseAnimations()
+                        : fsvg.pauseAnimations();
+                    }
+                  } catch (x) {}
+                },
+                { rootMargin: "160px" },
+              ).observe(root);
+
+            // card tilts toward the pointer (mouse only)
+            var card = root.querySelector(".ct-card");
+            if (
+              !reduce &&
+              window.matchMedia("(hover:hover) and (pointer:fine)").matches
+            ) {
+              card.addEventListener("pointermove", function (e) {
+                var r = card.getBoundingClientRect();
+                card.style.setProperty(
+                  "--ry",
+                  ((e.clientX - r.left) / r.width - 0.5) * 7 + "deg",
+                );
+                card.style.setProperty(
+                  "--rx",
+                  -((e.clientY - r.top) / r.height - 0.5) * 7 + "deg",
+                );
+              });
+              card.addEventListener("pointerleave", function () {
+                card.style.setProperty("--ry", "0deg");
+                card.style.setProperty("--rx", "0deg");
+              });
+            }
+
+            // calm mode: switches the ambient motion off and remembers your choice
+            var calmBtn = $("ctcalm"),
+              CK = "ct-calm-v1";
+            function setCalm(on, save) {
+              root.classList.toggle("ct-calm", on);
+              reduce = sysReduce || on;
+              calmBtn.setAttribute("aria-pressed", on ? "true" : "false");
+              calmBtn.textContent = "calm mode: " + (on ? "on" : "off");
+              try {
+                if (fsvg) {
+                  on ? fsvg.pauseAnimations() : fsvg.unpauseAnimations();
+                }
+              } catch (x) {}
+              if (save) {
+                try {
+                  localStorage.setItem(CK, on ? "1" : "0");
+                } catch (e) {}
+              }
+            }
+            calmBtn.addEventListener("click", function () {
+              setCalm(!root.classList.contains("ct-calm"), true);
+            });
+            try {
+              if (localStorage.getItem(CK) === "1") setCalm(true, false);
+            } catch (e) {}
+            $("fe").addEventListener("input", function () {
+              this.removeAttribute("aria-invalid");
+            });
 
             // copy email button
             var msg = $("cpm");
@@ -5668,7 +8548,7 @@
         ],
       ];
 
-      const chessHTML = `<div class="chessc rv"><div class="bd" id="bd" role="img" aria-label="Chess board with a knight that hops around">${[...Array(16)].map((_, i) => `<i class="${((i >> 2) + i) % 2 ? "k" : ""}"></i>`).join("")}<span class="kn" id="kn">&#9822;&#65038;</span></div><div><h3>One move can ruin my da</h3><p>One bug can ruin my whole day, and so can one blunder. Same panic, same silence, same “how did I not see that?” I replay it, find the exact line where it broke, and still want another round. Think you can beat me? Pull up a board on Chess.com. Tap the board to make the knight hop.</p><a class="btn b" href="https://www.chess.com/member/jessica_babe" target="_blank" rel="noopener">play me on chess.com →</a></div></div>`;
+      const chessHTML = `<div class="chessc rv"><div class="bd" id="bd" role="img" aria-label="Chess board with a knight that hops around">${[...Array(16)].map((_, i) => `<i class="${((i >> 2) + i) % 2 ? "k" : ""}"></i>`).join("")}<span class="kn" id="kn">&#9822;&#65038;</span></div><div><h3>One move can ruin my day</h3><p>One bug can ruin my whole day, and so can one blunder. Same panic, same silence, same “how did I not see that?” I replay it, find the exact line where it broke, and still want another round. Think you can beat me? Pull up a board on Chess.com. Tap the board to make the knight hop.</p><a class="btn b" href="https://www.chess.com/member/jessica_babe" target="_blank" rel="noopener">play me on chess.com →</a></div></div>`;
 
       // knight doodle for the Chess card (same 40x40 drawing style as your other icons)
       ICO.chess =
@@ -5956,6 +8836,22 @@
           d: "2026",
           id: "0bf2cfd924196b6ff2996db81a5df46748c6ac5f90231f06f783fb94f20014411",
           u: "s",
+        },
+        {
+          t: "Full-Stack JavaScript Development",
+          issuer: "LinkedIn Learning",
+          lv: "Course",
+          d: "2026",
+          id: "8d110fa5141043f610e388e1f7e2bb7a6ec6be81c6e0d1a350c32cd382b3fbd3",
+          u: "f",
+        },
+        {
+          t: "Build a CI/CD Pipeline",
+          issuer: "LinkedIn Learning",
+          lv: "Course",
+          d: "2026",
+          id: "dc231e726e9b00bbb2a3a1d6203d34068d15c19f71539c22fbac0e726f0c4981",
+          u: "g",
         },
         {
           t: "Learning Docker",
@@ -6507,7 +9403,7 @@
             ["laptop", 6, 4, 1.5, "pen"],
             ["q", 116, 6, 0.9, ""],
             ["sparkle", 118, 58, 0.6, "yl"],
-            ["screwdriver", 50, 60, 0.8, "gr"], // ADDED
+            ["screwdriver", 50, 60, 0.8, "gr"],
           ],
           side: ["magnifier", "curiosity: 100%"],
         },
@@ -6519,26 +9415,26 @@
           ill: [
             ["terminal", 8, 4, 1.5, "pen"],
             ["smiley", 112, 50, 0.7, "yl"],
-            ["keyboard", 40, 65, 1.1, "ink"], // ADDED
+            ["keyboard", 40, 65, 1.1, "ink"],
           ],
           side: ["bug", "bugs found: 1 (me)"],
         },
         {
-          t: "My first website",
-          lab: "chapter 3 · HTML and CSS",
-          txt: "Three tags, one blinking cursor, and a page that was centered entirely by accident. I showed it to everyone anyway.",
+          t: "Jutta Pasal",
+          lab: "chapter 3 · my first website",
+          txt: "My first real website was Jutta Pasal, a simple shoe storefront. I built it using basic HTML, CSS, and JavaScript to list shoes and their prices. It was incredibly basic, but hitting 'live' for the first time felt like magic.",
           bubs: [
             "it works on my machine!",
-            "why is it purple?",
-            "how do I center this div?",
+            "why is it not centered?",
+            "did the JS cart just break?",
           ],
           ill: [
             ["fe", 6, 6, 1.5, "pen"],
             ["squig", 96, 56, 0.9, "gr"],
             ["star", 116, 4, 0.6, "yl"],
-            ["monitor", 50, 55, 1.2, "ink"], // ADDED
+            ["monitor", 50, 55, 1.2, "ink"],
           ],
-          side: ["coffee", "divs: too many"],
+          side: ["coffee", "shoes listed: 12"],
         },
         {
           t: "Choosing my path",
@@ -6553,13 +9449,13 @@
             ["book", 6, 8, 1.4, "ink"],
             ["q", 100, 6, 0.9, ""],
             ["star", 118, 54, 0.6, "yl"],
-            ["map", 55, 60, 1.0, "gr"], // ADDED
+            ["map", 55, 60, 1.0, "gr"],
           ],
           side: ["bulb", "decision: made"],
         },
         {
           t: "The high school grind",
-          lab: "chapter 5 · late nights and hard math",
+          lab: "chapter 5 · building the foundations",
           txt: "Getting into a computer science program wasn't easy. I spent my final years of high school buried in math and computer science surviving on coffee and pulling late nights to build the foundation I needed for college.",
           bubs: [
             "just one more page…",
@@ -6577,54 +9473,54 @@
         {
           t: "College days",
           lab: "chapter 6 · learning properly",
-          txt: "B.Sc. in Computer Science: algorithms at 9am, side projects at midnight, and a lot of tea in between.",
+          txt: "I joined Islington College to sharpen my knowledge, but I learned much more than just how to write code. Between late-night assignments and fighting deadlines, I learned how real software is built—focusing on system design, scalable architecture, and exploring new technologies beyond the classroom.",
           bubs: [
-            "one more cup…",
+            "how does this scale?",
             "the deadline is tomorrow?",
             "I’ll sleep after this bug",
           ],
           ill: [
             ["cap", 6, 10, 1.4, "pen"],
-            ["book", 96, 36, 0.95, "ink"],
-            ["star", 112, 2, 0.6, "yl"],
-            ["mug", 50, 60, 1.2, "gr"], // ADDED
+            ["terminal", 96, 36, 0.95, "ink"],
+            ["cloud", 112, 2, 0.8, "gr"],
+            ["keyboard", 50, 60, 1.2, "pen"],
           ],
-          side: ["note", "study playlist: on repeat"],
-        },
-        {
-          t: "Hackathon weekends",
-          lab: "chapter 7 · learning with a deadline",
-          txt: "Thirty-six hours, one idea, and a team of near strangers. We barely slept, but I learned more about shipping than any lecture taught me.",
-          bubs: [
-            "it only crashes during the demo",
-            "who has the charger?",
-            "we’re presenting in 5 minutes!",
-          ],
-          ill: [
-            ["laptop", 6, 6, 1.4, "pen"],
-            ["lightning", 98, 10, 0.8, "yl"],
-            ["trophy", 112, 46, 0.8, ""],
-            ["clock", 46, 58, 1.1, "gr"], // ADDED
-          ],
-          side: ["coffee", "sleep: optional"],
+          side: ["clock", "deadlines survived: many"],
         },
         {
           t: "The first real project",
-          lab: "chapter 8 · building things",
+          lab: "chapter 7 · building things",
           txt: "TaskFlow was the first thing I built that other people actually used. A stranger filed a bug on it, and I was absolutely thrilled.",
           bubs: ["someone used it!", "a bug report?!", "fixing it tonight"],
           ill: [
             ["laptop", 4, 6, 1.4, "pen"],
             ["bulb", 100, 6, 0.9, "yl"],
             ["rocket", 112, 50, 0.5, ""],
-            ["tools", 45, 62, 1.1, "ink"], // ADDED
+            ["tools", 45, 62, 1.1, "ink"],
           ],
           side: ["bulb", "ideas: unlimited"],
         },
         {
+          t: "Hackathon weekends",
+          lab: "chapter 8 · learning with a deadline",
+          txt: "Thirty-six hours, one idea, and a team of near strangers. By hour 30, the dark circles under our eyes were permanent, the caffeine stopped working, and we were running on pure adrenaline to get the demo ready.",
+          bubs: [
+            "it only crashes during the demo",
+            "who has the charger?",
+            "my eyes are burning",
+          ],
+          ill: [
+            ["laptop", 6, 6, 1.4, "pen"],
+            ["lightning", 98, 10, 0.8, "yl"],
+            ["trophy", 112, 46, 0.8, ""],
+            ["coffee", 46, 58, 1.2, "ink"],
+          ],
+          side: ["moon", "sleep: not an option"],
+        },
+        {
           t: "The first internship",
           lab: "chapter 9 · real code, real deadlines",
-          txt: "Production code is nothing like homework. Someone reads your pull request, someone depends on your feature, and “it works on my machine” stops being an answer.",
+          txt: "Before landing my first internship at Leapfrog Digital, I spent weeks updating my CV, applying endlessly, and hoping someone would give me a chance. Once I got in, I realized production code is nothing like homework. Someone reviews your pull request, someone depends on your feature, and 'it works on my machine' stops being an answer.",
           bubs: [
             "what’s a pull request?",
             "please review my code",
@@ -6634,14 +9530,14 @@
             ["terminal", 6, 6, 1.5, "pen"],
             ["bug", 100, 10, 0.9, "gr"],
             ["sparkle", 116, 58, 0.6, "yl"],
-            ["id_card", 50, 55, 1.2, "ink"], // ADDED
+            ["note", 50, 55, 1.2, "ink"],
           ],
           side: ["note", "lessons learned: many"],
         },
         {
           t: "Into the cloud",
           lab: "chapter 10 · AWS",
-          txt: "Servers stopped being scary the day I deployed my first app on AWS. Now a green deployment still gives me a little thrill.",
+          txt: "Servers stopped being scary the day I deployed my first app on AWS. That thrill of a green deployment is real, but it comes with a new fear: the quiet panic that one missed IAM policy or a single wrong config could cost millions. It's the kind of thought that wakes you up at 3 AM.",
           bubs: [
             "it’s alive!",
             "who turned off the server?",
@@ -6651,44 +9547,48 @@
             ["cloud", 4, 6, 1.5, "pen"],
             ["rosette", 100, 14, 1.3, ""],
             ["lightning", 66, 48, 0.6, "yl"],
-            ["server", 42, 62, 1.1, "gr"], // ADDED
+            ["terminal", 42, 62, 1.1, "gr"],
           ],
           side: ["cloud", "uptime: fingers crossed"],
         },
         {
           t: "Databases and late nights",
           lab: "chapter 11 · PostgreSQL, Supabase, Firebase",
-          txt: "I fell down the rabbit hole of schemas, indexes and queries that are fast for no obvious reason. Supabase and Firebase made side projects feel like magic.",
+          txt: "I fell in love with schemas and indexes, but quickly learned that over-indexing kills write speed. Yet nothing absolutely nothing prepares you for the sheer terror of typing a DELETE or DROP command in production, triple-checking your connection string, and holding your breath as you hit Enter.",
           bubs: [
             "why is this query slow?",
             "add an index!",
-            "the table has 3 rows",
+            "wait... which database am I on?",
           ],
           ill: [
             ["dbs", 6, 6, 1.5, "pen"],
             ["magnifier", 100, 18, 1, "gr"],
             ["sparkle", 70, 60, 0.5, "yl"],
-            ["moon", 46, 55, 1.2, "ink"], // ADDED
+            ["moon", 46, 55, 1.2, "ink"],
           ],
           side: ["moon", "commits at 2am"],
         },
         {
           t: "Certificates, collected",
-          lab: "chapter 12 · AWS certifications",
-          txt: "One certificate became two, then six. Each one is a small proof that I did the homework, and a good excuse to learn something properly.",
-          bubs: ["six and counting", "study. exam. repeat.", "what’s next?"],
+          lab: "chapter 12 · the proof of work",
+          txt: "One certificate became two, then twelve. From AWS and Docker to CI/CD and full-stack development. Each one is a small proof that I did the homework, a structured way to learn something properly, and a good excuse to build another project.",
+          bubs: [
+            "twelve and counting",
+            "study. exam. repeat.",
+            "what's next? Databricks?",
+          ],
           ill: [
             ["rosette", 10, 10, 1.3, ""],
             ["trophy", 80, 10, 1.3, "yl"],
             ["star", 124, 60, 0.6, "pen"],
-            ["scroll", 46, 60, 1.2, "gr"], // ADDED
+            ["book", 46, 60, 1.2, "gr"],
           ],
-          side: ["trophy", "badges earned: 6"],
+          side: ["trophy", "badges: 12+"],
         },
         {
           t: "Looking for my first job",
           lab: "chapter 13 · from student to professional",
-          txt: "Graduation was an ending and a beginning. Now I’m polishing my CV, tuning my portfolio and ready to join a team, build real systems and keep learning on the job.",
+          txt: "I'm currently in my final year of college, with graduation just six months away. While finishing my degree, I'm polishing my CV, endlessly tuning my portfolio, and looking for a team where I can build real systems and start my career as a software engineer.",
           bubs: [
             "is my CV good enough?",
             "portfolio: updated again",
@@ -6698,14 +9598,14 @@
             ["cap", 6, 8, 1.4, "pen"],
             ["laptop", 98, 10, 1, "gr"],
             ["rocket", 114, 50, 0.6, ""],
-            ["suit", 48, 58, 1.1, "ink"], // ADDED
+            ["note", 48, 58, 1.1, "ink"],
           ],
           side: ["cap", "status: open to work"],
         },
         {
           t: "Countless CVs, no reply yet",
           lab: "chapter 14 · the part nobody posts about",
-          txt: "I’ve sent more CVs than I can count and the inbox is still quiet. No offer yet, but every silence sends me back to improve my projects, my skills and my story. I’m not stopping.",
+          txt: "I’ve sent more CVs than I can count, and the inbox is still painfully quiet. No offer yet. But every rejection and every silence just sends me back to the code—improving my projects, sharpening my skills, and refining my story. I’m not stopping.",
           bubs: [
             "application sent. again.",
             "no reply yet…",
@@ -6715,27 +9615,27 @@
             ["bug", 8, 10, 1.4, "gr"],
             ["q", 100, 8, 0.9, ""],
             ["bulb", 116, 52, 0.7, "yl"],
-            ["mailbox", 48, 60, 1.2, "pen"], // ADDED
+            ["letter", 48, 60, 1.2, "pen"],
           ],
           side: ["magnifier", "CVs sent: countless"],
         },
         {
           t: "Finding my people",
           lab: "chapter 15 · community",
-          txt: "GDG Kathmandu and Leapfrog’s Frogtoberfest taught me that the best code happens in a room full of curious people.",
+          txt: "GDG Kathmandu and Leapfrog’s Frogtoberfest taught me that the best code happens in a room full of curious people. Surrounding yourself with other developers, sharing ideas, and building together makes you learn faster than any tutorial ever could.",
           bubs: ["ribbit!", "can I join your team?", "free stickers!"],
           ill: [
             ["frog", 4, 16, 1.3, "gr"],
             ["brackets", 80, 10, 1.1, "pen"],
             ["pumpkin", 120, 46, 0.7, ""],
-            ["people", 48, 58, 1.2, "ink"], // ADDED
+            ["speech_bubble", 48, 58, 1.2, "ink"],
           ],
           side: ["frog", "ribbit count: lots"],
         },
         {
           t: "Teaching what I learned",
           lab: "chapter 16 · giving back",
-          txt: "Explaining something to a junior is the fastest way to find out whether I really understand it. Mentoring, writing and sharing notes turned out to be a great way to learn twice.",
+          txt: "Explaining a concept to a classmate is the fastest way to find out if I actually understand it. Whether it's breaking down a tough algorithm or sharing notes before an exam, teaching others has become my favorite way to learn twice and build confidence together.",
           bubs: [
             "can you explain it simply?",
             "wait, I never knew that",
@@ -6745,31 +9645,31 @@
             ["book", 6, 8, 1.4, "ink"],
             ["bulb", 98, 8, 0.9, "yl"],
             ["smiley", 116, 54, 0.7, "pen"],
-            ["speech_bubble", 46, 58, 1.1, "gr"], // ADDED
+            ["speech_bubble", 46, 58, 1.1, "gr"],
           ],
           side: ["note", "knowledge shared: growing"],
         },
         {
           t: "Today, and what’s next",
           lab: "chapter 17 · still going",
-          txt: "I build back ends, cloud setups and the occasional 3D thing. Next stop: bigger systems, better teammates, maybe a talk of my own.",
+          txt: "Today, I build backends, cloud setups, and the occasional 3D interactive thing. Next stop: bigger systems, better teammates, and maybe a conference talk of my own. The journey is just getting started.",
           bubs: [
             "to be continued…",
             "what should I build next?",
-            "see you in chapter 17",
+            "see you in the next chapter",
           ],
           ill: [
             ["rocket", 22, 4, 1.5, ""],
             ["star", 92, 8, 0.8, "yl"],
             ["sparkle", 116, 54, 0.7, "pen"],
-            ["telescope", 48, 58, 1.2, "ink"], // ADDED
+            ["telescope", 48, 58, 1.2, "ink"],
           ],
           side: ["rocket", "next stop: bigger systems"],
         },
         {
           t: "Say hello",
           lab: "chapter 18 · your turn",
-          txt: "Thanks for reading my story. If it made you smile, or you want to talk code, cloud, tea or a project idea, I would love to hear from you. My links are right below.",
+          txt: "Thanks for reading my story. If it made you smile, or if you want to talk code, cloud, tea, or a project idea, I would love to hear from you. My links are right below.",
           bubs: [
             "thanks for stopping by!",
             "let’s build something together",
@@ -6779,7 +9679,7 @@
             ["smiley", 10, 10, 1.4, "yl"],
             ["sparkle", 100, 8, 0.8, "pen"],
             ["star", 118, 54, 0.6, "yl"],
-            ["letter", 48, 55, 1.2, "gr"], // ADDED
+            ["letter", 48, 55, 1.2, "gr"],
           ],
           side: ["smiley", "inbox: always open"],
         },
