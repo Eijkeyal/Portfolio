@@ -515,6 +515,8 @@
         position: relative;
         padding-top: 50px;
         justify-self: center;
+        min-height: 250px; /* Adjust this number so it matches the height of your text */
+        contain: layout;
       }
       .polw {
         position: relative;
@@ -1979,6 +1981,12 @@
         grid-template-columns: repeat(8, var(--s));
         grid-template-rows: repeat(8, var(--s));
       }
+      #cb > [role="row"] {
+        display: contents;
+      }
+      .cb > [role="row"] {
+        display: contents;
+      }
       .sq {
         position: relative;
         display: grid;
@@ -2221,6 +2229,8 @@
             width: 100%;
             display: flex;
             justify-content: center;
+            min-height: 150px;
+            contain: layout;
           }
 
           .two,
@@ -7639,9 +7649,15 @@
 
             // send: stamp slams, mailbox flag goes up, the postman posts the letter
             var cnt = 0;
+            var _walkXCache = null,
+              _walkXFor = null;
             function curX(el) {
+              if (el === _walkXFor && _walkXCache !== null) return _walkXCache;
               var m = getComputedStyle(el).transform;
-              return m && m !== "none" ? new DOMMatrix(m).m41 : 0;
+              var v = m && m !== "none" ? new DOMMatrix(m).m41 : 0;
+              _walkXFor = el;
+              _walkXCache = v;
+              return v;
             }
             fs.addEventListener("click", function () {
               if (busy || fm.value.trim() === "") return;
@@ -7803,6 +7819,7 @@
                         walk.style.transform = "";
                         man.style.animation = "";
                         man.style.transform = "";
+                        _walkXCache = null; /* <-- ADD THIS LINE */
                         busy = false;
                         fs.removeAttribute("aria-disabled");
                         sync();
@@ -8044,23 +8061,31 @@
               ).observe(root);
 
             // card tilts toward the pointer (mouse only)
+            // card tilts toward the pointer (mouse only)
             var card = root.querySelector(".ct-card");
             if (
               !reduce &&
               window.matchMedia("(hover:hover) and (pointer:fine)").matches
             ) {
+              var _cardRect = null;
+              card.addEventListener("pointerenter", function () {
+                _cardRect = card.getBoundingClientRect();
+              });
               card.addEventListener("pointermove", function (e) {
-                var r = card.getBoundingClientRect();
+                if (!_cardRect) _cardRect = card.getBoundingClientRect();
                 card.style.setProperty(
                   "--ry",
-                  ((e.clientX - r.left) / r.width - 0.5) * 7 + "deg",
+                  ((e.clientX - _cardRect.left) / _cardRect.width - 0.5) * 7 +
+                    "deg",
                 );
                 card.style.setProperty(
                   "--rx",
-                  -((e.clientY - r.top) / r.height - 0.5) * 7 + "deg",
+                  -((e.clientY - _cardRect.top) / _cardRect.height - 0.5) * 7 +
+                    "deg",
                 );
               });
               card.addEventListener("pointerleave", function () {
+                _cardRect = null;
                 card.style.setProperty("--ry", "0deg");
                 card.style.setProperty("--rx", "0deg");
               });
@@ -8129,17 +8154,40 @@
         </script>
       </section>
     </main>
-
-    <script
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
-    ></script>
+    <!-- Load heavy libraries lazily to protect TBT -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      function loadLibraries() {
+        // 1. Load Anime.js
+        const animeScript = document.createElement("script");
+        animeScript.src =
+          "https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js";
+
+        // 2. When Anime is loaded, load Three.js
+        animeScript.onload = function () {
+          const threeScript = document.createElement("script");
+          threeScript.src =
+            "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+
+          // 3. When Three is loaded, fire an event so your code knows they are ready
+          threeScript.onload = function () {
+            document.dispatchEvent(new Event("librariesReady"));
+          };
+
+          document.body.appendChild(threeScript);
+        };
+
+        document.body.appendChild(animeScript);
+      }
+
+      // Wait until the browser is idle before downloading the heavy libraries
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadLibraries);
+      } else {
+        setTimeout(loadLibraries, 2500); // Fallback for Safari
+      }
+    </script>
+    <script>
+      document.addEventListener("librariesReady", function () {
         const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches,
           $ = (s) => [...document.querySelectorAll(s)],
           RT = document.documentElement,
@@ -9969,6 +10017,11 @@
             mob = innerWidth <= 860,
             cx = mob ? 24 : W / 2,
             amp = mob ? 8 : 34;
+
+          // 1. Read all chapter positions FIRST (avoids layout thrashing)
+          const chaps = $(".chap");
+          const offsets = chaps.map((c) => c.offsetTop + c.offsetHeight / 2);
+
           rsvg.setAttribute("viewBox", `0 0 ${W} ${H}`);
           xAt = (y) =>
             cx + Math.sin(y / 130) * amp + Math.sin(y / 53) * amp * 0.3;
@@ -9980,17 +10033,22 @@
           rd1.style.strokeDasharray = RL;
           msw.innerHTML = "";
           msY = [];
-          msEl = $(".chap").map((c, i) => {
-            const y = c.offsetTop + c.offsetHeight / 2,
-              e = document.createElement("div");
+
+          // 2. Build elements in memory first (Document Fragment)
+          const frag = document.createDocumentFragment();
+          msEl = offsets.map((y, i) => {
+            const e = document.createElement("div");
             e.className = "ms";
             e.textContent = i + 1;
             e.style.left = xAt(y) + "px";
             e.style.top = y + "px";
-            msw.appendChild(e);
+            frag.appendChild(e);
             msY.push(y);
             return e;
           });
+
+          // 3. Append to the DOM all at once
+          msw.appendChild(frag);
           roadUpdate();
         }
         function roadUpdate() {
@@ -10028,8 +10086,8 @@
           { passive: true },
         );
         if (document.fonts && document.fonts.ready)
-          document.fonts.ready.then(layoutRoad);
-        addEventListener("load", layoutRoad);
+          document.fonts.ready.then(() => setTimeout(layoutRoad, 100));
+        addEventListener("load", () => setTimeout(layoutRoad, 100));
         // doodle pad
         (function () {
           const cv = document.getElementById("padc"),
@@ -10253,16 +10311,20 @@
           }
           function render() {
             cb.innerHTML = "";
-            for (let r = 8; r >= 1; r--)
+            for (let r = 8; r >= 1; r--) {
+              const row = document.createElement("div");
+              row.setAttribute("role", "row");
               for (let f = 0; f < 8; f++) {
                 const id = "abcdefgh"[f] + r,
                   p = B()[id],
                   dark = (f + r - 1) % 2 === 0;
-                cb.insertAdjacentHTML(
+                row.insertAdjacentHTML(
                   "beforeend",
                   `<div class="sq ${dark ? "d" : "l"}" data-id="${id}" role="gridcell" aria-label="${id}${p ? " " + (p[0] === "w" ? "white " : "black ") + p[1] : ""}">${p ? `<span class="pc ${p[0]}">${GL[p[1]]}&#65038;</span>` : ""}</div>`,
                 );
               }
+              cb.appendChild(row);
+            }
             sc.textContent = "solved: " + solved.size + " / " + PZ.length;
           }
           function party() {
