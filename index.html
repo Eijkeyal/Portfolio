@@ -8,10 +8,12 @@
     />
     <meta name="color-scheme" content="light dark" />
 
-    <title>Eijkeyal Pakhrin | Software Engineer &amp; Web Developer</title>
+    <title>
+      Eijkeyal Pakhrin | Software Engineer &amp; Web Developer in Nepal
+    </title>
     <meta
       name="description"
-      content="Eijkeyal Pakhrin is a software engineer who builds fast, thoughtful web experiences. See projects, skills, and how to get in touch."
+      content="Eijkeyal Pakhrin is a software engineer in Nepal building fast web apps with React, Node.js and AWS. Explore projects, skills and get in touch."
     />
     <meta name="author" content="Eijkeyal Pakhrin" />
     <meta
@@ -19,12 +21,15 @@
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
     <link rel="canonical" href="https://eijkeyal.com.np/" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Theme Colors -->
     <meta
       name="theme-color"
       content="#f3efe3"
@@ -36,6 +41,7 @@
       media="(prefers-color-scheme: dark)"
     />
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Eijkeyal Pakhrin" />
     <meta property="og:locale" content="en_US" />
@@ -58,9 +64,10 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Eijkeyal Pakhrin, mid-debug (probably)"
+      content="Eijkeyal Pakhrin, software engineer and web developer"
     />
 
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -73,9 +80,13 @@
     <meta name="twitter:image" content="https://eijkeyal.com.np/og-image.jpg" />
     <meta
       name="twitter:image:alt"
-      content="Eijkeyal Pakhrin, mid-debug (probably)"
+      content="Eijkeyal Pakhrin, software engineer and web developer"
     />
+    <!-- Uncomment and add your handle if you have one -->
+    <!-- <meta name="twitter:site" content="@YourTwitterHandle" /> -->
+    <!-- <meta name="twitter:creator" content="@YourTwitterHandle" /> -->
 
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -93,22 +104,29 @@
             "@type": "ProfilePage",
             "@id": "https://eijkeyal.com.np/#profile",
             "url": "https://eijkeyal.com.np/",
-            "name": "Eijkeyal Pakhrin | Software Engineer & Web Developer",
+            "name": "Eijkeyal Pakhrin | Software Engineer & Web Developer in Nepal",
             "isPartOf": { "@id": "https://eijkeyal.com.np/#website" },
             "about": { "@id": "https://eijkeyal.com.np/#person" },
             "mainEntity": { "@id": "https://eijkeyal.com.np/#person" },
-            "dateModified": "2026-10-24T12:00:00+00:00"
+            "dateModified": "2026-11-24T12:00:00+00:00"
           },
           {
             "@type": "Person",
             "@id": "https://eijkeyal.com.np/#person",
             "name": "Eijkeyal Pakhrin",
+            "alternateName": ["Eijkeyal", "Eijkeyal Pakhrin Nepal"],
             "givenName": "Eijkeyal",
             "familyName": "Pakhrin",
             "jobTitle": "Software Engineer",
             "url": "https://eijkeyal.com.np/",
             "image": "https://eijkeyal.com.np/og-image.jpg",
-            "description": "Software engineer who builds things for the web and doodles in the margins.",
+            "description": "Software engineer in Nepal who builds fast web applications and doodles in the margins.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Kathmandu",
+              "addressCountry": "NP"
+            },
+            "nationality": { "@type": "Country", "name": "Nepal" },
             "knowsAbout": [
               "Web Development",
               "Software Engineering",
@@ -9027,25 +9045,28 @@
           ],
         },
       ];
-      document.getElementById("cg").innerHTML = CERTS.map(
-        (c) =>
-          `<div class="rv cw3" data-lv="${c.gh ? "next" : c.lv}" data-f="${c.lv}">
+      document.getElementById("cg").innerHTML = CERTS.map((c) => {
+        // Calculate the path outside the HTML string
+        const rosettePath = DD.rosette || "M0 0";
+
+        return `
+    <div class="rv cw3" data-lv="${c.gh ? "next" : c.lv}" data-f="${c.lv}">
       <div class="cc${c.gh ? " gh" : ""}">
         <i class="tp"></i>
-        <svg class="ros" viewBox="0 0 60 60" aria-hidden="true"><path class="dr" d="${DD.rosette}"/></svg>
+        <svg class="ros" viewBox="0 0 60 60" aria-hidden="true">
+          <path class="dr" d="${rosettePath}"/>
+        </svg>
         <span class="lab">${c.issuer || "Certification"}</span>
         <h3>${c.t}</h3>
         <span class="lv">${c.gh ? "coming soon" : c.lv || ""}</span>
         <div class="meta">${c.d}${c.id ? " · " + c.id : ""}</div>
-        
-        <!-- Note: Added a wrapper around the link so empty links don't break the layout -->
         <div class="verify-wrap">
           ${c.u ? `<a href="${c.u}" target="_blank" rel="noopener">verify credential ↗</a>` : ""}
         </div>
-        
       </div>
-    </div>`,
-      ).join("");
+    </div>
+  `;
+      }).join("");
       document.getElementById("cn").dataset.n = CERTS.filter(
         (c) => !c.gh,
       ).length;
@@ -9745,12 +9766,43 @@
         },
       ];
       const SC = ["", "pen", "gr", "yl"];
+      // 1) Add the missing shapes (place after P0 and DD are defined)
+      Object.assign(DD, {
+        screwdriver:
+          "M10 50 L18 42 L24 48 L16 56 Z M21 45 L50 12 M50 12 L54 10 L52 16 Z",
+        keyboard:
+          "M4 18 H56 V44 H4 Z M10 25 H14 M19 25 H23 M28 25 H32 M37 25 H41 M46 25 H50 M10 31 H14 M19 31 H23 M28 31 H32 M37 31 H41 M46 31 H50 M16 38 H44",
+        monitor: "M6 8 H54 V40 H6 Z M24 40 L22 50 M36 40 L38 50 M16 50 H44",
+        map: "M6 12 L22 8 L38 12 L54 8 V48 L38 52 L22 48 L6 52 Z M22 8 V48 M38 12 V52",
+        calculator:
+          "M14 4 H46 V56 H14 Z M20 10 H40 V20 H20 Z M21 28 H25 M28 28 H32 M35 28 H39 M21 36 H25 M28 36 H32 M35 36 H39 M21 44 H25 M28 44 H32 M35 44 H39",
+        pencil:
+          "M8 54 L10 44 L40 8 L48 14 L18 50 Z M36 12 L44 18 M10 44 L18 50",
+        battery:
+          "M6 18 H46 V42 H6 Z M46 26 H52 V34 H46 M12 24 V36 M20 24 V36 M28 24 V36",
+        tools: "M10 54 L34 22 M26 12 L46 6 L50 22 L30 28 Z",
+        letter: "M6 14 H54 V46 H6 Z M6 14 L30 34 L54 14",
+        speech_bubble: "M6 8 H54 V38 H28 L16 50 V38 H6 Z",
+        telescope:
+          "M6 34 L38 14 L44 24 L12 44 Z M38 14 L50 8 L54 16 L44 24 M26 38 L18 56 M26 38 L34 56",
+      });
+
+      // 2) Your existing code (unchanged)
       const JI = (a) =>
-        `<svg class="ill" viewBox="0 0 160 100" aria-hidden="true">${a.map(([k, x, y, s, c]) => `<g transform="translate(${x},${y}) scale(${s})"><path class="dr ${c}" d="${P0[k] || DD[k]}"/></g>`).join("")}</svg>`;
+        `<svg class="ill" viewBox="0 0 160 100" aria-hidden="true">${a
+          .map(([k, x, y, s, c]) => {
+            const d = P0[k] || DD[k];
+            if (!d) {
+              console.warn("Missing path for key:", k);
+              return "";
+            }
+            return `<g transform="translate(${x},${y}) scale(${s})"><path class="dr ${c}" d="${d}"/></g>`;
+          })
+          .join("")}</svg>`;
 
       document.getElementById("chs").innerHTML = JR.map(
         (c, i) =>
-          `<div class="chap rv ${i % 2 ? "r" : "l"}"><div class="pnl"><i class="tp"></i><span class="lab">${c.lab}</span><div class="frame" role="button" tabindex="0" aria-label="Chapter ${i + 1}, tap to hear another thought">${JI(c.ill)}<span class="bub">${c.bubs[0]}</span></div><h3>${c.t}</h3><p>${c.txt}</p></div><div class="side" aria-hidden="true"><svg class="sd" viewBox="0 0 60 60" style="--sr:${i % 2 ? 7 : -7}deg"><path class="dr ${SC[i % 4]}" d="${P0[c.side[0]] || DD[c.side[0]]}"/></svg><span class="cap2">${c.side[1]}</span></div></div>`,
+          `<div class="chap rv ${i % 2 ? "r" : "l"}"><div class="pnl"><i class="tp"></i><span class="lab">${c.lab}</span><div class="frame" role="button" tabindex="0" aria-label="Chapter ${i + 1}, tap to hear another thought">${JI(c.ill)}<span class="bub">${c.bubs[0]}</span></div><h3>${c.t}</h3><p>${c.txt}</p></div><div class="side" aria-hidden="true"><svg class="sd" viewBox="0 0 60 60" style="--sr:${i % 2 ? 7 : -7}deg"><path class="dr ${SC[i % 4]}" d="${P0[c.side[0]] || DD[c.side[0]] || "M0 0"}"/></svg><span class="cap2">${c.side[1]}</span></div></div>`,
       ).join("");
       $(".chap").forEach((c, i) => {
         const bub = c.querySelector(".bub"),
